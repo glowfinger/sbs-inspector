@@ -64,7 +64,6 @@
                             <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
                                 lindsay.walton@example.com
                             </td>
-                            <td class="px-3 py-4 text-sm text-gray-500">{site.services[0].type}</td>
                             <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                 <a href="/site/{site.id}" class="text-indigo-600 hover:text-indigo-900">View<span
                                         class="sr-only">, Lindsay Walton</span></a>
@@ -76,7 +75,6 @@
                 {/await}
 
 
-                <!-- More people... -->
                 </tbody>
             </table>
         </div>
