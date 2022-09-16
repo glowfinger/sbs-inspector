@@ -4,10 +4,14 @@
 import { get } from "../services/SiteApiService";
    
   let promise = get().then((response) => response.json());
+  function dateFormater(date) {
+    return 'blah' + date
+} 
 </script>
 {#await promise}
 <p>Loading</p>
 {:then site}
+
 
 
 <main
@@ -54,25 +58,25 @@ import { get } from "../services/SiteApiService";
                 <!-- Current: "border-pink-500 text-gray-900", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
                 <a
                   href="#"
-                  class="border-pink-500 text-orange-900 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                  class="border-pink-500 text-orange-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
                   aria-current="page">Account</a
                 >
 
                 <a
                   href="#"
-                  class="border-transparent text-green-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                  class="border-transparent text-blue-900 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
                   >Calendar</a
                 >
 
                 <a
                   href="#"
-                  class="border-transparent text-blue-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                  class="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
                   >Inspections</a
                 >
 
                 <a
                 href="#"
-                class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                class="border-transparent text-blue-900 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
                 >Service History</a
               >
               </nav>
@@ -85,8 +89,8 @@ import { get } from "../services/SiteApiService";
           <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
 
             <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-black-500">Booking Required Date</dt>
-                <dd class="mt-1 text-sm text-black-900">{site[0].works[0].reminderAt}</dd>
+                <dt class="text-sm font-medium text-black">Booking Required Date</dt>
+                <dd class="mt-1 text-sm text-gray-900">{dateFormater(site[0].works[0].reminderAt)}</dd>
               </div>
 
               <div class="sm:col-span-1">
