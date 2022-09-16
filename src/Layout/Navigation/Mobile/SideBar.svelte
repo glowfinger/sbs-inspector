@@ -20,7 +20,6 @@
 
 </script>
 
-
 {#if $isOpen}
     <div class="relative z-40 md:hidden" role="dialog" aria-modal="true"
          in:fade={inFade}
@@ -46,3 +45,4 @@
         </div>
     </div>
 {/if}
+
