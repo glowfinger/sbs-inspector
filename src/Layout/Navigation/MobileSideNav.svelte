@@ -1,6 +1,7 @@
 <script lang="ts">
   import {fade, fly} from 'svelte/transition';
   import {isOpen} from '../../NavigationStore'
+  import Logo from '../Logo.svelte'
 
   export let links;
 
@@ -40,10 +41,7 @@
                 </div>
 
                 <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-                    <div class="flex flex-shrink-0 items-center px-4">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                             alt="Your Company">
-                    </div>
+                    <Logo />
                     <nav aria-label="Sidebar" class="mt-5">
                         <div class="space-y-1 px-2">
 
