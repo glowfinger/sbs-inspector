@@ -28,6 +28,7 @@
     "vite-plugin-pwa": "^0.13.1"
   },
   "dependencies": {
+    "luxon": "^3.0.3",
     "page": "^1.11.6"
   }
 }
