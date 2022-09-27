@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Logo from '../Logo.svelte'
+
   export let links;
 </script>
 
@@ -7,10 +9,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-gray-100">
             <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-                <div class="flex flex-shrink-0 items-center px-4">
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                         alt="Your Company">
-                </div>
+                <Logo/>
                 <nav class="mt-5 flex-1" aria-label="Sidebar">
                     <div class="space-y-1 px-2">
                         <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
