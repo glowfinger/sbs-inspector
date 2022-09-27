@@ -1,10 +1,21 @@
 <script lang="ts">
+  import {onDestroy, onMount} from "svelte";
+
   export let params = null;
 
   import {get} from "../services/SiteApiService";
 
   let promise = get().then((response) => response.json())
 
+
+
+  onMount(function () {
+    console.log(params);
+  })
+
+  onDestroy(function () {
+    console.log('sites leave');
+  })
 </script>
 
 <div class="py-6">
@@ -65,7 +76,7 @@
                                     lindsay.walton@example.com
                                 </td>
                                 <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                    <a href="/site/{site.id}" class="text-indigo-600 hover:text-indigo-900">View<span
+                                    <a href="/site/{site.slug}" class="text-indigo-600 hover:text-indigo-900">View<span
                                             class="sr-only">, Lindsay Walton</span></a>
                                 </td>
                             </tr>

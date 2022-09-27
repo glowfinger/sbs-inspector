@@ -15,9 +15,10 @@
   import {loaded, loading, pageParams, sites} from './Store.js'
   import InitialLoader from './Layout/InitialLoader.svelte'
 
-
   const callBack = (ctx, next) => {
     params = ctx.params;
+    console.log(ctx.params);
+
     next()
   }
 
@@ -25,15 +26,33 @@
   let params
 
   router('/', () => (page = Home));
-  router('/sites', () => (page = Sites));
-  router('/site/:name', callBack, () => page = Site)
+  router('/site', () => (page = Sites));
+  router('/site/:siteKey', callback, () => page = Site)
   router('/inspections', () => (page = Inspections));
   router('/profile', () => (page = Profile));
+
+
 
   router.exit('*', function (ctx, next) {
     isOpen.set(false);
     next();
   });
+
+
+
+  function callback(ctx, next) {
+    params = ctx.params;
+
+    console.log(ctx);
+    if(ctx.params.hasOwnProperty('siteKey')) {
+      console.log('set');
+    } else {
+      console.log('unset')
+    }
+
+
+    next()
+  }
 
   router.start();
 
@@ -41,17 +60,18 @@
 
 </script>
 
-{#if $loaded && $loading.length === 0 }
+<!--{#if $loaded && $loading.length === 0 }-->
 
-    <div class="flex h-full">
-        <MobileSideNav links={navigationLinks}/>
-        <DesktopSideNav links={navigationLinks}/>
-        <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
-            <MobileNavbar/>
-            <svelte:component this={page} sites={$sites} params={params}/>
-        </div>
+
+<div class="flex h-full">
+    <MobileSideNav links={navigationLinks}/>
+    <DesktopSideNav links={navigationLinks}/>
+    <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <MobileNavbar/>
+        <svelte:component this={page} sites={$sites} params={params}/>
     </div>
+</div>
 
-{:else }
-    <InitialLoader/>
-{/if}
+<!--{:else }-->
+<!--    <InitialLoader/>-->
+<!--{/if}-->

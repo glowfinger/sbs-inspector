@@ -1,6 +1,7 @@
 import {writable} from 'svelte/store';
 
 export const sites = writable([]);
+export const activeSite = writable([]);
 
 export const loading = writable([]);
 
