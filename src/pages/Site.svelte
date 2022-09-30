@@ -1,16 +1,20 @@
 <script lang="ts">
-  import {onDestroy, onMount} from "svelte";
   import {sites} from "../Store";
-  import {get} from "svelte/store";
+  import {onMount} from "svelte";
 
-  export let params = null;
-  let site = {}
+  export let params;
+  let site;
 
-  console.log('Initially ' + (window.navigator.onLine ? 'on' : 'off') + 'line');
 
+  onMount(() => {
+    $: {
+      if (params.hasOwnProperty('siteKey')) {
+        site = $sites.find((s => s.slug === params.siteKey))
+      }
+    }
+  })
 
 </script>
-
 
 {#if site}
 
@@ -27,4 +31,4 @@
             <!-- /End replace -->
         </div>
     </div>
-{/if  }
+{/if    }
