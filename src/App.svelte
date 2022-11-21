@@ -1,52 +1,51 @@
 <script lang="ts">
-  import SideBar from './Layout/Navigation/Mobile/SideBar.svelte'
-  import {isOpen} from "./NavigationStore";
-  import router from 'page';
-  import Home from "./pages/Home.svelte";
-  import Sites from "./pages/Sites.svelte";
-  import Profile from "./pages/Profile.svelte";
+
+  import {Router, Route} from "svelte-routing";
+  import {isOnline, sites} from './Store.js'
+  import {onMount} from "svelte";
+  import {getMySites} from "./services/SiteApiService";
+  import Dashboard from './pages/Dashboard.svelte';
   import Site from "./pages/Site.svelte";
-  import Inspections from "./pages/Inspections.svelte";
-  import {fade} from 'svelte/transition';
-  import MobileSideNav from './Layout/Navigation/MobileSideNav.svelte'
-  import DesktopSideNav from './Layout/Navigation/DesktopSideNav.svelte'
-  import MainNavbar from './MainNavbar.svelte'
-  import MobileNavbar from './Layout/Navigation/MobileNavbar.svelte'
-  import navigationLinks from './Layout/NavigationLinks.js'
+  import Work from "./pages/Work.svelte";
+  import Navbar from './Layout/Navigation/Navbar.svelte'
+  import InspectionEdit from './pages/InspectionEdit.svelte'
 
+  let url
+  let data
 
-
-  const callBack = (ctx, next) => {
-    params = ctx.params
-    next()
-  }
-
-  let page
-  let params
-
-  router('/', () => (page = Home));
-  router('/sites', () => (page = Sites));
-
-  router('/site/:name', callBack, () => page = Site)
-  router('/inspections', () => (page = Inspections));
-  router('/profile', () => (page = Profile));
-
-
-  router.exit('*', function (ctx, next) {
-    isOpen.set(false);
-    next();
-  })
-
-  router.start();
+  onMount(() => {
+    data = getMySites()
+      .then((d) => {
+        return sites.set(d)
+      });
+  });
 
 </script>
 
-<div class="flex h-full">
-    <MobileSideNav links={navigationLinks}/>
-    <DesktopSideNav links={navigationLinks}/>
-    <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
-        <MobileNavbar/>
 
-        <svelte:component this={page} params={params}/>
+<svelte:window bind:online={$isOnline}/>
+<svelte:head>
+    <title>SBS</title>
+</svelte:head>
+
+<Router url={url}>
+    <Navbar/>
+    <div>
+        <Route path="/" component={Dashboard}/>
+        <Route path="/sites">
+            <Site sites={$sites} />
+        </Route>
+        <Route path="/site/:siteId/work/:workId" let:params>
+            <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)} />
+        </Route>
+        <Route path="/site/:siteId/work/:workId/inspection" let:params>
+            <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)} />
+        </Route>
+        <Route path="/site/:siteId/work/:workId/location/:locationId" let:params>
+            <InspectionEdit sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)} locationId={params.locationId} />
+        </Route>
     </div>
-</div>
+</Router>
+
+
+
