@@ -13,7 +13,6 @@
   $: activeWorks = flattenWorks(site)
 
   $: site = sites.find((s) => {
-    console.log(site);
     return s.id === siteId
   });
 
