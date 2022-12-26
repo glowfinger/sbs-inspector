@@ -12,7 +12,7 @@
 <div class="relative inline-block px-3 text-left">
     <div>
         <button type="button" on:click={toggleIsOpen}
-                class="group w-full rounded-md bg-gray-100 px-3.5 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-gray-100"
+                class="group w-full rounded-md bg-gray-100 px-3.5 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-gray-100"
                 id="options-menu-button" aria-expanded="false" aria-haspopup="true">
             <span class="flex w-full items-center justify-between">
               <span class="flex min-w-0 items-center justify-between space-x-3">

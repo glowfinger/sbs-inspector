@@ -53,7 +53,7 @@
                             </button>
                         </div>
 
-                        <div class="flex flex-shrink-0 items-center px-4 text-blue-900">
+                        <div class="flex flex-shrink-0 items-center px-4 text-gray-900">
                             <Logo/>
                         </div>
                         <div class="mt-5 h-0 flex-1 overflow-y-auto">
@@ -110,7 +110,7 @@
                                     <div class="mt-1 space-y-1" role="group" aria-labelledby="mobile-teams-headline">
                                         <a href="#"
                                            class="group flex items-center rounded-md px-3 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"
+                                        <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full"
                                               aria-hidden="true"></span>
                                             <span class="truncate">Engineering</span>
                                         </a>

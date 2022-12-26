@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                                         <div>
-                                            <p class="truncate text-sm font-medium text-blue-600">{site.name}</p>
+                                            <p class="truncate text-sm font-medium text-gray-600">{site.name}</p>
                                             <p class="mt-2 flex items-center text-sm text-gray-500">
                                                 <!-- Heroicon name: mini/envelope -->
                                                 <svg class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"

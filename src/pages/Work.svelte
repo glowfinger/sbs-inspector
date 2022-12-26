@@ -104,7 +104,7 @@
                                         {/if}
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
 
-                                            <Link to="/site/{site.id}/work/{site.works[0].id}/location/{location.id}" class="text-indigo-600 hover:text-indigo-900">Edit</Link>
+                                            <Link to="/site/{site.id}/work/{site.works[0].id}/location/{location.id}" class="text-gray-600 hover:text-gray-900">Edit</Link>
                                         </td>
                                     </tr>
                                 {/each}

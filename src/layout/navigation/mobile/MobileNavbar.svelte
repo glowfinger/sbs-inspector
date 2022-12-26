@@ -16,7 +16,7 @@
         <button on:click={toggle}
 
                 type="button"
-                class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 lg:hidden">
+                class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 lg:hidden">
             <span class="sr-only">Open sidebar</span>
             <!-- Heroicon name: outline/bars-3-center-left -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -51,7 +51,7 @@
                     <div>
                         <button on:click={toggleIsOpen}
                                 type="button"
-                                class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span class="sr-only">Open user menu</span>
                             <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">

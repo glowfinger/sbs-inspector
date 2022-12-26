@@ -1,16 +1,21 @@
 <script lang="ts">
   import {getMySites} from "../lib/services/SiteApiService";
-  import SiteCardList from '../components/SiteCardList.svelte'
+  import SiteOverviewTable from '../components/SiteOverviewTable.svelte'
+  import type {Site} from "../lib/types/Site";
 
-
+  //TODO this should be sites available for this month or assigned
   let sites = []
-  getMySites().then((data) => {
-    sites = data;
+  getMySites().then((data: Array<Site>) => {
+    sites = data
+
   })
 
+  function hasWork(site: Site) {
+    return site.works.length > 0
+  }
+
 </script>
+<SiteOverviewTable sites={sites}/>
 
-<div class="min-h-full">
-    <SiteCardList sites={sites}/>
-</div>
 
+<pre>{JSON.stringify(sites, null, 2)}</pre>
