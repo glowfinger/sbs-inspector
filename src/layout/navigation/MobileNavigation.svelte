@@ -12,33 +12,13 @@
 {#if isNavOpen}
     <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
         {#if isNavOpen}
-            <div class="fixed inset-0 bg-gray-600 bg-opacity-75" on:click={toggle} transition:fade={{duration: 300, easing: linear}}></div>
+            <div class="fixed inset-0 bg-gray-600 bg-opacity-75" on:click={toggle} transition:fade={{duration: 200, easing: linear}}></div>
         {/if}
 
         {#if isNavOpen}
-            <div class="fixed inset-0 z-40 flex"  transition:fade={{duration: 300}}>
-                <!--
-                  Off-canvas menu, show/hide based on off-canvas menu state.
-
-                  Entering: "transition ease-in-out duration-300 transform"
-                    From: "-translate-x-full"
-                    To: "translate-x-0"
-                  Leaving: "transition ease-in-out duration-300 transform"
-                    From: "translate-x-0"
-                    To: "-translate-x-full"
-                -->
+            <div class="fixed inset-0 z-40 flex"  transition:fade={{duration: 200}}>
                 {#if isNavOpen}
-                    <div class="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4" transition:fade={{duration: 300, easing: linear}}>
-                        <!--
-                          Close button, show/hide based on off-canvas menu state.
-
-                          Entering: "ease-in-out duration-300"
-                            From: "opacity-0"
-                            To: "opacity-100"
-                          Leaving: "ease-in-out duration-300"
-                            From: "opacity-100"
-                            To: "opacity-0"
-                        -->
+                    <div class="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4" transition:fade={{duration: 200, easing: linear}}>
                         <div class="absolute top-0 right-0 -mr-12 pt-2">
                             <button on:click={toggle}
                                     type="button"
@@ -103,32 +83,6 @@
                                         </svg>
                                         Recent
                                     </a>
-                                </div>
-                                <div class="mt-8">
-                                    <h3 class="px-3 text-sm font-medium text-gray-500" id="mobile-teams-headline">
-                                        Teams</h3>
-                                    <div class="mt-1 space-y-1" role="group" aria-labelledby="mobile-teams-headline">
-                                        <a href="#"
-                                           class="group flex items-center rounded-md px-3 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full"
-                                              aria-hidden="true"></span>
-                                            <span class="truncate">Engineering</span>
-                                        </a>
-
-                                        <a href="#"
-                                           class="group flex items-center rounded-md px-3 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full"
-                                              aria-hidden="true"></span>
-                                            <span class="truncate">Human Resources</span>
-                                        </a>
-
-                                        <a href="#"
-                                           class="group flex items-center rounded-md px-3 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full"
-                                              aria-hidden="true"></span>
-                                            <span class="truncate">Customer Success</span>
-                                        </a>
-                                    </div>
                                 </div>
                             </nav>
                         </div>

@@ -5,17 +5,17 @@
   export let site: Site;
 </script>
 
-<Link to={`/site/${site.id}`} class="focus:outline-none">
-    <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm focus-within:ring-2 focus-within:ring-gray-500 focus-within:ring-offset-2 hover:border-gray-400 text-white">
-        <div class="px-4 py-2 bg-gray-800 text-sm">
-            {site.works.length}
-        </div>
-        <div class="px-4 py-2">
-            <p class="text-sm font-medium text-gray-900">{site.name}</p>
+<!--<Link to={`/site/${site.id}`} class="focus:outline-none">-->
+<!--    <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm focus-within:ring-2 focus-within:ring-gray-500 focus-within:ring-offset-2 hover:border-gray-400 text-white">-->
+<!--        <div class="px-4 py-2 bg-gray-800 text-sm">-->
+<!--            {site.works.length}-->
+<!--        </div>-->
+<!--        <div class="px-4 py-2">-->
+<!--            <p class="text-sm font-medium text-gray-900">{site.name}</p>-->
 
-        </div>
-    </div>
-</Link>
+<!--        </div>-->
+<!--    </div>-->
+<!--</Link>-->
 
 <!--<div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 ">-->
 <!--    <div class="min-w-0 flex-1">-->

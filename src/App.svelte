@@ -7,16 +7,42 @@
   import MainLayout from './layout/MainLayout.svelte'
   import SitePage from './pages/SitePage.svelte'
   import SitesRoute from "./routes/SitesRoute.svelte";
+  import {Auth0Client} from "@auth0/auth0-spa-js";
+  import {onMount} from "svelte";
+  import {createClient} from "./lib/auth/AuthService";
+  import {isAuthenticated, user} from "./lib/stores/AuthStore";
+  import LoginRoute from "./components/routes/LoginRoute.svelte";
+  import {login, logout} from "./lib/auth/AuthService.js";
+  import LogoutRoute from "./components/routes/LogoutRoute.svelte";
+  import NotFoundRoute from "./components/routes/NotFoundRoute.svelte";
 
-  let url
+
+
+  export let url = '';
+
+  let auth0Client: Auth0Client;
+
+  onMount(async () => {
+    auth0Client = await createClient();
+
+    const query = window.location.search
+    if (query.includes("code=") && query.includes("state=")) {
+      await auth0Client.handleRedirectCallback()
+      window.history.replaceState({}, document.title, window.location.pathname)
+    }
+
+    isAuthenticated.set(await auth0Client.isAuthenticated());
+    user.set(await auth0Client.getUser());
+  });
 
 </script>
 
 <svelte:window bind:online={$isOnline}/>
 <svelte:head>
-    <title>SBS</title>
+    <title>SBS Inspector</title>
 </svelte:head>
 
+{#if $isAuthenticated}
 <Router url={url}>
     <MainLayout>
         <Route path="/">
@@ -38,5 +64,14 @@
             <InspectionEdit sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}
                             locationId={params.locationId}/>
         </Route>
+        <Route path="/logout">
+            <LogoutRoute logout={() => logout(auth0Client)}/>
+        </Route>
+        <Route path="/*" let:params>
+            <NotFoundRoute/>
+        </Route>
     </MainLayout>
 </Router>
+{:else }
+    <LoginRoute login={() => login(auth0Client)}/>
+{/if}
