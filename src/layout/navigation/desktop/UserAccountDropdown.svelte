@@ -1,5 +1,8 @@
 <script lang="ts">
   import {scale} from 'svelte/transition';
+  import {Link} from "svelte-routing";
+  import {user} from "../../../lib/stores/AuthStore.js";
+  import Stringify from "../../../components/helpers/Stringify.svelte";
 
   let isOpen: boolean = false;
 
@@ -17,13 +20,11 @@
             <span class="flex w-full items-center justify-between">
               <span class="flex min-w-0 items-center justify-between space-x-3">
                 <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-                    <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
+                    <img src={$user.picture} alt="Avatar"/>
                 </span>
                 <span class="flex min-w-0 flex-1 flex-col">
-                  <span class="truncate text-sm font-medium text-gray-900">Full name</span>
-                  <span class="truncate text-sm text-gray-500">username</span>
+                  <span class="truncate text-sm font-medium text-gray-900">{$user.nickname}</span>
+                  <span class="truncate text-sm text-gray-500">{$user.email}</span>
                 </span>
               </span>
                 <!-- Heroicon name: mini/chevron-up-down -->
@@ -36,23 +37,13 @@
             </span>
         </button>
     </div>
-
     {#if isOpen}
         <div in:scale={{start: 0.95, duration: 75, opacity: 0}} out:scale={{start: 0.95, duration: 100, opacity: 0}}
              class="absolute right-0 left-0 z-10 mx-3 mt-1 origin-top divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
              role="menu" aria-orientation="vertical" aria-labelledby="options-menu-button" tabindex="-1">
             <div class="py-1" role="none">
-                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-                   id="options-menu-item-0">View profile</a>
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-                   id="options-menu-item-1">Settings</a>
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-                   id="options-menu-item-2">Notifications</a>
-            </div>
-            <div class="py-1" role="none">
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-                   id="options-menu-item-5">Logout</a>
+                <Link to={`/logout`} class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                   id="options-menu-item-5">Logout</Link>
             </div>
         </div>
     {/if}

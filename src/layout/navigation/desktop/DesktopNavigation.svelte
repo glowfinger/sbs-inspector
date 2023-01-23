@@ -1,8 +1,7 @@
 <script>
   import Logo from '../Logo.svelte'
   import UserAccountDropdown from './UserAccountDropdown.svelte'
-  import SidebarSearch from './SidebarSearch.svelte'
-  import SidebarNavigatationLinks from './SidebarNavigatationLinks.svelte'
+  import SidebarNavigationLinks from './SidebarNavigationLinks.svelte'
   import { Link } from 'svelte-routing'
 </script>
 
@@ -14,7 +13,6 @@
     </div>
     <div class="mt-5 flex h-0 flex-1 flex-col overflow-y-auto pt-1">
         <UserAccountDropdown />
-        <SidebarSearch />
-        <SidebarNavigatationLinks />
+        <SidebarNavigationLinks />
     </div>
 </div>
