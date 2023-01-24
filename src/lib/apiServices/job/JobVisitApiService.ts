@@ -1,5 +1,5 @@
-import handleErrors from "../../apiHelpers/HandleError";
-import handleJson from "../../apiHelpers/HandleJson";
+import handleErrors from "../helpers/HandleError";
+import handleJson from "../helpers/HandleJson";
 import type Visit from "../../types/Visit";
 
 export function addVisit(body): Promise<Visit> {

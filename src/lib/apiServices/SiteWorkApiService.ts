@@ -1,6 +1,6 @@
 import type Work from "../types/Work";
-import handleErrors from "../apiHelpers/HandleError";
-import handleJson from "../apiHelpers/HandleJson";
+import handleErrors from "./helpers/HandleError";
+import handleJson from "./helpers/HandleJson";
 
 export function createSiteWork(work: Work, siteId: number) {
     return fetch(`http://localhost:8080/api/site/${siteId}/work`, {
