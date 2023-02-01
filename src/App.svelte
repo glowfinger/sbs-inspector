@@ -7,32 +7,28 @@
   import MainLayout from './layout/MainLayout.svelte'
   import SitePage from './pages/SitePage.svelte'
   import SitesRoute from "./routes/SitesRoute.svelte";
-  import {Auth0Client} from "@auth0/auth0-spa-js";
   import {onMount} from "svelte";
   import {createClient} from "./lib/auth/AuthService";
-  import {isAuthenticated, user} from "./lib/stores/AuthStore";
+  import {authClient, isAuthenticated, user} from "./lib/stores/AuthStore";
   import LoginRoute from "./components/routes/LoginRoute.svelte";
   import {login, logout} from "./lib/auth/AuthService.js";
   import LogoutRoute from "./components/routes/LogoutRoute.svelte";
   import NotFoundRoute from "./components/routes/NotFoundRoute.svelte";
 
-
-
   export let url = '';
 
-  let auth0Client: Auth0Client;
-
   onMount(async () => {
-    auth0Client = await createClient();
+
+    authClient.set( await createClient());
 
     const query = window.location.search
     if (query.includes("code=") && query.includes("state=")) {
-      await auth0Client.handleRedirectCallback()
+      await $authClient.handleRedirectCallback()
       window.history.replaceState({}, document.title, window.location.pathname)
     }
 
-    isAuthenticated.set(await auth0Client.isAuthenticated());
-    user.set(await auth0Client.getUser());
+    isAuthenticated.set(await $authClient.isAuthenticated());
+    user.set(await $authClient.getUser());
   });
 
 </script>
@@ -65,7 +61,7 @@
                             locationId={params.locationId}/>
         </Route>
         <Route path="/logout">
-            <LogoutRoute logout={() => logout(auth0Client)}/>
+            <LogoutRoute logout={() => logout($authClient)}/>
         </Route>
         <Route path="/*" let:params>
             <NotFoundRoute/>
@@ -73,5 +69,5 @@
     </MainLayout>
 </Router>
 {:else }
-    <LoginRoute login={() => login(auth0Client)}/>
+    <LoginRoute login={() => login($authClient)}/>
 {/if}

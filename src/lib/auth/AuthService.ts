@@ -5,17 +5,20 @@ function createClient(): Promise<Auth0Client> {
   return createAuth0Client({
     domain: authConfig.domain,
     clientId: authConfig.clientId,
-    useRefreshTokens: true,
     cacheLocation: 'localstorage',
     authorizationParams: {
-      redirect_uri: authConfig.redirectUri,
+      audience: authConfig.audience,
     },
   });
 }
 
 async function login(client: Auth0Client) {
   try {
-    await client.loginWithRedirect();
+    await client.loginWithRedirect({
+      authorizationParams: {
+        redirect_uri: authConfig.redirectUri,
+      }
+    });
   } catch (e) {
     console.error(e);
   } finally {

@@ -7,8 +7,7 @@
   let sites = []
   getMySites().then((data: Array<Site>) => {
     sites = data
-
-  })
+  });
 
   function hasWork(site: Site) {
     return site.works.length > 0
@@ -18,4 +17,3 @@
 <SiteOverviewTable sites={sites}/>
 
 
-<pre>{JSON.stringify(sites, null, 2)}</pre>
