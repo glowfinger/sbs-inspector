@@ -19,7 +19,7 @@
 
   onMount(async () => {
 
-    authClient.set( await createClient());
+    await createClient();
 
     const query = window.location.search
     if (query.includes("code=") && query.includes("state=")) {
@@ -39,35 +39,35 @@
 </svelte:head>
 
 {#if $isAuthenticated}
-<Router url={url}>
-    <MainLayout>
-        <Route path="/">
-            <Dashboard/>
-        </Route>
-        <Route path="/sites">
-            <SitesRoute/>
-        </Route>
-        <Route path="/site/:siteId" let:params>
-            <SitePage siteId={parseInt(params.siteId)}/>
-        </Route>
-        <Route path="/site/:siteId/work/:workId" let:params>
-            <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
-        </Route>
-        <Route path="/site/:siteId/work/:workId/inspection" let:params>
-            <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
-        </Route>
-        <Route path="/site/:siteId/work/:workId/location/:locationId" let:params>
-            <InspectionEdit sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}
-                            locationId={params.locationId}/>
-        </Route>
-        <Route path="/logout">
-            <LogoutRoute logout={() => logout($authClient)}/>
-        </Route>
-        <Route path="/*" let:params>
-            <NotFoundRoute/>
-        </Route>
-    </MainLayout>
-</Router>
+    <Router url={url}>
+        <MainLayout>
+            <Route path="/">
+                <Dashboard/>
+            </Route>
+            <Route path="/sites">
+                <SitesRoute/>
+            </Route>
+            <Route path="/site/:siteId" let:params>
+                <SitePage siteId={parseInt(params.siteId)}/>
+            </Route>
+            <Route path="/site/:siteId/work/:workId" let:params>
+                <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
+            </Route>
+            <Route path="/site/:siteId/work/:workId/inspection" let:params>
+                <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
+            </Route>
+            <Route path="/site/:siteId/work/:workId/location/:locationId" let:params>
+                <InspectionEdit sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}
+                                locationId={params.locationId}/>
+            </Route>
+            <Route path="/logout">
+                <LogoutRoute logout={() => logout($authClient)}/>
+            </Route>
+            <Route path="/*" let:params>
+                <NotFoundRoute/>
+            </Route>
+        </MainLayout>
+    </Router>
 {:else }
     <LoginRoute login={() => login($authClient)}/>
 {/if}
