@@ -14,8 +14,8 @@
     <MobileNavigation toggle={toggleIsNavOpen} isNavOpen={isNavOpen}/>
     <MobileNavbar toggle={toggleIsNavOpen}/>
     <DesktopNavigation/>
-    <div class="flex flex-col lg:pl-64">
-        <main class="flex-1 py-4">
+    <div class="flex flex-col lg:pl-64 pb-48">
+        <main class="flex-1 p-4 mb-6 min-h-full">
             <slot></slot>
         </main>
     </div>

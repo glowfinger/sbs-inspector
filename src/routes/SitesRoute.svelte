@@ -1,14 +1,20 @@
 <script lang="ts">
   import {onMount} from "svelte";
-  import {getMySites} from "../lib/services/SiteApiService";
+  import {getSiteWithActiveJobs} from "../lib/services/SiteApiService";
   import type {Site} from "../lib/types/Site";
+  import SiteCard from "../components/siteCard/SiteCard.svelte";
 
   let sites: Array<Site> = [];
 
   onMount(() => {
-    getMySites()
+    getSiteWithActiveJobs()
       .then(r => sites = r);
   });
 </script>
 
 
+<ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mx-4">
+    {#each sites as site}
+        <SiteCard site={site}/>
+    {/each}
+</ul>

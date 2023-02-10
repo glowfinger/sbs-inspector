@@ -1,4 +1,4 @@
-import type Work from "./Work";
+import type {Work} from "./Work";
 
 export default interface Visit {
   id: number,

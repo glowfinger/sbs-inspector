@@ -1,9 +1,7 @@
 <script lang="ts">
   import {Router, Route} from "svelte-routing";
-  import {isOnline, sites} from './Store.js'
+  import {isOnline} from './Store.js'
   import Dashboard from './pages/Dashboard.svelte';
-  import Work from "./pages/Work.svelte";
-  import InspectionEdit from './pages/InspectionEdit.svelte'
   import MainLayout from './layout/MainLayout.svelte'
   import SitePage from './pages/SitePage.svelte'
   import SitesRoute from "./routes/SitesRoute.svelte";
@@ -14,6 +12,8 @@
   import {login, logout} from "./lib/auth/AuthService.js";
   import LogoutRoute from "./components/routes/LogoutRoute.svelte";
   import NotFoundRoute from "./components/routes/NotFoundRoute.svelte";
+  import VisitPage from "./pages/VisitPage.svelte";
+  import WorkResultEditPage from "./pages/WorkResultEditPage.svelte";
 
   export let url = '';
 
@@ -50,15 +50,16 @@
             <Route path="/site/:siteId" let:params>
                 <SitePage siteId={parseInt(params.siteId)}/>
             </Route>
-            <Route path="/site/:siteId/work/:workId" let:params>
-                <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
+            <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
+                <VisitPage visitId={parseInt(params.visitId)} siteId={parseInt(params.siteId)}
+                           jobId={parseInt(params.jobId)}/>
             </Route>
-            <Route path="/site/:siteId/work/:workId/inspection" let:params>
-                <Work sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}/>
-            </Route>
-            <Route path="/site/:siteId/work/:workId/location/:locationId" let:params>
-                <InspectionEdit sites={$sites} workId={parseInt(params.workId)} siteId={parseInt(params.siteId)}
-                                locationId={params.locationId}/>
+            <Route path="/site/:siteId/job/:jobId/visit/:visitId/location/:locationId/add" let:params>
+                <WorkResultEditPage visitId={parseInt(params.visitId)}
+                                    siteId={parseInt(params.siteId)}
+                                    jobId={parseInt(params.jobId)}
+                                    locationId={parseInt(params.locationId)}
+                />
             </Route>
             <Route path="/logout">
                 <LogoutRoute logout={() => logout($authClient)}/>

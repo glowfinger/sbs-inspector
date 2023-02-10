@@ -11,5 +11,6 @@ export interface Site {
   updatedAt: String;
   address: SiteAddress;
   locations: SiteLocation[];
-  works: Work[]
+  works: Work[];
+  jobs: any[];
 }

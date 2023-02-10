@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {Site} from "../lib/types/Site";
-  import SiteCard from './SiteCard.svelte'
+  import SiteCard from './siteCard/SiteCard.svelte'
 
   export let sites: Array<Site>;
 </script>

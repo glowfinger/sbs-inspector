@@ -1,4 +1,5 @@
 import type Visit from "./Visit";
+import type JobVisit from "./params/JobVisit";
 
 export default interface Job {
   id: number,
@@ -6,6 +7,6 @@ export default interface Job {
   status: string,
   task: string,
   type: string,
-  visits: Array<Visit>;
+  visits: Array<JobVisit>;
 };
 
