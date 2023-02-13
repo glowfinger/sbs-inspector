@@ -6,8 +6,12 @@
   export let value: number = 0.0;
 
   function handleBlur() {
-    value = Number(value.toFixed(1));
+    if(value) {
+      value = Number(value.toFixed(1));
+    }
   }
+
+
 </script>
 
 <div class="col-span-6 sm:col-span-4">

@@ -54,12 +54,9 @@
                 <VisitPage visitId={parseInt(params.visitId)} siteId={parseInt(params.siteId)}
                            jobId={parseInt(params.jobId)}/>
             </Route>
-            <Route path="/site/:siteId/job/:jobId/visit/:visitId/location/:locationId/add" let:params>
-                <WorkResultEditPage visitId={parseInt(params.visitId)}
-                                    siteId={parseInt(params.siteId)}
-                                    jobId={parseInt(params.jobId)}
-                                    locationId={parseInt(params.locationId)}
-                />
+            <Route path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/results/add" let:params>
+                <WorkResultEditPage visitId={parseInt(params.visitId)} siteId={parseInt(params.siteId)}
+                                    jobId={parseInt(params.jobId)} workId={parseInt(params.workId)}/>
             </Route>
             <Route path="/logout">
                 <LogoutRoute logout={() => logout($authClient)}/>

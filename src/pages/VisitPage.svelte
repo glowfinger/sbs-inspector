@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Link} from 'svelte-routing'
+  import {Link, navigate} from 'svelte-routing'
   import {onMount} from "svelte";
   import {getVisitById} from "../lib/apiServices/VisitApiService";
   import Stringify from "../components/helpers/Stringify.svelte";
@@ -7,6 +7,7 @@
   import {getJobById} from "../lib/apiServices/job/JobApiService";
   import type Location from "../lib/types/Location";
   import LocationWorkRow from "../components/tables/LocationWorkRow.svelte";
+  import {startSiteWork} from "../lib/apiServices/work/WorkApiService";
 
   export let siteId
   export let jobId;
@@ -20,7 +21,6 @@
   let visit;
 
   onMount(async () => {
-
     [locations, visit, job] = await Promise.all([
       getSiteLocations(siteId),
       getVisitById(visitId),
@@ -33,6 +33,13 @@
   function locationsForType(locations: Location[], type: string) {
     return locations.filter((location) => location.type === type)
   }
+
+  async function startWork(visitId, locationId) {
+    const work = await startSiteWork({visitId, locationId})
+    navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/results/add`);
+  }
+
+
 </script>
 
 {#if loaded}
@@ -59,13 +66,13 @@
                                         Status
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Role
-                                    </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         Hot
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         Cold
+                                    </th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        Mixed
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         Fail safe
@@ -77,7 +84,11 @@
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 {#each locationsForType(locations, job.type) as location}
-                                    <LocationWorkRow works={visit.works} location={location} jobId={jobId} visitId={visitId}/>
+                                    <tr>
+                                        <LocationWorkRow works={visit.works} location={location} jobId={jobId}
+                                                         visitId={visitId}
+                                                         startWork={startWork}/>
+                                    </tr>
                                 {/each}
                                 </tbody>
                             </table>

@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.0.1",
+    "animejs": "^3.2.1",
     "chart.js": "^3.9.1",
     "luxon": "^3.0.3",
     "svelte-routing": "^1.6.0"

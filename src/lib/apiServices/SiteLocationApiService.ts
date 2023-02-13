@@ -53,6 +53,7 @@ export async function getSiteLocations(siteId: number) {
     method: 'GET',
   })
     .then(handleErrors)
+    // .then(x => new Promise(resolve => setTimeout(() => resolve(x), 3000)))
     .then(handleJson);
 }
 
