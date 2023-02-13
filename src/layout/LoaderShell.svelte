@@ -2,11 +2,10 @@
   import Loader from "./Loader.svelte";
 
   export let loaded: boolean;
-
 </script>
 
 {#if !loaded}
-    <Loader/>
-{:else }
-    <slot></slot>
+  <Loader />
+{:else}
+  <slot />
 {/if}

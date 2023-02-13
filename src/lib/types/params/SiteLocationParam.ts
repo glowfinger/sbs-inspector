@@ -1,4 +1,4 @@
 export default interface SiteLocationParam {
-  siteId:	number;
+  siteId: number;
   locationId: number;
 }

@@ -7,11 +7,11 @@
 {#if result}
   {#if result.issue}
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900 bg-red-100"
-      >{result.temperature}&#8451</td
+      >{result.value}</td
     >
   {:else}
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900"
-      >{result.temperature}&#8451</td
+      >{result.value}</td
     >
   {/if}
 {:else}

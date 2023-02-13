@@ -15,8 +15,4 @@ const mixed = {
   high: 43,
 };
 
-export {
-  hot,
-  cold,
-  mixed,
-};
+export { hot, cold, mixed };

@@ -1,6 +1,6 @@
 export default interface JobVisit {
-  id:	number;
-  visitId:	number;
+  id: number;
+  visitId: number;
   createdAt: string;
   updatedAt: string;
   reminderAt: string;

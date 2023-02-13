@@ -1,4 +1,4 @@
-import {cold, hot, mixed} from "../../TemperatureRanges";
+import { cold, hot, mixed } from "../../TemperatureRanges";
 
 export function hasHotIssue(temperature: number) {
   if (!temperature) {
@@ -27,9 +27,9 @@ export function hasFailSafeIssue(value: string) {
     return true;
   }
 
-  return value !== 'yes';
+  return value !== "yes";
 }
 
 function isValid(temperature: number | null, low: number, high: number) {
-  return temperature < low || temperature > high
+  return temperature < low || temperature > high;
 }
