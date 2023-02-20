@@ -1,3 +1,3 @@
 export default interface SiteParam {
-  siteId:	number;
+  siteId: number;
 }

@@ -1,4 +1,4 @@
 export default interface SiteAddressParam {
-  siteId:	number;
+  siteId: number;
   addressId: number;
 }

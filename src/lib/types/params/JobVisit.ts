@@ -1,4 +1,11 @@
 export default interface JobVisit {
-  jobId:	number;
-  visitId:	number;
+  id: number;
+  visitId: number;
+  createdAt: string;
+  updatedAt: string;
+  reminderAt: string;
+  overdueAt: string;
+  bookedAt: string;
+  completedAt: string;
+  cancelledAt: string;
 }

@@ -1,4 +1,4 @@
 export default interface SiteWorkParams {
-  siteId:	number;
+  siteId: number;
   workId: number;
 }

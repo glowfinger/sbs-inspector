@@ -1,6 +1,6 @@
-import type {SiteAddress} from "./SiteAddress";
-import type {SiteLocation} from "./SiteLocation";
-import type {Work} from "./Work";
+import type { SiteAddress } from "./SiteAddress";
+import type { SiteLocation } from "./SiteLocation";
+import type { Work } from "./Work";
 
 export interface Site {
   id: Number;
@@ -11,5 +11,6 @@ export interface Site {
   updatedAt: String;
   address: SiteAddress;
   locations: SiteLocation[];
-  works: Work[]
+  works: Work[];
+  jobs: any[];
 }

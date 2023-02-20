@@ -1,7 +1,4 @@
-const PROTOCOL = 'http';
-const DOMAIN = 'localhost:8080';
+const PROTOCOL = "http";
+const DOMAIN = "localhost:8080";
 
-export {
-  PROTOCOL,
-  DOMAIN,
-}
+export { PROTOCOL, DOMAIN };
