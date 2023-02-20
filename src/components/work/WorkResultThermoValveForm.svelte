@@ -7,78 +7,77 @@
     hasHotIssue,
     hasMixedIssue,
   } from "../../lib/helpers/conditionals/hasHotIssue";
-  import {createWorkResult, updateWorkResult} from "../../lib/apiServices/work/WorkResultApiService";
+  import {createWorkResult} from "../../lib/apiServices/work/WorkResultApiService";
   import {onMount} from "svelte";
   import type {Work} from "../../lib/types/Work";
   import type WorkResult from "../../lib/types/WorkResult";
 
   export let workId: number;
   export let work: Work;
-  work.results = setupResults(work.results);
-
   export let nextPage = () => {
   };
 
 
+  console.log(work.results);
+
+
   let loading: boolean = false;
-  //
-  // const results = {
-  //   hot: {
-  //     id: null,
-  //     type: "hot",
-  //     temperature: 0,
-  //     issue: false,
-  //   },
-  //   cold: {
-  //     id: null,
-  //     type: "cold",
-  //     temperature: 0,
-  //     issue: false,
-  //   },
-  //   mixed: {
-  //     id: null,
-  //     type: "mixed",
-  //     temperature: 0,
-  //     issue: false,
-  //   },
-  //   failSafe: {
-  //     id: null,
-  //     type: "fail_safe",
-  //     value: null,
-  //     issue: false,
-  //   },
-  // };
-  //
-  // $: results.hot.issue = hasHotIssue(results.hot.temperature);
-  // $: results.cold.issue = hasColdIssue(results.cold.temperature);
-  // $: results.mixed.issue = hasMixedIssue(results.mixed.temperature);
-  // $: results.failSafe.issue = hasFailSafeIssue(results.failSafe.value);
+
+  const results = {
+    hot: {
+      id: null,
+      type: "hot",
+      temperature: 0,
+      issue: false,
+    },
+    cold: {
+      id: null,
+      type: "cold",
+      temperature: 0,
+      issue: false,
+    },
+    mixed: {
+      id: null,
+      type: "mixed",
+      temperature: 0,
+      issue: false,
+    },
+    failSafe: {
+      id: null,
+      type: "fail_safe",
+      value: null,
+      issue: false,
+    },
+  };
+
+  $: results.hot.issue = hasHotIssue(results.hot.temperature);
+  $: results.cold.issue = hasColdIssue(results.cold.temperature);
+  $: results.mixed.issue = hasMixedIssue(results.mixed.temperature);
+  $: results.failSafe.issue = hasFailSafeIssue(results.failSafe.value);
 
   async function submit() {
-    loading = true;
-
-    const requests = work.results.map((result) => {
-      if (result.id) {
-        return updateWorkResult(result.id, result,);
-      } else {
-        return createWorkResult(workId, result);
-      }
-    });
-
-    await Promise.all(requests);
+    [results.hot, results.cold, results.mixed, results.failSafe] =
+      await Promise.all([
+        createWorkResult(workId, results.hot),
+        createWorkResult(workId, results.cold),
+        createWorkResult(workId, results.mixed),
+        createWorkResult(workId, results.failSafe),
+      ]);
 
     nextPage();
   }
 
-
-  function setupResults(results: WorkResult[]) {
-    const order: string[] = ['hot', 'cold', 'mixed', 'fail_safe',];
-    return order.map((i) => {
-      const found = results.find((result) => result.type === i);
-      const base: WorkResult = {id: null, issue: false, temperature: null, type: i, value: null};
-      return found ?? base;
-    });
+  function getResult(results: WorkResult[], type: string) {
+    return results.find((w) => w.type === type) ?? {
+      id: null,
+      type: type,
+      temperature: 0,
+      issue: false,
+    };
   }
+
+  onMount(async () => {
+  });
 </script>
 
 <form
@@ -99,22 +98,22 @@
                 <TemperatureInput
                         id="hot-result"
                         name="Hot"
-                        bind:value={work.results[0].temperature}
+                        bind:value={results.hot.temperature}
                 />
                 <TemperatureInput
                         id="cold-result"
                         name="Cold"
-                        bind:value={work.results[1].temperature}
+                        bind:value={results.cold.temperature}
                 />
                 <TemperatureInput
                         id="mixed-result"
                         name="Mixed"
-                        bind:value={work.results[2].temperature}
+                        bind:value={results.mixed.temperature}
                 />
                 <SelectInput
                         id="fail-safe-result"
                         name="Fail safe"
-                        bind:value={work.results[3].value}
+                        bind:value={results.failSafe.value}
                 />
             </div>
         </div>

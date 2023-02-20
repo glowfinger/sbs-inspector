@@ -11,6 +11,7 @@
   export let location: Location;
 
   export let startWork;
+  export let updateWork;
 
   function locationHasWork(location: Location, works): boolean {
     return works.find((w) => w.locationId === location.id);
@@ -67,7 +68,7 @@
   >
     <button
       class="text-gray-600 hover:text-gray-900"
-      on:click={() => startWork(visitId, location.id)}
+      on:click={() => updateWork(visitId, getWorkForLocation(location, works).id)}
       >update
     </button>
   </td>
