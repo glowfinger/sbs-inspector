@@ -1,19 +1,25 @@
 <script lang="ts">
-  import { Router, Route } from "svelte-routing";
-  import { isOnline } from "./Store.js";
+  import {Router, Route} from "svelte-routing";
+  import {isOnline} from "./Store.js";
   import DashboardPage from "./components/pages/DashboardPage.svelte";
   import MainLayout from "./layout/MainLayout.svelte";
   import SitePage from "./components/pages/SitePage.svelte";
   import SitesPage from "./components/pages/SitesPage.svelte";
-  import { onMount } from "svelte";
-  import { createClient } from "./lib/auth/AuthService";
-  import { authClient, isAuthenticated, user } from "./lib/stores/AuthStore";
+  import {onMount} from "svelte";
+  import {createClient} from "./lib/auth/AuthService";
+  import {authClient, isAuthenticated, user} from "./lib/stores/AuthStore";
   import LoginRoute from "./components/pages/LoginPage.svelte";
-  import { login, logout } from "./lib/auth/AuthService.js";
+  import {login, logout} from "./lib/auth/AuthService.js";
   import LogoutPage from "./components/pages/LogoutPage.svelte";
   import NotFoundPage from "./components/pages/NotFoundPage.svelte";
   import VisitPage from "./components/pages/VisitPage.svelte";
-  import WorkResultEditPage from "./components/pages/WorkResultEditPage.svelte";
+  import WorkResultPage from "./components/pages/work/WorkResultPage.svelte";
+  import WorkActionPage from "./components/pages/work/WorkActionPage.svelte";
+  import WorkConfirmationPage from "./components/pages/work/WorkConfirmationPage.svelte";
+  import ThermoValveHot from "./components/pages/work/results/ThermoValveHot.svelte";
+  import ThermoValveCold from "./components/pages/work/results/ThermoValveCold.svelte";
+  import ThermoValveMixed from "./components/pages/work/results/ThermoValveMixed.svelte";
+  import ThermoValveFailSafe from "./components/pages/work/results/ThermoValveFailSafe.svelte";
 
   export let url = "";
 
@@ -31,49 +37,72 @@
   });
 </script>
 
-<svelte:window bind:online={$isOnline} />
+<svelte:window bind:online={$isOnline}/>
 <svelte:head>
-  <title>SBS Inspector</title>
+    <title>SBS Inspector</title>
 </svelte:head>
 
 {#if $isAuthenticated}
-  <Router {url}>
-    <MainLayout>
-      <Route path="/">
-        <DashboardPage />
-      </Route>
-      <Route path="/sites">
-        <SitesPage />
-      </Route>
-      <Route path="/site/:siteId" let:params>
-        <SitePage siteId={parseInt(params.siteId)} />
-      </Route>
-      <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
-        <VisitPage
-          visitId={parseInt(params.visitId)}
-          siteId={parseInt(params.siteId)}
-          jobId={parseInt(params.jobId)}
-        />
-      </Route>
-      <Route
-        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/results/add"
-        let:params
-      >
-        <WorkResultEditPage
-          visitId={parseInt(params.visitId)}
-          siteId={parseInt(params.siteId)}
-          jobId={parseInt(params.jobId)}
-          workId={parseInt(params.workId)}
-        />
-      </Route>
-      <Route path="/logout">
-        <LogoutPage logout={() => logout($authClient)} />
-      </Route>
-      <Route path="/*" let:params>
-        <NotFoundPage />
-      </Route>
-    </MainLayout>
-  </Router>
+    <Router {url}>
+        <MainLayout>
+            <Route path="/">
+                <DashboardPage/>
+            </Route>
+            <Route path="/sites">
+                <SitesPage/>
+            </Route>
+            <Route path="/site/:siteId" let:params>
+                <SitePage siteId={parseInt(params.siteId)}/>
+            </Route>
+            <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
+                <VisitPage visitId={parseInt(params.visitId)}
+                           siteId={parseInt(params.siteId)}
+                           jobId={parseInt(params.jobId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action">
+                <WorkActionPage visitId={parseInt(params.visitId)}
+                                siteId={parseInt(params.siteId)}
+                                jobId={parseInt(params.jobId)}
+                                workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot">
+                <ThermoValveHot visitId={parseInt(params.visitId)}
+                                siteId={parseInt(params.siteId)}
+                                jobId={parseInt(params.jobId)}
+                                workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/cold">
+                <ThermoValveCold visitId={parseInt(params.visitId)}
+                                 siteId={parseInt(params.siteId)}
+                                 jobId={parseInt(params.jobId)}
+                                 workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/mixed">
+                <ThermoValveMixed visitId={parseInt(params.visitId)}
+                                  siteId={parseInt(params.siteId)}
+                                  jobId={parseInt(params.jobId)}
+                                  workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/fail-safe">
+                <ThermoValveFailSafe visitId={parseInt(params.visitId)}
+                                     siteId={parseInt(params.siteId)}
+                                     jobId={parseInt(params.jobId)}
+                                     workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/confirmation">
+                <WorkConfirmationPage visitId={parseInt(params.visitId)}
+                                      siteId={parseInt(params.siteId)}
+                                      jobId={parseInt(params.jobId)}
+                                      workId={parseInt(params.workId)}/>
+            </Route>
+            <Route path="/logout">
+                <LogoutPage logout={() => logout($authClient)}/>
+            </Route>
+            <Route path="/*" let:params>
+                <NotFoundPage/>
+            </Route>
+        </MainLayout>
+    </Router>
 {:else}
-  <LoginRoute login={() => login($authClient)} />
+    <LoginRoute login={() => login($authClient)}/>
 {/if}

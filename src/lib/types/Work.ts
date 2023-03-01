@@ -1,6 +1,6 @@
-import type WorkResult from "./WorkResult";
+import type {WorkResult} from "./WorkResult";
 
-export interface Work {
+export  interface Work {
   id?: number;
   locationId: number;
   visitId: number;
