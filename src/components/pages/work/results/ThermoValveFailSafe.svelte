@@ -1,20 +1,44 @@
 <script lang="ts">
   import {Link, navigate} from "svelte-routing";
   import {createWorkResult, updateWorkResult} from "../../../../lib/apiServices/work/WorkResultApiService";
+  import type {WorkResult} from "../../../../lib/types/WorkResult";
+  import {onMount} from "svelte";
+  import {getSiteWork} from "../../../../lib/apiServices/work/WorkApiService";
+  import getResult from "../../../../lib/apiServices/helpers/results/GetResult";
+  import failSafeIssueCheck from "../../../../lib/helpers/temperature/FailSafeIssueCheck";
+  import Stringify from "../../../debug/Stringify.svelte";
+  import type {Work} from "../../../../lib/types/Work.js";
+  import ThermoResultTable from "./ThermoResultTable.svelte";
+
   export let siteId;
   export let jobId;
   export let visitId;
   export let workId;
 
-  let result = {
-    id: 0,
+  let loading = true;
+
+  let work: Work;
+
+  let result: WorkResult = {
+    id: null,
     issue: false,
-    temperature: 0,
-    type: 'hot',
+    temperature: null,
+    type: 'fail_safe',
     value: null
   };
 
+  onMount(() => {
+    getSiteWork(workId).then((response: Work) => {
+      work = response;
+      const found = getResult(response.results, 'fail_safe');
+      if (found) {
+        result = found;
+      }
+      loading = false;
+    });
+  });
 
+  $: result.issue = failSafeIssueCheck(result.value);
 
   async function submit() {
     if (result.id) {
@@ -22,21 +46,48 @@
     } else {
       await createWorkResult(workId, result);
     }
-    navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/mixed`);
+    navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`);
   }
-
-  const backLink = `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/mixed`;
-  const nextLink = `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/confirmation`;
 </script>
 
-<h2 class="text-base font-semibold leading-6 text-gray-900">Fail safe</h2>
+{#if !loading}
+    <ThermoResultTable results={work.results}/>
+{/if}
+<form class="space-y-4" on:submit|preventDefault={submit}>
+    <div>
+        <label class="text-base font-semibold leading-6 text-gray-900">Fail safe</label>
+        <fieldset class="mt-4">
+            <legend class="sr-only">Fail safe</legend>
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <input id="yes" name="notification-method" type="radio"
+                           bind:group={result.value}
+                           value="yes"
+                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    <label for="yes"
+                           class="ml-3 block text-sm font-medium text-gray-700">Yes</label>
+                </div>
 
-<div>
-    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-    <div class="mt-1">
-        <input type="email" name="email" id="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="you@example.com">
+                <div class="flex items-center">
+                    <input id="no" name="notification-method"
+                           type="radio"
+                           value="no"
+                           bind:group={result.value}
+                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    <label for="no"
+                           class="ml-3 block text-sm font-medium text-gray-700">No</label>
+                </div>
+            </div>
+        </fieldset>
     </div>
-</div>
-
-<Link to={backLink}>Back</Link>
-<Link to={nextLink}>Next</Link>
+    <div class="flex justify-end">
+        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/cold`}
+              class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Back to mixed
+        </Link>
+        <button type="submit"
+                class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Save
+        </button>
+    </div>
+</form>

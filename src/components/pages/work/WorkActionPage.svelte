@@ -1,11 +1,22 @@
 <script lang="ts">
   import {Link, navigate} from "svelte-routing";
   import {onMount} from "svelte";
+  import TemperatureTd from "../../tables/TemperatureTd.svelte";
+  import FailSafeTd from "../../tables/FailSafeTd.svelte";
+  import getResult from "../../../lib/apiServices/helpers/results/GetResult.js";
+  import {getSiteWork} from "../../../lib/apiServices/work/WorkApiService";
+  import type {Work} from "../../../lib/types/Work";
+  import ThermoResultTable from "./results/ThermoResultTable.svelte";
 
   export let siteId;
   export let jobId;
   export let visitId;
   export let workId;
+
+  let loading = true;
+
+  let work: Work;
+
 
   const cancelLink = `/site/${siteId}/job/${jobId}/visit/${visitId}`;
 
@@ -24,9 +35,16 @@
   }
 
   onMount(() => {
-
+    getSiteWork(workId).then((response: Work) => {
+      work = response;
+      loading = false;
+    });
   })
 </script>
+
+{#if !loading}
+    <ThermoResultTable results={work.results}/>
+{/if}
 
 <h2 class="text-base font-semibold leading-6 text-gray-900">Update work status</h2>
 <p class="mt-1 text-sm text-gray-500">Get started by selecting a template or start from an empty project.</p>
@@ -130,3 +148,4 @@
         <span aria-hidden="true"> &rarr;</span>
     </a>
 </div>
+
