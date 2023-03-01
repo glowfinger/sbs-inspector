@@ -1,4 +1,4 @@
-import { cold, hot, mixed } from "../../TemperatureRanges";
+import { cold, hot, mixed } from "../temperature/TemperatureRanges";
 
 export function hasHotIssue(temperature: number) {
   if (!temperature) {

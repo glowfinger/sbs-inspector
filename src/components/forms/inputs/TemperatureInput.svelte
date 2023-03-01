@@ -1,15 +1,17 @@
 <script lang="ts">
-  export let id;
+  export let id: string;
   export let error = false;
   export let name;
   export let loading = false;
-  export let value: number = 0.0;
+  export let value;
 
   function handleBlur() {
     if (value) {
-      value = Number(value.toFixed(1));
+        value = Number(parseFloat(value).toFixed(1));
     }
   }
+
+  // $: value = value.replace(/[^0-9]/g, '')
 </script>
 
 <div class="col-span-6 sm:col-span-4">
@@ -24,10 +26,10 @@
       on:blur={handleBlur}
       disabled={loading}
       pattern="^\d*(\.\d{(0, 1)})?$"
-      type="number"
-      step="0.1"
+      type="text"
       name={id}
-      {id}
+      id={id}
+      inputmode="decimal"
       autocomplete="none"
       class="mt-1 block w-full rounded-md border py-2 px-3 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'

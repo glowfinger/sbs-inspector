@@ -37,13 +37,13 @@
   async function startWork(visitId, locationId) {
     const work = await startSiteWork({visitId, locationId});
     navigate(
-      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/results/add`
+      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/action`
     );
   }
 
   async function updateWork(visitId, workId) {
     navigate(
-      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/results/add`
+      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`
     );
   }
 </script>
@@ -115,13 +115,12 @@
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 {#each locationsForType(locations, job.type) as location}
                                     <tr>
-                                        <LocationWorkRow
-                                                works={visit.works}
-                                                {location}
-                                                {jobId}
-                                                {visitId}
-                                                {startWork}
-                                                {updateWork}
+                                        <LocationWorkRow works={visit.works}
+                                                         {location}
+                                                         {jobId}
+                                                         {visitId}
+                                                         {startWork}
+                                                         {updateWork}
                                         />
                                     </tr>
                                 {/each}

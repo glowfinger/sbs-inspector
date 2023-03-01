@@ -18,8 +18,8 @@ export async function startSiteWork(work: Work) {
     .then(handleJson);
 }
 
-export async function getSiteWork(siteId: number, workId: number) {
-  return fetch(`http://localhost:8080/api/site/${siteId}/work/${workId}`, {
+export async function getSiteWork(workId: number) {
+  return fetch(`http://localhost:8080/api/work/${workId}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
