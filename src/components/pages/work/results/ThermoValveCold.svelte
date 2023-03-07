@@ -51,9 +51,19 @@
   }
 </script>
 
-{#if !loading}
-    <ThermoResultTable results={work.results}/>
-{/if}
+<nav aria-label="Breadcrumb" class="bg-white">
+    <div class="items-start pb-4">
+        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900">
+            <svg class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+            </svg>
+            <span>Visit</span>
+        </Link>
+    </div>
+</nav>
+
+<h1 class="text-2xl font-semibold text-gray-900">Inspections</h1>
+
 <form class="space-y-4" on:submit|preventDefault={submit}>
     <TemperatureInput id="cold-temperature" name="Cold temperature" bind:value={result.temperature}/>
     <p>{cold.low} - {cold.high}</p>
@@ -68,3 +78,7 @@
         </button>
     </div>
 </form>
+
+{#if !loading}
+    <ThermoResultTable results={work.results}/>
+{/if}

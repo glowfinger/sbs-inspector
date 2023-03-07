@@ -25,7 +25,6 @@
       bind:value
       on:blur={handleBlur}
       disabled={loading}
-      pattern="^\d*(\.\d{(0, 1)})?$"
       type="text"
       name={id}
       id={id}
