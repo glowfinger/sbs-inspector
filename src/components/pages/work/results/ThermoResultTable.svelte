@@ -1,9 +1,8 @@
 <script lang="ts">
   import TemperatureTd from "../../../tables/TemperatureTd.svelte";
-  import type {WorkResult} from "../../../../lib/types/WorkResult";
+  import type WorkResult from "../../../../lib/types/WorkResult";
   import FailSafeTd from "../../../tables/FailSafeTd.svelte";
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult.js";
-
   export let results: WorkResult[] = [];
 </script>
 

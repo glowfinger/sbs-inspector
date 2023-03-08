@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Link, navigate} from "svelte-routing";
-  import {setWorkInaccessible} from "../../../lib/apiServices/work/WorkApiService";
+  import {setWorkOrdered} from "../../../lib/apiServices/work/WorkApiService";
 
   export let siteId;
   export let jobId;
@@ -10,16 +10,12 @@
   let loading = true;
 
   const request = {
-    comment: '',
-    submittedAt: new Date(),
-
+    comment: ''
   }
 
   function submit() {
     loading = false;
-
-    request.submittedAt = new Date();
-    setWorkInaccessible(workId, request)
+    setWorkOrdered(workId, request)
       .then(complete)
 
     function complete() {

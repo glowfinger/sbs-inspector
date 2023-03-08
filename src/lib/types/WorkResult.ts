@@ -1,7 +1,7 @@
-export  interface WorkResult {
+export default interface WorkResult {
   id: number;
   type: string;
   temperature: number;
-  value: string ;
+  value: string;
   issue: boolean;
 }

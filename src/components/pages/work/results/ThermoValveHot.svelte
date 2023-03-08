@@ -8,7 +8,7 @@
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult";
   import {createWorkResult, updateWorkResult} from "../../../../lib/apiServices/work/WorkResultApiService";
   import type {Work} from "../../../../lib/types/Work";
-  import type {WorkResult} from "../../../../lib/types/WorkResult";
+  import type WorkResult from "../../../../lib/types/WorkResult";
   import ThermoResultTable from "./ThermoResultTable.svelte";
 
   export let siteId;
@@ -29,6 +29,7 @@
   };
 
   onMount(() => {
+
     getSiteWork(workId).then((response: Work) => {
       work = response;
       const found = getResult(response.results, 'hot');

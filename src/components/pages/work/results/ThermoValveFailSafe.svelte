@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Link, navigate} from "svelte-routing";
   import {createWorkResult, updateWorkResult} from "../../../../lib/apiServices/work/WorkResultApiService";
-  import type {WorkResult} from "../../../../lib/types/WorkResult";
+  import type WorkResult from "../../../../lib/types/WorkResult";
   import {onMount} from "svelte";
   import {getSiteWork} from "../../../../lib/apiServices/work/WorkApiService";
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult";

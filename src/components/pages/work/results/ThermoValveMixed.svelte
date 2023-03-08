@@ -7,7 +7,7 @@
   import {onMount} from "svelte";
   import {getSiteWork} from "../../../../lib/apiServices/work/WorkApiService";
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult";
-  import type {WorkResult} from "../../../../lib/types/WorkResult";
+  import type WorkResult from "../../../../lib/types/WorkResult";
   import type {Work} from "../../../../lib/types/Work";
   import ThermoResultTable from "./ThermoResultTable.svelte";
 

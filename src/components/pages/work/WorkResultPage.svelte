@@ -4,9 +4,6 @@
   export let visitId;
   export let workId;
   export let type: string;
-
-
-
 </script>
 
 

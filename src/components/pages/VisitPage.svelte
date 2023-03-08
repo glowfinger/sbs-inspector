@@ -2,12 +2,13 @@
   import {Link, navigate} from "svelte-routing";
   import {onMount} from "svelte";
   import {getVisitById} from "../../lib/apiServices/VisitApiService";
-  import Stringify from "../helpers/Stringify.svelte";
   import {getSiteLocations} from "../../lib/apiServices/SiteLocationApiService";
   import {getJobById} from "../../lib/apiServices/job/JobApiService";
   import type Location from "../../lib/types/Location";
   import LocationWorkRow from "../tables/LocationWorkRow.svelte";
   import {startSiteWork} from "../../lib/apiServices/work/WorkApiService";
+  import VisitTHead from "../tables/visits/VisitTHead.svelte";
+  import type {Work} from "../../lib/types/Work";
 
   export let siteId;
   export let jobId;
@@ -35,7 +36,7 @@
   }
 
   async function startWork(visitId, locationId) {
-    const work = await startSiteWork({visitId, locationId});
+    const work = await startSiteWork({results: [], visitId, locationId});
     navigate(
       `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/action`
     );
@@ -46,87 +47,52 @@
       `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`
     );
   }
+
+  function getWorkForLocation(location: Location, works) {
+    return works.find((w) => w.locationId === location.id);
+  }
+
+  function getWorksForLocation(location: Location, works: Work[]): Work[] {
+    return works.filter((w) => w.locationId === location.id);
+  }
 </script>
 
 {#if loaded}
     <div class="py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="max-w-7xl mx-auto">
             <h1 class="text-2xl font-semibold text-gray-900">Inspections</h1>
         </div>
-        <div class="px-4 sm:px-6 lg:px-8">
-            <div class="mt-8 flex flex-col">
-                <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div
-                            class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8"
-                    >
-                        <div
-                                class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg"
-                        >
-                            <table class="min-w-full divide-y divide-gray-300">
-                                <thead class="bg-gray-50">
-                                <tr>
-                                    <th
-                                            scope="col"
-                                            class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                                    >
-                                        Name
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Title
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Status
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Hot
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Cold
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Mixed
-                                    </th>
-                                    <th
-                                            scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                    >
-                                        Fail safe
-                                    </th>
-                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                        <span class="sr-only">Edit</span>
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200 bg-white">
-                                {#each locationsForType(locations, job.type) as location}
-                                    <tr>
-                                        <LocationWorkRow works={visit.works}
-                                                         {location}
+        <div class="mt-8 flex flex-col">
+            <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-300">
+                            <VisitTHead/>
+                            <tbody class="divide-y divide-gray-200 bg-white">
+                            {#each locationsForType(locations, job.type) as location}
+                                {#if getWorksForLocation(location, visit.works).length === 0}
+                                    <LocationWorkRow work={null}
+                                                     {siteId}
+                                                     location={location}
+                                                     {jobId}
+                                                     {visitId}
+                                                     {startWork}
+                                                     {updateWork}/>
+                                {:else }
+                                    {#each getWorksForLocation(location, visit.works) as work}
+                                        <LocationWorkRow work={work}
+                                                         {siteId}
+                                                         location={location}
                                                          {jobId}
                                                          {visitId}
                                                          {startWork}
                                                          {updateWork}
                                         />
-                                    </tr>
-                                {/each}
-                                </tbody>
-                            </table>
-                        </div>
+                                    {/each}
+                                {/if}
+                            {/each}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

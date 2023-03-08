@@ -20,6 +20,9 @@
   import ThermoValveCold from "./components/pages/work/results/ThermoValveCold.svelte";
   import ThermoValveMixed from "./components/pages/work/results/ThermoValveMixed.svelte";
   import ThermoValveFailSafe from "./components/pages/work/results/ThermoValveFailSafe.svelte";
+  import WorkInaccesiblePage from "./components/pages/work/WorkInaccesiblePage.svelte";
+  import WorkOrderPage from "./components/pages/work/WorkOrderPage.svelte";
+  import WorkServicedPage from "./components/pages/work/WorkServicedPage.svelte";
 
   export let url = "";
 
@@ -64,6 +67,24 @@
                                 siteId={parseInt(params.siteId)}
                                 jobId={parseInt(params.jobId)}
                                 workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible">
+                <WorkInaccesiblePage visitId={parseInt(params.visitId)}
+                                     siteId={parseInt(params.siteId)}
+                                     jobId={parseInt(params.jobId)}
+                                     workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced">
+                <WorkServicedPage visitId={parseInt(params.visitId)}
+                                     siteId={parseInt(params.siteId)}
+                                     jobId={parseInt(params.jobId)}
+                                     workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/order">
+                <WorkOrderPage visitId={parseInt(params.visitId)}
+                               siteId={parseInt(params.siteId)}
+                               jobId={parseInt(params.jobId)}
+                               workId={parseInt(params.workId)}/>
             </Route>
             <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot">
                 <ThermoValveHot visitId={parseInt(params.visitId)}
