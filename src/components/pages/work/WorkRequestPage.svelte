@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Link, navigate} from "svelte-routing";
-  import {setWorkOrdered} from "../../../lib/apiServices/work/WorkApiService";
+  import {setWorkRequest} from "../../../lib/apiServices/work/WorkApiService";
 
   export let siteId;
   export let jobId;
@@ -15,7 +15,7 @@
 
   function submit() {
     loading = false;
-    setWorkOrdered(workId, request)
+    setWorkRequest(workId, request)
       .then(complete)
 
     function complete() {
@@ -28,7 +28,7 @@
     <div class="space-y-8 divide-y divide-gray-200">
         <div>
             <div>
-                <h3 class="text-lg font-medium leading-6 text-gray-900"> Location inaccessible</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900">Request unit</h3>
             </div>
             <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                 <div class="sm:col-span-6">

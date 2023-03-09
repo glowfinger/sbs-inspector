@@ -10,6 +10,9 @@
   import type {Work} from "../../../../lib/types/Work";
   import type WorkResult from "../../../../lib/types/WorkResult";
   import ThermoResultTable from "./ThermoResultTable.svelte";
+  import {getSiteLocation} from "../../../../lib/apiServices/SiteLocationApiService";
+  import type SiteLocation from "../../../../lib/types/SiteLocation";
+  import WorkHeader from "../WorkHeader.svelte";
 
   export let siteId;
   export let jobId;
@@ -19,6 +22,7 @@
   let loading = true;
 
   let work: Work;
+  let location: SiteLocation;
 
   let result: WorkResult = {
     id: null,
@@ -31,6 +35,7 @@
   onMount(() => {
 
     getSiteWork(workId).then((response: Work) => {
+      getSiteLocation(siteId, response.locationId).then(l => location = l)
       work = response;
       const found = getResult(response.results, 'hot');
       if (found) {
@@ -63,12 +68,8 @@
     </div>
 </nav>
 
-<h1 class="text-2xl font-semibold text-gray-900">Please enter the hot temperature</h1>
-{#if !loading}
-    <div class="py-2">
-        <ThermoResultTable results={work.results}/>
-    </div>
-{/if}
+<WorkHeader location={location} action="Hot result"/>
+
 <form class="space-y-4" on:submit|preventDefault={submit}>
     <TemperatureInput id="hot-temperature" name="Temperature" bind:value={result.temperature}/>
     <p>{hot.low} - {hot.high}</p>
@@ -84,4 +85,6 @@
     </div>
 </form>
 
-
+{#if !loading}
+    <ThermoResultTable results={work.results}/>
+{/if}

@@ -2,9 +2,10 @@ import type { Work } from "../../types/Work";
 import handleErrors from "../helpers/HandleError";
 import handleJson from "../helpers/HandleJson";
 import { getToken } from "../../auth/AuthService";
+import {DOMAIN, PROTOCOL} from "../../services/ApiServiceConfig";
 
 export async function startSiteWork(work: Work) {
-  return fetch(`http://localhost:8080/api/work`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -18,8 +19,8 @@ export async function startSiteWork(work: Work) {
     .then(handleJson);
 }
 
-export async function setWorkOrdered(workId: number,work) {
-  return fetch(`http://localhost:8080/api/work/${workId}/ordered`, {
+export async function setWorkRequest(workId: number, work) {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/request`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -32,7 +33,21 @@ export async function setWorkOrdered(workId: number,work) {
     .then(handleJson);
 }
 export async function setWorkInaccessible(workId: number,work) {
-  return fetch(`http://localhost:8080/api/work/${workId}/inaccessible`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/inaccessible`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: "Bearer " + (await getToken()),
+    },
+    method: "PUT",
+    body: JSON.stringify(work),
+  })
+    .then(handleErrors)
+    .then(handleJson);
+}
+
+export async function setWorkReplaced(workId: number,work) {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/replace`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -46,7 +61,7 @@ export async function setWorkInaccessible(workId: number,work) {
 }
 
 export async function getSiteWork(workId: number) {
-  return fetch(`http://localhost:8080/api/work/${workId}`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -59,7 +74,7 @@ export async function getSiteWork(workId: number) {
 }
 
 export async function setWorkResolved(workId: number,work) {
-  return fetch(`http://localhost:8080/api/work/${workId}/resolve`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/resolve`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -73,7 +88,7 @@ export async function setWorkResolved(workId: number,work) {
 }
 
 export async function setWorkServiced(workId: number,work) {
-  return fetch(`http://localhost:8080/api/work/${workId}/service`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/service`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

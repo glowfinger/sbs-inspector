@@ -6,9 +6,11 @@
   import {getSiteWork} from "../../../../lib/apiServices/work/WorkApiService";
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult";
   import failSafeIssueCheck from "../../../../lib/helpers/temperature/FailSafeIssueCheck";
-  import Stringify from "../../../debug/Stringify.svelte";
   import type {Work} from "../../../../lib/types/Work.js";
   import ThermoResultTable from "./ThermoResultTable.svelte";
+  import {getSiteLocation} from "../../../../lib/apiServices/SiteLocationApiService";
+  import type SiteLocation from "../../../../lib/types/SiteLocation";
+  import WorkHeader from "../WorkHeader.svelte";
 
   export let siteId;
   export let jobId;
@@ -18,6 +20,8 @@
   let loading = true;
 
   let work: Work;
+  let location: SiteLocation;
+
 
   let result: WorkResult = {
     id: null,
@@ -29,6 +33,7 @@
 
   onMount(() => {
     getSiteWork(workId).then((response: Work) => {
+      getSiteLocation(siteId, response.locationId).then(l => location = l)
       work = response;
       const found = getResult(response.results, 'fail_safe');
       if (found) {
@@ -61,6 +66,7 @@
     </div>
 </nav>
 
+<WorkHeader location={location} action="Fail-safe result"/>
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
     <div>

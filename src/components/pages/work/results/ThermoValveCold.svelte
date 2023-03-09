@@ -10,6 +10,9 @@
   import type WorkResult from "../../../../lib/types/WorkResult";
   import type {Work} from "../../../../lib/types/Work";
   import ThermoResultTable from "./ThermoResultTable.svelte";
+  import type SiteLocation from "../../../../lib/types/SiteLocation";
+  import {getSiteLocation} from "../../../../lib/apiServices/SiteLocationApiService";
+  import WorkHeader from "../WorkHeader.svelte";
 
   export let siteId;
   export let jobId;
@@ -19,6 +22,8 @@
   let loading = true;
 
   let work: Work;
+
+  let location: SiteLocation;
 
   let result: WorkResult = {
     id: null,
@@ -30,6 +35,7 @@
 
   onMount(() => {
     getSiteWork(workId).then((response: Work) => {
+      getSiteLocation(siteId, response.locationId).then(l => location = l)
       work = response;
       const found = getResult(response.results, 'cold');
       if (found) {
@@ -37,6 +43,8 @@
       }
       loading = false;
     });
+
+
   });
 
   $: result.issue = temperatureIssueCheck(result.temperature, cold);
@@ -62,7 +70,7 @@
     </div>
 </nav>
 
-<h1 class="text-2xl font-semibold text-gray-900">Inspections</h1>
+<WorkHeader location={location} action="Mixed result"/>
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
     <TemperatureInput id="cold-temperature" name="Cold temperature" bind:value={result.temperature}/>

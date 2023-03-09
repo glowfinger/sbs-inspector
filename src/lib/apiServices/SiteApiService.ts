@@ -1,9 +1,10 @@
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
 import { getToken } from "../auth/AuthService";
+import {DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
 
 export async function getSiteById(siteId) {
-  return fetch(`http://localhost:8080/api/site/${siteId}`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -16,7 +17,7 @@ export async function getSiteById(siteId) {
 }
 
 export async function getSites() {
-  return fetch(`http://localhost:8080/api/site`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -29,7 +30,7 @@ export async function getSites() {
 }
 
 export async function createSite(site) {
-  return fetch(`http://localhost:8080/api/site`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

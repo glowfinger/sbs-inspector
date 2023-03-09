@@ -10,6 +10,9 @@
   import type WorkResult from "../../../../lib/types/WorkResult";
   import type {Work} from "../../../../lib/types/Work";
   import ThermoResultTable from "./ThermoResultTable.svelte";
+  import {getSiteLocation} from "../../../../lib/apiServices/SiteLocationApiService";
+  import type SiteLocation from "../../../../lib/types/SiteLocation";
+  import WorkHeader from "../WorkHeader.svelte";
 
   export let siteId;
   export let jobId;
@@ -19,6 +22,7 @@
   let loading = true;
 
   let work: Work;
+  let location: SiteLocation;
 
   let result: WorkResult = {
     id: null,
@@ -30,6 +34,7 @@
 
   onMount(() => {
     getSiteWork(workId).then((response: Work) => {
+      getSiteLocation(siteId, response.locationId).then(l => location = l)
       work = response;
       const found = getResult(response.results, 'mixed');
       if (found) {
@@ -53,16 +58,19 @@
 
 <nav aria-label="Breadcrumb" class="bg-white">
     <div class="items-start pb-4">
-        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900">
+        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+              class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900">
             <svg class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                      d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                      clip-rule="evenodd"/>
             </svg>
             <span>Visit</span>
         </Link>
     </div>
 </nav>
 
-
+<WorkHeader location={location} action="Mixed result"/>
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
     <TemperatureInput id="mixed-temperature" name="Mixed temperature" bind:value={result.temperature}/>

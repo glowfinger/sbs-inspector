@@ -1,4 +1,4 @@
-export interface SiteLocation {
+export default interface SiteLocation {
   id: Number;
   siteId: Number;
   type: String;
@@ -6,4 +6,4 @@ export interface SiteLocation {
   name: String;
   createdAt: Date;
   updatedAt: Date;
-}
+};
