@@ -44,10 +44,9 @@
   }
 
   async function resolveWork(siteId, visitId, workId, locationId) {
-    console.log(visitId, workId, locationId)
     await setWorkResolved(workId, {submittedAt: new Date()})
-    await startSiteWork({results: [], visitId, locationId});
-    navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`);
+    const work = await startSiteWork({results: [], visitId, locationId});
+    navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/action`);
   }
 </script>
 <tr>
@@ -57,13 +56,12 @@
 
     {#if work}
         <td class="whitespace-nowrap p-2 text-sm text-gray-500">{work.status}</td>
-        <td class="whitespace-nowrap p-2 text-sm text-gray-500">{work.outcome}</td>
+        <td class="whitespace-nowrap p-2 text-sm text-gray-500">{work.outcome ?? '-'}</td>
         <TemperatureTd result={getHotResult(location, work)}/>
         <TemperatureTd result={getColdResult(location, work)}/>
         <TemperatureTd result={getMixedResult(location, work)}/>
         <FailsafeTd result={getFailSafeResult(location, work)}/>
         {#if !work.completedAt}
-
             <td class="relative whitespace-nowrap p-2 text-right text-sm font-medium sm:pr-6">
                 <button class="text-gray-600 hover:text-gray-900" on:click={() => updateWork(visitId, work.id)}>
                     update
