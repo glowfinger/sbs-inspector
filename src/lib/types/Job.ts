@@ -1,4 +1,3 @@
-import type Visit from "./Visit";
 import type JobVisit from "./params/JobVisit";
 
 export default interface Job {

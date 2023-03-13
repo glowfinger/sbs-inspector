@@ -9,6 +9,13 @@
   import {startSiteWork} from "../../lib/apiServices/work/WorkApiService";
   import VisitTHead from "../tables/visits/VisitTHead.svelte";
   import type {Work} from "../../lib/types/Work";
+  import {getSiteById} from "../../lib/apiServices/SiteApiService";
+  import type {Visit} from "../../lib/types/Visit";
+  import type Job from "../../lib/types/Job";
+  import Site from "./Site.svelte";
+  import SiteHeader from "../site/header/SiteHeader.svelte";
+  import PrimaryButtonLink from "../links/PrimaryButtonLink.svelte";
+  import SecondaryButtonLink from "../links/SecondaryButtonLink.svelte";
 
   export let siteId;
   export let jobId;
@@ -16,16 +23,17 @@
 
   let loaded = false;
 
-  let locations = [];
-  let site;
-  let job;
-  let visit;
+  let locations: Location[] = [];
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
 
   onMount(async () => {
-    [locations, visit, job] = await Promise.all([
+    [locations, visit, job, site] = await Promise.all([
       getSiteLocations(siteId),
       getVisitById(visitId),
       getJobById(jobId),
+      getSiteById(siteId,)
     ]);
 
     loaded = true;
@@ -55,45 +63,48 @@
   function getWorksForLocation(location: Location, works: Work[]): Work[] {
     return works.filter((w) => w.locationId === location.id);
   }
+
+
 </script>
 
 {#if loaded}
-    <div class="py-6">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-2xl font-semibold text-gray-900">Inspections</h1>
+    <SiteHeader site={site}>
+        <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+            <SecondaryButtonLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}/location/add`} text="Add location"/>
+            <PrimaryButtonLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}/complete`} text="Complete visit"/>
         </div>
-        <div class="mt-8 flex flex-col">
-            <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-300">
-                            <VisitTHead/>
-                            <tbody class="divide-y divide-gray-200 bg-white">
-                            {#each locationsForType(locations, job.type) as location}
-                                {#if getWorksForLocation(location, visit.works).length === 0}
-                                    <LocationWorkRow work={null}
+    </SiteHeader>
+    <div class="mt-8 flex flex-col">
+        <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <VisitTHead/>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                        {#each locationsForType(locations, job.type) as location}
+                            {#if getWorksForLocation(location, visit.works).length === 0}
+                                <LocationWorkRow work={null}
+                                                 {siteId}
+                                                 location={location}
+                                                 {jobId}
+                                                 {visitId}
+                                                 {startWork}
+                                                 {updateWork}/>
+                            {:else }
+                                {#each getWorksForLocation(location, visit.works) as work}
+                                    <LocationWorkRow work={work}
                                                      {siteId}
                                                      location={location}
                                                      {jobId}
                                                      {visitId}
                                                      {startWork}
-                                                     {updateWork}/>
-                                {:else }
-                                    {#each getWorksForLocation(location, visit.works) as work}
-                                        <LocationWorkRow work={work}
-                                                         {siteId}
-                                                         location={location}
-                                                         {jobId}
-                                                         {visitId}
-                                                         {startWork}
-                                                         {updateWork}
-                                        />
-                                    {/each}
-                                {/if}
-                            {/each}
-                            </tbody>
-                        </table>
-                    </div>
+                                                     {updateWork}
+                                    />
+                                {/each}
+                            {/if}
+                        {/each}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
