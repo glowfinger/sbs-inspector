@@ -8,7 +8,6 @@
   } from "../../lib/apiServices/SiteLocationApiService";
   import validationErrorHandler from "../../lib/ValidationErrorHandler";
   import {onMount} from "svelte";
-  import type SiteLocation from "../../lib/types/SiteLocation";
   import TextInput from "../forms/inputs/TextInput.svelte";
   import type Location from "../../lib/types/Location";
 
