@@ -2,9 +2,10 @@ import handleErrors from "../helpers/HandleError";
 import handleJson from "../helpers/HandleJson";
 import type Job from "../../types/Job";
 import { getToken } from "../../auth/AuthService";
+import {DOMAIN, PROTOCOL} from "../../services/ApiServiceConfig";
 
 export async function getJobById(jobId: number) {
-  return fetch(`http://localhost:8080/api/job/${jobId}`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/job/${jobId}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -16,7 +17,7 @@ export async function getJobById(jobId: number) {
     .then(handleJson);
 }
 export async function getJobBySiteId(siteId: number) {
-  return fetch(`http://localhost:8080/api/site/${siteId}/job`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/job`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -29,7 +30,7 @@ export async function getJobBySiteId(siteId: number) {
 }
 
 export async function addJob(body): Promise<Job> {
-  return fetch(`http://localhost:8080/api/job`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/job`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

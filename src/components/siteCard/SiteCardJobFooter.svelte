@@ -6,7 +6,6 @@
   export let site: Site;
 </script>
 
-<div>
   <div class="overflow-hidden bg-white shadow sm:rounded-md">
     <ul role="list" class="divide-y divide-gray-200">
       {#each site.jobs as job}
@@ -72,4 +71,3 @@
       {/each}
     </ul>
   </div>
-</div>

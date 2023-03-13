@@ -2,9 +2,10 @@ import type Address from "../types/Address";
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
 import { getToken } from "../auth/AuthService";
+import {DOMAIN, PROTOCOL} from "../services/ApiServiceConfig";
 
 export async function createSiteAddress(address: Address, siteId: number) {
-  return fetch(`http://localhost:8080/api/site/${siteId}/address`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/address`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -19,7 +20,7 @@ export async function createSiteAddress(address: Address, siteId: number) {
 
 export async function getSiteAddress(siteId: number, addressId: number) {
   return fetch(
-    `http://localhost:8080/api/site/${siteId}/address/${addressId}`,
+    `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/address/${addressId}`,
     {
       headers: {
         Accept: "application/json",

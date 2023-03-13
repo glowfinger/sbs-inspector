@@ -13,13 +13,16 @@
   import LogoutPage from "./components/pages/LogoutPage.svelte";
   import NotFoundPage from "./components/pages/NotFoundPage.svelte";
   import VisitPage from "./components/pages/VisitPage.svelte";
-  import WorkResultPage from "./components/pages/work/WorkResultPage.svelte";
   import WorkActionPage from "./components/pages/work/WorkActionPage.svelte";
   import WorkConfirmationPage from "./components/pages/work/WorkConfirmationPage.svelte";
   import ThermoValveHot from "./components/pages/work/results/ThermoValveHot.svelte";
   import ThermoValveCold from "./components/pages/work/results/ThermoValveCold.svelte";
   import ThermoValveMixed from "./components/pages/work/results/ThermoValveMixed.svelte";
   import ThermoValveFailSafe from "./components/pages/work/results/ThermoValveFailSafe.svelte";
+  import WorkInaccessiblePage from "./components/pages/work/WorkInaccessiblePage.svelte";
+  import WorkRequestPage from "./components/pages/work/WorkRequestPage.svelte";
+  import WorkServicedPage from "./components/pages/work/WorkServicedPage.svelte";
+  import WorkReplacePage from "./components/pages/work/WorkReplacePage.svelte";
 
   export let url = "";
 
@@ -64,6 +67,30 @@
                                 siteId={parseInt(params.siteId)}
                                 jobId={parseInt(params.jobId)}
                                 workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible">
+                <WorkInaccessiblePage visitId={parseInt(params.visitId)}
+                                     siteId={parseInt(params.siteId)}
+                                     jobId={parseInt(params.jobId)}
+                                     workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced">
+                <WorkServicedPage visitId={parseInt(params.visitId)}
+                                     siteId={parseInt(params.siteId)}
+                                     jobId={parseInt(params.jobId)}
+                                     workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request">
+                <WorkRequestPage visitId={parseInt(params.visitId)}
+                               siteId={parseInt(params.siteId)}
+                               jobId={parseInt(params.jobId)}
+                               workId={parseInt(params.workId)}/>
+            </Route>
+            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replace">
+                <WorkReplacePage visitId={parseInt(params.visitId)}
+                                 siteId={parseInt(params.siteId)}
+                                 jobId={parseInt(params.jobId)}
+                                 workId={parseInt(params.workId)}/>
             </Route>
             <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot">
                 <ThermoValveHot visitId={parseInt(params.visitId)}

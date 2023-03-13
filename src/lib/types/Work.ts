@@ -1,13 +1,14 @@
-import type {WorkResult} from "./WorkResult";
+import type WorkResult from "./WorkResult";
 
 export  interface Work {
   id?: number;
   locationId: number;
   visitId: number;
   status?: string;
+  outcome?: string;
   comment?: string;
-  remedied?: boolean;
-  latest?: boolean; // TODO do I need this, it think it can be removed due to the visits
+  remediedAt?: Date;
+  resolvedAt?: Date;
   startedAt?: Date;
   inaccessibleAt?: Date;
   orderedAt?: Date;
@@ -15,5 +16,5 @@ export  interface Work {
   servicedAt?: Date;
   completedAt?: Date;
   submittedAt?: Date;
-  results?: WorkResult[];
+  results: WorkResult[];
 }

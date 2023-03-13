@@ -1,6 +1,6 @@
-import type Work from "./Work";
+import type {Work} from "./Work";
 
-export  interface Visit {
+export interface Visit {
   id: number;
   jobId: number;
   status: string;

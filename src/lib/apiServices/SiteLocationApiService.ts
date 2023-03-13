@@ -2,9 +2,10 @@ import type Location from "../types/Location";
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
 import { getToken } from "../auth/AuthService";
+import {DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
 
 export async function createSiteLocation(location: Location, siteId: number) {
-  return fetch(`http://localhost:8080/api/site/${siteId}/location`, {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -23,7 +24,7 @@ export async function updateSiteLocation(
   locationId: number
 ) {
   return fetch(
-    `http://localhost:8080/api/site/${siteId}/location/${locationId}`,
+    `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location/${locationId}`,
     {
       headers: {
         Accept: "application/json",
@@ -41,7 +42,7 @@ export async function updateSiteLocation(
 
 export async function getSiteLocation(siteId: number, locationId: number) {
   return fetch(
-    `http://localhost:8080/api/site/${siteId}/location/${locationId}`,
+    `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location/${locationId}`,
     {
       headers: {
         Accept: "application/json",
@@ -57,7 +58,7 @@ export async function getSiteLocation(siteId: number, locationId: number) {
 
 export async function getSiteLocations(siteId: number) {
   return (
-    fetch(`http://localhost:8080/api/site/${siteId}/location`, {
+    fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

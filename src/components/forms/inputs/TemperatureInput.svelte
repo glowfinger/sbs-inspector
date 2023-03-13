@@ -1,4 +1,6 @@
 <script lang="ts">
+  import {onMount} from "svelte";
+
   export let id: string;
   export let error = false;
   export let name;
@@ -10,6 +12,12 @@
         value = Number(parseFloat(value).toFixed(1));
     }
   }
+
+  let elm
+
+  onMount(function() {
+    elm.focus();
+  });
 
   // $: value = value.replace(/[^0-9]/g, '')
 </script>
@@ -25,10 +33,10 @@
       bind:value
       on:blur={handleBlur}
       disabled={loading}
-      pattern="^\d*(\.\d{(0, 1)})?$"
       type="text"
       name={id}
       id={id}
+      bind:this={elm}
       inputmode="decimal"
       autocomplete="none"
       class="mt-1 block w-full rounded-md border py-2 px-3 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
