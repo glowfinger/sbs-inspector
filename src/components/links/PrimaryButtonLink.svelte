@@ -6,6 +6,6 @@
 </script>
 
 <Link to={to}
-      class="rounded bg-gray-500 py-1 px-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500">
+      class="order-0 inline-flex items-center rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 sm:order-1 sm:ml-3">
     {text}
 </Link>

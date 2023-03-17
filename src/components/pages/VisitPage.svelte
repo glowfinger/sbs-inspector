@@ -12,10 +12,12 @@
   import {getSiteById} from "../../lib/apiServices/SiteApiService";
   import type {Visit} from "../../lib/types/Visit";
   import type Job from "../../lib/types/Job";
-  import Site from "./Site.svelte";
   import SiteHeader from "../site/header/SiteHeader.svelte";
   import PrimaryButtonLink from "../links/PrimaryButtonLink.svelte";
   import SecondaryButtonLink from "../links/SecondaryButtonLink.svelte";
+  import WorkList from "../work/WorkList.svelte";
+  import WorkMetricHeader from "../work/WorkMetricHeader.svelte";
+  import type {Site} from "../../lib/types/Site";
 
   export let siteId;
   export let jobId;
@@ -27,28 +29,22 @@
   let site: Site;
   let job: Job;
   let visit: Visit;
+  let status: string;
 
   onMount(async () => {
     [locations, visit, job, site] = await Promise.all([
       getSiteLocations(siteId),
       getVisitById(visitId),
       getJobById(jobId),
-      getSiteById(siteId,)
+      getSiteById(siteId),
     ]);
 
     loaded = true;
   });
 
-  function locationsForType(locations: Location[], type: string) {
-    return locations.filter((location) => location.type === type);
-  }
 
-  async function startWork(visitId, locationId) {
-    const work = await startSiteWork({results: [], visitId, locationId});
-    navigate(
-      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${work.id}/action`
-    );
-  }
+
+
 
   async function updateWork(visitId, workId) {
     navigate(
@@ -65,48 +61,25 @@
   }
 
 
+
+  const addLocationLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/location/add`;
+  const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/complete`;
+
 </script>
 
 {#if loaded}
-    <SiteHeader site={site}>
-        <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-            <SecondaryButtonLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}/location/add`} text="Add location"/>
-            <PrimaryButtonLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}/complete`} text="Complete visit"/>
-        </div>
-    </SiteHeader>
-    <div class="mt-8 flex flex-col">
-        <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-300">
-                        <VisitTHead/>
-                        <tbody class="divide-y divide-gray-200 bg-white">
-                        {#each locationsForType(locations, job.type) as location}
-                            {#if getWorksForLocation(location, visit.works).length === 0}
-                                <LocationWorkRow work={null}
-                                                 {siteId}
-                                                 location={location}
-                                                 {jobId}
-                                                 {visitId}
-                                                 {startWork}
-                                                 {updateWork}/>
-                            {:else }
-                                {#each getWorksForLocation(location, visit.works) as work}
-                                    <LocationWorkRow work={work}
-                                                     {siteId}
-                                                     location={location}
-                                                     {jobId}
-                                                     {visitId}
-                                                     {startWork}
-                                                     {updateWork}
-                                    />
-                                {/each}
-                            {/if}
-                        {/each}
-                        </tbody>
-                    </table>
-                </div>
+    <div class="flex flex-col space-y-4">
+        <div class="flex justify-between">
+            <SiteHeader site={site}/>
+            <div class="flex-row space-x-2">
+                <SecondaryButtonLink to={addLocationLink} text="Add location"/>
+                <PrimaryButtonLink to={completeVisitLink} text="Complete visit"/>
             </div>
         </div>
+        <!--        <WorkMetricHeader visitId={visitId} siteId={siteId} jobId={jobId}/>-->
+        <WorkList job={job} visit={visit} locations={locations} />
     </div>
 {/if}
+
+
+

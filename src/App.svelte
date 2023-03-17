@@ -64,10 +64,17 @@
                                   siteId={parseInt(params.siteId)}
                                   jobId={parseInt(params.jobId)}/>
             </Route>
+
             <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
                 <VisitPage visitId={parseInt(params.visitId)}
                            siteId={parseInt(params.siteId)}
                            jobId={parseInt(params.jobId)}/>
+            </Route>
+            <Route path="/site/:siteId/job/:jobId/visit/:visitId/status/:status" let:params>
+                <VisitPage visitId={parseInt(params.visitId)}
+                           siteId={parseInt(params.siteId)}
+                           jobId={parseInt(params.jobId)}
+                           status={params.status}/>
             </Route>
             <Route path="/site/:siteId/job/:jobId/visit/:visitId/complete" let:params>
                 <VisitCompletePage siteId={parseInt(params.siteId)}
