@@ -9,10 +9,15 @@
   export let job: Job;
   export let visit: Visit;
   export let locations: Location[] = [];
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
 
   function locationsForType(locations: Location[], type: string) {
     return locations.filter((location) => location.type === type);
   }
+
+
 </script>
 
 <div>
@@ -21,7 +26,7 @@
         <h2 class="my-4">Floor: {floor.floor}</h2>
         <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {#each floor.locations as location}
-                <WorkListCard location={location} visit={visit} />
+                <WorkListCard location={location} visit={visit} visitId={visitId} siteId={siteId} jobId={jobId}/>
             {/each}
         </ul>
     {/each}

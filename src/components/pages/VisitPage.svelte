@@ -19,9 +19,9 @@
   import WorkMetricHeader from "../work/WorkMetricHeader.svelte";
   import type {Site} from "../../lib/types/Site";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
 
   let loaded = false;
 
@@ -45,23 +45,6 @@
 
 
 
-
-  async function updateWork(visitId, workId) {
-    navigate(
-      `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`
-    );
-  }
-
-  function getWorkForLocation(location: Location, works) {
-    return works.find((w) => w.locationId === location.id);
-  }
-
-  function getWorksForLocation(location: Location, works: Work[]): Work[] {
-    return works.filter((w) => w.locationId === location.id);
-  }
-
-
-
   const addLocationLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/location/add`;
   const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/complete`;
 
@@ -77,7 +60,7 @@
             </div>
         </div>
         <!--        <WorkMetricHeader visitId={visitId} siteId={siteId} jobId={jobId}/>-->
-        <WorkList job={job} visit={visit} locations={locations} />
+        <WorkList job={job} visit={visit} locations={locations} visitId={visitId} siteId={siteId} jobId={jobId}/>
     </div>
 {/if}
 
