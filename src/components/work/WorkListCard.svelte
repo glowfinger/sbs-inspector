@@ -6,6 +6,7 @@
   import {navigate} from "svelte-routing";
   import StartStatusIcon from "../icons/StartStatusIcon.svelte";
   import CompletedStatusIcon from "../icons/CompletedStatusIcon.svelte";
+  import WorkListCardThermoResults from "./WorkListCardThermoResults.svelte";
 
   export let location: Location;
   export let visit: Visit;
@@ -100,19 +101,17 @@
         </div>
     {:else }
         <ul class="divide-y divide-gray-200">
-            {#each getWorksForLocation(location, visit.works).slice(0,3) as work}
-                <li class="flex p-2">
+            {#each getWorksForLocation(location, visit.works).slice(0, 1) as work}
+                <li class="p-2">
                     <div class="flex items-center space-x-4">
                         <h3 class="truncate text-sm font-medium text-gray-900">{work.outcome}</h3>
                         <h3 class="truncate text-sm font-medium text-gray-900">{work.status}</h3>
                     </div>
+
                 </li>
-<!--                <li class="flex p-2">-->
-<!--                    <div class="flex items-center space-x-4">-->
-<!--                        <h3 class="truncate text-sm font-medium text-gray-900">{work.outcome}</h3>-->
-<!--                        <h3 class="truncate text-sm font-medium text-gray-900">{work.status}</h3>-->
-<!--                    </div>-->
-<!--                </li>-->
+                <li class="py-2">
+                    <WorkListCardThermoResults results={work.results}/>
+                </li>
             {/each}
         </ul>
     {/if}
