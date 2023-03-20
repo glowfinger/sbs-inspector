@@ -4,7 +4,7 @@ import handleJson from "../helpers/HandleJson";
 import { getToken } from "../../auth/AuthService";
 import {DOMAIN, PROTOCOL} from "../../services/ApiServiceConfig";
 
-export async function startSiteWork(work: Work) {
+export async function startSiteWork(work: Work): Promise<Work> {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/work`, {
     headers: {
       Accept: "application/json",

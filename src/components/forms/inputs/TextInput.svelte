@@ -1,10 +1,9 @@
 <script lang="ts">
   export let id;
-  export let error = false;
+  export let error;
   export let name;
-  export let loading = false;
+  export let loading;
   export let value;
-  export let options = [];
 </script>
 
 <div class="col-span-6 sm:col-span-4">
@@ -14,20 +13,17 @@
     >{name}</label
   >
   <div class="relative mt-1 rounded-md shadow-sm">
-    <select
-      id={id}
-      name={id}
-      autocomplete="country-name"
-      bind:value
+    <input
+      bind:value={value}
       disabled={loading}
+      type="text"
+      name={id}
+      id={id}
+      autocomplete="none"
       class="mt-1 block w-full rounded-md border py-2 px-3 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
         : 'border-gray-300 focus:border-gray-500 focus:ring-gray-500'}"
-    >
-      <option value="" selected disabled hidden>Set here</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
+    />
     <div
       class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
     >
