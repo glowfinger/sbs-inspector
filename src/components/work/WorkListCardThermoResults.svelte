@@ -27,7 +27,7 @@
 </script>
 
 {#if results.length === 0}
-    <div class="grid grid-cols-1 gap-1">
+    <div class="grid grid-cols-1 gap-1 px-2">
         <div>No results entered</div>
     </div>
 {:else}

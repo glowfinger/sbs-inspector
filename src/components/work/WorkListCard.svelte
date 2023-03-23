@@ -105,9 +105,8 @@
                 <li class="p-2">
                     <div class="flex items-center space-x-4">
                         <h3 class="truncate text-sm font-medium text-gray-900">{work.outcome}</h3>
-                        <h3 class="truncate text-sm font-medium text-gray-900">{work.status}</h3>
+                        <p>{work.completedAt}</p>
                     </div>
-
                 </li>
                 <li class="py-2">
                     <WorkListCardThermoResults results={work.results}/>
@@ -115,8 +114,6 @@
             {/each}
         </ul>
     {/if}
-
-
     {#if !hasWorkForLocation(location, visit.works)}
         <div class="-mt-px flex bg-gray-600 text-white">
             <button class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-2 text-sm font-semibold"
