@@ -55,7 +55,7 @@
     <li>
         <div class="group relative flex items-start space-x-3 py-4">
             <div class="flex-shrink-0">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-pink-500">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-400">
             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,7 +86,7 @@
     <li>
         <div class="group relative flex items-start space-x-3 py-4">
             <div class="flex-shrink-0">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-500">
             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -117,7 +117,7 @@
     <li>
         <div class="group relative flex items-start space-x-3 py-4">
             <div class="flex-shrink-0">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-500">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-600">
             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -147,7 +147,7 @@
     <li>
         <div class="group relative flex items-start space-x-3 py-4">
             <div class="flex-shrink-0">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-500">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-700">
             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -177,7 +177,7 @@
     <li>
         <div class="group relative flex items-start space-x-3 py-4">
             <div class="flex-shrink-0">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-500">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"

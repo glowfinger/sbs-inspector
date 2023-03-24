@@ -10,6 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^2.4.2",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
@@ -20,6 +21,7 @@
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.1",
+    "sv-bootstrap-dropdown": "^0.4.4",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-preprocess": "^4.10.7",
@@ -32,6 +34,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.0.1",
     "animejs": "^3.2.1",
+    "bootstrap": "^5.2.3",
     "chart.js": "^3.9.1",
     "luxon": "^3.0.3",
     "svelte-routing": "^1.6.0",

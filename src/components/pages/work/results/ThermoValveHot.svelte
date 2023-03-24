@@ -85,6 +85,6 @@
     </div>
 </form>
 
-{#if !loading}
+<!-- {#if !loading}
     <ThermoResultTable results={work.results}/>
-{/if}
+{/if} -->

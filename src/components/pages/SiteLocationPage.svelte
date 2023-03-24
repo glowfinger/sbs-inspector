@@ -10,6 +10,7 @@
   import {onMount} from "svelte";
   import TextInput from "../forms/inputs/TextInput.svelte";
   import type Location from "../../lib/types/Location";
+  import DropDownBox from "../helpers/DropDownBox.svelte";
 
   export let siteId;
   export let jobId;
@@ -81,8 +82,8 @@
 </script>
 
 <form on:submit|preventDefault={submit}>
-    <div class="shadow sm:overflow-hidden sm:rounded-md">
-        <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
+    <div class=" sm:overflow-hidden sm:rounded-md">
+        <div class="space-y-6 bg-white py-6 px-1 sm:p-6">
             <div>
                 <h3 class="text-lg font-medium leading-6 text-gray-900">
                     Location Information
@@ -117,6 +118,7 @@
                         name="Name"
                         loading={loading}
                 />
+                <DropDownBox/>
             </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">

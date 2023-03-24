@@ -3,8 +3,13 @@
   import { getLatest } from "../../lib/helpers/links/SiteJobVisit.js";
   import type Job from "../../lib/types/Job";
   import isJobVisitLive from "../../lib/helpers/conditionals/job/isJobVisitLive.js";
+  import type { Visit } from "../../lib/types/Visit.js";
+  import { localDate } from "../helpers/DateFormatter.js";
+
+  
 
   export let jobs: Job;
+  export let visits: Visit;
 </script>
 
 <div class="overflow-hidden bg-white">
@@ -39,11 +44,14 @@
                                                     clip-rule="evenodd"
                                             />
                                         </svg>
+                                        {#each job.visits as visit}
                                         <p>
                                             Booked on:
-                                            <time datetime="2020-01-14">{job.bookedAt}</time>
+                                            <time datetime="2020-01-14">{localDate(visit.bookedAt)}</time>
                                         </p>
+                                        {/each}
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
