@@ -8,6 +8,10 @@
   import {getJobById} from "../../../lib/apiServices/job/JobApiService";
   import {getSiteById} from "../../../lib/apiServices/SiteApiService";
   import type Job from "../../../lib/types/Job";
+  import Stringify from "../../debug/Stringify.svelte";
+  import hasWorksForLocation from "../../../lib/helpers/conditionals/work/HasWorksForLocation";
+  import locationsForType from "../../../lib/helpers/conditionals/LocationsForType";
+  import {completeVisit} from "../../../lib/apiServices/job/JobVisitApiService";
 
   export let siteId;
   export let jobId;
@@ -30,5 +34,19 @@
 
     loaded = true;
   });
+
+  function handleComplete() {
+    completeVisit(visit.id)
+      .then(console.log)
+      .catch(console.log)
+  }
 </script>
 
+
+
+<button on:click={handleComplete}>Complete</button>
+{#if loaded}
+    {hasWorksForLocation(locationsForType(locations, job.type), visit.works).length}-/-{locationsForType(locations, job.type).length}-/-{locations.length}
+    <br/>
+    <Stringify obj={hasWorksForLocation(locationsForType(locations, job.type), visit.works)}/>
+{/if}
