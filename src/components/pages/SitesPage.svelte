@@ -13,7 +13,7 @@
 
 <ul
   role="list"
-  class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mx-4"
+  class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2"
 >
   {#each sites as site}
     <SiteCard {site} />

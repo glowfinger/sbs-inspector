@@ -49,7 +49,7 @@
 {#if loaded}
   <div class="flex flex-col space-y-4">
     <div class="flex justify-between">
-      <SiteHeader {site} />
+      <SiteHeader {site} address={site.address}/>
     </div>
     <div class="flex space-x-1">
       <SecondaryButtonLink to={addLocationLink} text="Add location" />
