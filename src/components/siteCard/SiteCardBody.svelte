@@ -8,8 +8,8 @@
 
   
 
-  export let jobs: Job;
-  export let visits: Visit;
+  export let jobs: Job[];
+
 </script>
 
 <div class="overflow-hidden bg-white">
