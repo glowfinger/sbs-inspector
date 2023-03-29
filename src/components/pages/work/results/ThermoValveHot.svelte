@@ -58,7 +58,7 @@
 </script>
 
 <nav aria-label="Breadcrumb" class="bg-white">
-    <div class="items-start">
+    <div class="items-start pb-4">
         <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900">
             <svg class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
@@ -75,11 +75,11 @@
     <p>{hot.low} - {hot.high}</p>
     <div class="flex justify-end">
         <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`}
-              class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             Back
         </Link>
         <button type="submit"
-                class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             Save
         </button>
     </div>

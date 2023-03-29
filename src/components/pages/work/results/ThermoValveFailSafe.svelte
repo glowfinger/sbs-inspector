@@ -78,7 +78,7 @@
                     <input id="yes" name="notification-method" type="radio"
                            bind:group={result.value}
                            value="yes"
-                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-gray-500">
                     <label for="yes"
                            class="ml-3 block text-sm font-medium text-gray-700">Yes</label>
                 </div>
@@ -88,7 +88,7 @@
                            type="radio"
                            value="no"
                            bind:group={result.value}
-                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-gray-500">
                     <label for="no"
                            class="ml-3 block text-sm font-medium text-gray-700">No</label>
                 </div>
@@ -96,12 +96,12 @@
         </fieldset>
     </div>
     <div class="flex justify-end">
-        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/cold`}
-              class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/mixed`}
+              class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             Back to mixed
         </Link>
         <button type="submit"
-                class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             Save
         </button>
     </div>
