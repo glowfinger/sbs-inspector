@@ -4,7 +4,8 @@
   import type Job from "../../lib/types/Job";
   import type {Visit} from "../../lib/types/Visit";
   import WorkListCard from "./WorkListCard.svelte";
-  import groupLocationsByFloor from "../../lib/mappers/GroupLocationsByFloor.js";
+  import groupLocationsByFloor from "../../lib/mappers/GroupLocationsByFloor";
+  import locationsForType from "../../lib/helpers/conditionals/LocationsForType";
 
   export let job: Job;
   export let visit: Visit;
@@ -12,11 +13,6 @@
   export let siteId: number;
   export let jobId: number;
   export let visitId: number;
-
-  function locationsForType(locations: Location[], type: string) {
-    return locations.filter((location) => location.type === type);
-  }
-
 
 </script>
 
