@@ -47,7 +47,7 @@
 </script>
 
 {#if loaded}
-  <div class="flex flex-col space-y-4">
+  <div class="flex flex-col space-y-2">
     <div class="flex justify-between">
       <SiteHeader {site} address={site.address}/>
     </div>

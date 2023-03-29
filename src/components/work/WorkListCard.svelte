@@ -84,7 +84,7 @@
 </script>
 
 
-<li class="col-span-1 divide-y divide-gray-600 rounded-lg bg-white border border-gray-600 overflow-hidden">
+<li class="grid grid-cols-1 gap-4 content-between divide-y divide-gray-600 rounded-lg bg-white border border-gray-600 overflow-hidden">
     <div class="flex w-full items-center justify-between space-x-2 p-2">
         <div class="flex-1 truncate">
             <div class="flex items-center space-x-3">

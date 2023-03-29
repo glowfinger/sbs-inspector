@@ -17,7 +17,7 @@
         {#each jobs as job}
             <li>
                 <Link to={getLatest(job)} class="block hover:bg-gray-50">
-                    <div class="flex items-center px-2 py-4 sm:px-4">
+                    <div class="flex items-center px-2 py-1 sm:px-4">
                         <div
                                 class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between"
                         >
@@ -28,8 +28,8 @@
                                         {job.status}
                                     </p>
                                 </div>
-                                <div class="mt-2 flex">
-                                    <div class="flex items-center text-sm text-gray-500">
+                                <div class="mt-0 flex">
+                                    <div class="flex items-left text-sm text-gray-500">
                                         <!-- Heroicon name: mini/calendar -->
                                         <svg
                                                 class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
@@ -54,7 +54,7 @@
                                     
                                 </div>
                             </div>
-                            <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                            <div class="mt-0 flex-shrink-0 sm:mt-0 sm:ml-5">
                                 <div class="flex -space-x-1 overflow-hidden" />
                             </div>
                         </div>
