@@ -90,8 +90,9 @@
             <div class="flex items-center space-x-3">
                 <h3 class="truncate text-sm font-medium text-gray-900">{location.name}</h3>
             </div>
-            <p class="mt-1 truncate text-sm text-gray-500">Floor: {location.floor}, Area: {location.area}</p>
+            <p class="mt-1 truncate text-sm text-gray-500">Area: {location.area}</p>
         </div>
+        <!-- Floor: {location.floor},  -->
         <!--        TODO add a status icon-->
     </div>
     {#if !hasWorkForLocation(location, visit.works)}
