@@ -1,17 +1,17 @@
 <script lang="ts">
-      import {Link} from "svelte-routing";
-  import type { Work } from "../../../lib/types/Work";
+    import {Link} from "svelte-routing";
+import type { Work } from "../../../lib/types/Work";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
-  export let workId;
-  export let work: Work;
+export let siteId;
+export let jobId;
+export let visitId;
+export let workId;
+export let work: Work;
 </script>
-<li>        
+<li>
     <div class="group relative flex items-start space-x-3 py-4">
         <div class="flex-shrink-0">
-      <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-600">
+      <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-700">
         <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
              aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -19,25 +19,25 @@
         </svg>
       </span>
         </div>
-       {#if work && work.results.length > 0}
+        {#if work && work.results.length > 0}
         <div class="min-w-0 flex-1">
-            <div class="text-sm font-medium text-gray-900">                  
-                <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/request`}>
+            <div class="text-sm font-medium text-gray-900">
+                <Link to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/serviced`}>
                     <span class="absolute inset-0" aria-hidden="true"></span>
-                    Request replacement
+                    Serviced
                 </Link>
             </div>
-            <p class="text-sm text-gray-500">Request a replacement unit</p>
+            <p class="text-sm text-gray-500">Completed unit service</p>
         </div>
-          {:else}    
-          <div class="min-w-0 flex-1">
-            <div class="text-sm font-medium text-gray-900"> 
-                Request replacement
-            </div>
-            <p class="underline text-sm text-red-500">Please add temperatures</p>
-            <p class="line-through text-sm text-gray-500">Request a replacement unit</p>
-        </div>
-                {/if}
+        {:else}    
+        <div class="min-w-0 flex-1">
+          <div class="text-sm font-medium text-gray-900"> 
+              Serviced
+          </div>
+          <p class="underline text-sm text-red-500">Please add temperatures</p>
+          <p class="line-through text-sm text-gray-500">Completed unit service</p>
+      </div>
+              {/if}
         <div class="flex-shrink-0 self-center">
             <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor"
                  aria-hidden="true">
