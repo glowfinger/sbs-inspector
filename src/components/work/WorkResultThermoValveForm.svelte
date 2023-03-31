@@ -10,15 +10,12 @@
   import { createWorkResult } from "../../lib/apiServices/work/WorkResultApiService";
   import { onMount } from "svelte";
   import type { Work } from "../../lib/types/Work";
-  import type WorkResult from "../../lib/types/WorkResult";
 
   export let workId: number;
   export let work: Work;
   export let nextPage = () => {};
 
   console.log(work.results);
-
-  let loading: boolean = false;
 
   const results = {
     hot: {
@@ -64,23 +61,12 @@
     nextPage();
   }
 
-  function getResult(results: WorkResult[], type: string) {
-    return (
-      results.find((w) => w.type === type) ?? {
-        id: null,
-        type: type,
-        temperature: 0,
-        issue: false,
-      }
-    );
-  }
-
   onMount(async () => {});
 </script>
 
 <form
   class="space-y-8 divide-y divide-gray-200"
-  on:submit|preventDefault="{submit}"
+  on:submit|preventDefault={submit}
 >
   <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
     <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
@@ -96,22 +82,22 @@
         <TemperatureInput
           id="hot-result"
           name="Hot"
-          bind:value="{results.hot.temperature}"
+          bind:value={results.hot.temperature}
         />
         <TemperatureInput
           id="cold-result"
           name="Cold"
-          bind:value="{results.cold.temperature}"
+          bind:value={results.cold.temperature}
         />
         <TemperatureInput
           id="mixed-result"
           name="Mixed"
-          bind:value="{results.mixed.temperature}"
+          bind:value={results.mixed.temperature}
         />
         <SelectInput
           id="fail-safe-result"
           name="Fail safe"
-          bind:value="{results.failSafe.value}"
+          bind:value={results.failSafe.value}
         />
       </div>
     </div>

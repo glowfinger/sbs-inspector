@@ -2,10 +2,10 @@
   import { Link, navigate } from "svelte-routing";
   import { setWorkRequest } from "../../../lib/apiServices/work/WorkApiService";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
-  export let workId;
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
+  export let workId: number;
 
   let loading = true;
 
@@ -25,7 +25,7 @@
 
 <form
   class="space-y-8 divide-y divide-gray-200"
-  on:submit|preventDefault="{submit}"
+  on:submit|preventDefault={submit}
 >
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
@@ -44,9 +44,9 @@
               id="about"
               name="about"
               rows="3"
-              bind:value="{request.comment}"
+              bind:value={request.comment}
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            ></textarea>
+            />
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
   <div class="pt-5">
     <div class="flex justify-end">
       <Link
-        to="{`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`}"
+        to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`}
         class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Back to actions
