@@ -1,4 +1,5 @@
 <script lang="ts">
+  
   export let id;
   export let error = false;
   export let name;
@@ -24,9 +25,11 @@
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
         : 'border-gray-300 focus:border-gray-500 focus:ring-gray-500'}"
     >
-      <option value="" selected disabled hidden>Set here</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
+      <option value="" selected disabled hidden>Select Type</option>
+      {#each options as option}
+      <option value={option.value}>{option.title}</option>
+      {/each}
+
     </select>
     <div
       class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"

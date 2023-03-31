@@ -3,8 +3,13 @@
   import { getLatest } from "../../lib/helpers/links/SiteJobVisit.js";
   import type Job from "../../lib/types/Job";
   import isJobVisitLive from "../../lib/helpers/conditionals/job/isJobVisitLive.js";
+  import type { Visit } from "../../lib/types/Visit.js";
+  import { localDate } from "../helpers/DateFormatter.js";
 
-  export let jobs: Job;
+  
+
+  export let jobs: Job[];
+
 </script>
 
 <div class="overflow-hidden bg-white">
@@ -12,7 +17,7 @@
         {#each jobs as job}
             <li>
                 <Link to={getLatest(job)} class="block hover:bg-gray-50">
-                    <div class="flex items-center px-2 py-4 sm:px-4">
+                    <div class="flex items-center px-2 py-1 sm:px-4">
                         <div
                                 class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between"
                         >
@@ -23,8 +28,8 @@
                                         {job.status}
                                     </p>
                                 </div>
-                                <div class="mt-2 flex">
-                                    <div class="flex items-center text-sm text-gray-500">
+                                <div class="mt-0 flex">
+                                    <div class="flex items-left text-sm text-gray-500">
                                         <!-- Heroicon name: mini/calendar -->
                                         <svg
                                                 class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
@@ -39,14 +44,17 @@
                                                     clip-rule="evenodd"
                                             />
                                         </svg>
+                                        {#each job.visits as visit}
                                         <p>
                                             Booked on:
-                                            <time datetime="2020-01-14">{job.bookedAt}</time>
+                                            <time datetime="2020-01-14">{localDate(visit.bookedAt)}</time>
                                         </p>
+                                        {/each}
                                     </div>
+                                    
                                 </div>
                             </div>
-                            <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                            <div class="mt-0 flex-shrink-0 sm:mt-0 sm:ml-5">
                                 <div class="flex -space-x-1 overflow-hidden" />
                             </div>
                         </div>

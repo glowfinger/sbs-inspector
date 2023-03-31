@@ -17,10 +17,10 @@
 </script>
 
 <div>
-    <h2 class="text-md font-medium text-gray-900 mb-2">Work List</h2>
+    <h1 class="text-md font-medium text-gray-900 mb-2">Work List</h1>
     {#each groupLocationsByFloor(locationsForType(locations, job.type)) as floor}
-        <h2 class="my-4">Floor: {floor.floor}</h2>
-        <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 class="my-4 text-decoration-line: underline">Floor: {floor.floor}</h2>
+        <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
             {#each floor.locations as location}
                 <WorkListCard location={location} visit={visit} visitId={visitId} siteId={siteId} jobId={jobId}/>
             {/each}
