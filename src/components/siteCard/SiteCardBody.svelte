@@ -13,7 +13,7 @@
 </script>
 
 <div class="overflow-hidden bg-white">
-    <ul role="list" class="divide-y divide-gray-200">
+    <ul class="divide-y divide-gray-200">
         {#each jobs as job}
             <li>
                 <Link to={getLatest(job)} class="block hover:bg-gray-50">

@@ -6,6 +6,8 @@
   import {navigate} from "svelte-routing";
   import StartStatusIcon from "../icons/StartStatusIcon.svelte";
   import CompletedStatusIcon from "../icons/CompletedStatusIcon.svelte";
+  import getLatestWork from "../../lib/helpers/GetLatestWork";
+  import getWorksForLocation from "../../lib/helpers/GetWorkForLocation.js";
 
   export let location: Location;
   export let visit: Visit;
@@ -35,18 +37,6 @@
     return works.some((w) => w.locationId === location.id);
   }
 
-  function getWorksForLocation(location: Location, works: Work[]): Work[] {
-    return works.filter((w) => w.locationId === location.id)
-      .sort((a, b) => b.id >= a.id ? 1 : -1)
-  }
-
-
-  function getLatestWork(location: Location, works: Work[]): Work {
-    return getWorksForLocation(location, works)
-      .sort((a, b) => b.id >= a.id ? 1 : -1)
-      .find(() => true);
-  }
-
   function isLatestWorkInCompleted(location: Location, works: Work[]): boolean {
     const work: Work = getLatestWork(location, works);
     return work.completedAt === null;
@@ -60,22 +50,6 @@
   function isLatestUnResolved(location: Location, works: Work[]): boolean {
     const work: Work = getLatestWork(location, works);
     return work.completedAt !== null && work.remediedAt === null && work.resolvedAt === null;
-  }
-
-  function getHotResult(location: Location, work: Work) {
-    return getResult(work.results, "hot");
-  }
-
-  function getColdResult(location: Location, work: Work) {
-    return getResult(work.results, "cold");
-  }
-
-  function getMixedResult(location: Location, work: Work) {
-    return getResult(work.results, "mixed");
-  }
-
-  function getFailSafeResult(location: Location, work: Work) {
-    return getResult(work.results, "fail_safe");
   }
 
   function getResult(results, type: string) {
