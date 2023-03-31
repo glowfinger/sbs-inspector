@@ -52,7 +52,7 @@
 
 {#if !loading}
     <ThermoResultTable results={work.results}/>
-{/if}
+
 
 <ul role="list" class="mt-6 divide-y divide-gray-200 border-t border-b border-gray-200">
     <li>
@@ -116,8 +116,8 @@
             </div>
         </div>
     </li>
-    <RequestUnit {work} {siteId} {jobId} {visitId} {workId}/>
-    <ServicedUnit {work} {siteId} {jobId} {visitId} {workId}/>
-   <ReplacedUnit {work} {siteId} {jobId} {visitId} {workId}/>
+    <RequestUnit results={work.results} url={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/request`}/>
+    <ServicedUnit results={work.results} url={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/serviced`}/>
+   <ReplacedUnit results={work.results} url={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/replace`}/>
 </ul>
-
+{/if}
