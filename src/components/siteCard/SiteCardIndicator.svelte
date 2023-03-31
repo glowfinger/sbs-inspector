@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="flex-shrink-0 flex items-center justify-center w-8 bg-pink-600 text-white text-sm font-medium rounded-l-md"
+  class="flex w-8 flex-shrink-0 items-center justify-center rounded-l-md bg-pink-600 text-sm font-medium text-white"
 >
   <ThermoValveIcon />
   <ShowerHeadIcon />

@@ -3,8 +3,7 @@ import type WorkResult from "./types/WorkResult";
 export let button;
 export let results: WorkResult;
 export default function workActionDenial() {
-  let finalCheck = 
-  setTemperature(results);
+  let finalCheck = setTemperature(results);
   setFailsafe(results);
 
   return finalCheck;

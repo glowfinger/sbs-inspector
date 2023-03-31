@@ -1,7 +1,7 @@
-import { Auth0Client, createAuth0Client } from "@auth0/auth0-spa-js";
-import authConfig from "./AuthConfig";
+import { createAuth0Client } from "@auth0/auth0-spa-js";
 import { get } from "svelte/store";
 import { authClient } from "../stores/AuthStore";
+import authConfig from "./AuthConfig";
 
 async function createClient(): Promise<void> {
   authClient.set(

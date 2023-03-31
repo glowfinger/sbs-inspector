@@ -82,9 +82,9 @@
   });
 </script>
 
-<form on:submit|preventDefault={submit}>
+<form on:submit|preventDefault="{submit}">
   <div class=" sm:overflow-hidden sm:rounded-md">
-    <div class="space-y-6 bg-white py-6 px-1 sm:p-6">
+    <div class="space-y-6 bg-white px-1 py-6 sm:p-6">
       <div>
         <h3 class="text-lg font-medium leading-6 text-gray-900">
           Location Information
@@ -92,42 +92,42 @@
       </div>
       <div class="grid grid-cols-6 gap-6">
         <TextInput
-          bind:value={location.floor}
+          bind:value="{location.floor}"
           id="site-location-floor"
-          error={errors.floor}
+          error="{errors.floor}"
           name="Floor"
-          {loading}
+          loading="{loading}"
         />
         <TextInput
-          bind:value={location.area}
+          bind:value="{location.area}"
           id="site-location-area"
-          error={errors.area}
+          error="{errors.area}"
           name="Area"
-          {loading}
+          loading="{loading}"
         />
 
         <SelectInput
-          bind:value={location.type}
+          bind:value="{location.type}"
           id="site-location-type"
-          error={errors.type}
+          error="{errors.type}"
           name="Type"
-          {loading}
-          options={WorkOptions}
+          loading="{loading}"
+          options="{WorkOptions}"
         />
         <TextInput
-          bind:value={location.name}
+          bind:value="{location.name}"
           id="site-location-name"
-          error={errors.name}
+          error="{errors.name}"
           name="Name"
-          {loading}
+          loading="{loading}"
         />
       </div>
     </div>
     <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
       <button
         type="submit"
-        disabled={loading}
-        class="inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
+        disabled="{loading}"
+        class="inline-flex justify-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
       >
         Save
       </button>

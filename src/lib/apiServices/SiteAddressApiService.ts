@@ -1,8 +1,8 @@
+import { getToken } from "../auth/AuthService";
+import { DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
 import type Address from "../types/Address";
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
-import { getToken } from "../auth/AuthService";
-import {DOMAIN, PROTOCOL} from "../services/ApiServiceConfig";
 
 export async function createSiteAddress(address: Address, siteId: number) {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/address`, {

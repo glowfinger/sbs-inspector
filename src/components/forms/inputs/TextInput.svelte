@@ -8,19 +8,19 @@
 
 <div class="col-span-6 sm:col-span-4">
   <label
-    for={id}
+    for="{id}"
     class="block text-sm font-medium {error ? 'text-red-600' : 'text-gray-900'}"
     >{name}</label
   >
   <div class="relative mt-1 rounded-md shadow-sm">
     <input
-      bind:value={value}
-      disabled={loading}
+      bind:value
+      disabled="{loading}"
       type="text"
-      name={id}
-      id={id}
+      name="{id}"
+      id="{id}"
       autocomplete="none"
-      class="mt-1 block w-full rounded-md border py-2 px-3 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
+      class="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
         : 'border-gray-300 focus:border-gray-500 focus:ring-gray-500'}"
     />
@@ -38,13 +38,12 @@
           <path
             fill-rule="evenodd"
             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
-            clip-rule="evenodd"
-          />
+            clip-rule="evenodd"></path>
         </svg>
       {/if}
     </div>
   </div>
   {#if error}
-    <p class="mt-2 text-sm text-red-600" id={`${id}-error`}>{error}</p>
+    <p class="mt-2 text-sm text-red-600" id="{`${id}-error`}">{error}</p>
   {/if}
 </div>

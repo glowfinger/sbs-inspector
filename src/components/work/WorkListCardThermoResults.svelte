@@ -27,14 +27,14 @@
 </script>
 
 {#if results.length === 0}
-    <div class="grid grid-cols-1 gap-1 px-2">
-        <div>No results entered</div>
-    </div>
+  <div class="grid grid-cols-1 gap-1 px-2">
+    <div>No results entered</div>
+  </div>
 {:else}
-    <div class="flex justify-between">
-        <TemperatureResult title="Hot" result={getHotResult(results)}/>
-        <TemperatureResult title="Cold" result={getColdResult(results)}/>
-        <TemperatureResult title="Mixed" result={getMixedResult(results)}/>
-        <FailSafeResult title="Fail safe" result={getFailSafeResult(results)}/>
-    </div>
+  <div class="flex justify-between">
+    <TemperatureResult title="Hot" result="{getHotResult(results)}" />
+    <TemperatureResult title="Cold" result="{getColdResult(results)}" />
+    <TemperatureResult title="Mixed" result="{getMixedResult(results)}" />
+    <FailSafeResult title="Fail safe" result="{getFailSafeResult(results)}" />
+  </div>
 {/if}

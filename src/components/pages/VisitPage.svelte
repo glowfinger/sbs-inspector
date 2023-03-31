@@ -49,15 +49,22 @@
 {#if loaded}
   <div class="flex flex-col space-y-2 ">
     <div class="flex justify-between">
-      <SiteHeader {site} address={site.address}/>
+      <SiteHeader site="{site}" address="{site.address}" />
     </div>
     <div class="flex space-x-1">
-      <SecondaryButtonLink to={addLocationLink} text="Add location" />
+      <SecondaryButtonLink to="{addLocationLink}" text="Add location" />
     </div>
     <div class="flex space-x-1">
-      <PrimaryButtonLink to={completeVisitLink} text="Complete visit" />
+      <PrimaryButtonLink to="{completeVisitLink}" text="Complete visit" />
     </div>
     <!--        <WorkMetricHeader visitId={visitId} siteId={siteId} jobId={jobId}/>-->
-    <WorkList {job} {visit} {locations} {visitId} {siteId} {jobId} />
+    <WorkList
+      job="{job}"
+      visit="{visit}"
+      locations="{locations}"
+      visitId="{visitId}"
+      siteId="{siteId}"
+      jobId="{jobId}"
+    />
   </div>
 {/if}

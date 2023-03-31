@@ -4,22 +4,20 @@ export default function groupLocationsByFloor(locations) {
     const location = locations[i];
 
     const foundIndex = rows.findIndex((row) => {
-      return row.floor === location.floor
+      return row.floor === location.floor;
     });
 
     if (foundIndex === -1) {
       let floor = {
         floor: location.floor,
-        locations: [location]
-
-      }
-      rows.push(floor)
+        locations: [location],
+      };
+      rows.push(floor);
     } else {
-      rows[foundIndex].locations.push(location)
+      rows[foundIndex].locations.push(location);
     }
-
   }
-  return rows.sort(floorSort)
+  return rows.sort(floorSort);
 }
 
 function floorSort(a, b) {
