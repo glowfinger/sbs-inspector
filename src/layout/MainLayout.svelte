@@ -11,11 +11,11 @@
 </script>
 
 <div class="min-h-full">
-  <MobileNavigation toggle={toggleIsNavOpen} {isNavOpen} />
-  <MobileNavbar toggle={toggleIsNavOpen} />
+  <MobileNavigation toggle="{toggleIsNavOpen}" isNavOpen="{isNavOpen}" />
+  <MobileNavbar toggle="{toggleIsNavOpen}" />
   <DesktopNavigation />
-  <div class="flex flex-col lg:pl-64 pb-48">
-    <main class="flex-1 p-4 mb-6 min-h-full">
+  <div class="flex flex-col pb-48 lg:pl-64">
+    <main class="mb-6 min-h-full flex-1 p-4">
       <slot />
     </main>
   </div>

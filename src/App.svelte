@@ -1,15 +1,15 @@
 <script lang="ts">
-  import {Router, Route} from "svelte-routing";
-  import {isOnline} from "./Store.js";
+  import { Router, Route } from "svelte-routing";
+  import { isOnline } from "./Store.js";
   import DashboardPage from "./components/pages/DashboardPage.svelte";
   import MainLayout from "./layout/MainLayout.svelte";
   import SitePage from "./components/pages/SitePage.svelte";
   import SitesPage from "./components/pages/SitesPage.svelte";
-  import {onMount} from "svelte";
-  import {createClient} from "./lib/auth/AuthService";
-  import {authClient, isAuthenticated, user} from "./lib/stores/AuthStore";
+  import { onMount } from "svelte";
+  import { createClient } from "./lib/auth/AuthService";
+  import { authClient, isAuthenticated, user } from "./lib/stores/AuthStore";
   import LoginRoute from "./components/pages/LoginPage.svelte";
-  import {login, logout} from "./lib/auth/AuthService.js";
+  import { login, logout } from "./lib/auth/AuthService.js";
   import LogoutPage from "./components/pages/LogoutPage.svelte";
   import NotFoundPage from "./components/pages/NotFoundPage.svelte";
   import VisitPage from "./components/pages/VisitPage.svelte";
@@ -42,113 +42,177 @@
   });
 </script>
 
-<svelte:window bind:online={$isOnline}/>
+<svelte:window bind:online="{$isOnline}" />
 <svelte:head>
-    <title>SBS Inspector</title>
+  <title>SBS Inspector</title>
 </svelte:head>
 
 {#if $isAuthenticated}
-    <Router {url}>
-        <MainLayout>
-            <Route path="/">
-                <DashboardPage/>
-            </Route>
-            <Route path="/sites">
-                <SitesPage/>
-            </Route>
-            <Route path="/site/:siteId" let:params>
-                <SitePage siteId={parseInt(params.siteId)}/>
-            </Route>
-            <Route path="/site/:siteId/job/:jobId/visit/:visitId/location/add" let:params>
-                <SiteLocationPage visitId={parseInt(params.visitId)}
-                                  siteId={parseInt(params.siteId)}
-                                  jobId={parseInt(params.jobId)}/>
-            </Route>
+  <Router url="{url}">
+    <MainLayout>
+      <Route path="/">
+        <DashboardPage />
+      </Route>
+      <Route path="/sites">
+        <SitesPage />
+      </Route>
+      <Route path="/site/:siteId" let:params>
+        <SitePage siteId="{parseInt(params.siteId)}" />
+      </Route>
+      <Route
+        path="/site/:siteId/job/:jobId/visit/:visitId/location/add"
+        let:params
+      >
+        <SiteLocationPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+        />
+      </Route>
 
-            <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
-                <VisitPage visitId={parseInt(params.visitId)}
-                           siteId={parseInt(params.siteId)}
-                           jobId={parseInt(params.jobId)}/>
-            </Route>
-            <Route path="/site/:siteId/job/:jobId/visit/:visitId/status/:status" let:params>
-                <VisitPage visitId={parseInt(params.visitId)}
-                           siteId={parseInt(params.siteId)}
-                           jobId={parseInt(params.jobId)}
-                           status={params.status}/>
-            </Route>
-            <Route path="/site/:siteId/job/:jobId/visit/:visitId/complete" let:params>
-                <VisitCompletePage siteId={parseInt(params.siteId)}
-                                   jobId={parseInt(params.jobId)}
-                                   visitId={parseInt(params.visitId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action">
-                <WorkActionPage visitId={parseInt(params.visitId)}
-                                siteId={parseInt(params.siteId)}
-                                jobId={parseInt(params.jobId)}
-                                workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible">
-                <WorkInaccessiblePage visitId={parseInt(params.visitId)}
-                                      siteId={parseInt(params.siteId)}
-                                      jobId={parseInt(params.jobId)}
-                                      workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced">
-                <WorkServicedPage visitId={parseInt(params.visitId)}
-                                  siteId={parseInt(params.siteId)}
-                                  jobId={parseInt(params.jobId)}
-                                  workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request">
-                <WorkRequestPage visitId={parseInt(params.visitId)}
-                                 siteId={parseInt(params.siteId)}
-                                 jobId={parseInt(params.jobId)}
-                                 workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replace">
-                <WorkReplacePage visitId={parseInt(params.visitId)}
-                                 siteId={parseInt(params.siteId)}
-                                 jobId={parseInt(params.jobId)}
-                                 workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot">
-                <ThermoValveHot visitId={parseInt(params.visitId)}
-                                siteId={parseInt(params.siteId)}
-                                jobId={parseInt(params.jobId)}
-                                workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/cold">
-                <ThermoValveCold visitId={parseInt(params.visitId)}
-                                 siteId={parseInt(params.siteId)}
-                                 jobId={parseInt(params.jobId)}
-                                 workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/mixed">
-                <ThermoValveMixed visitId={parseInt(params.visitId)}
-                                  siteId={parseInt(params.siteId)}
-                                  jobId={parseInt(params.jobId)}
-                                  workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/fail-safe">
-                <ThermoValveFailSafe visitId={parseInt(params.visitId)}
-                                     siteId={parseInt(params.siteId)}
-                                     jobId={parseInt(params.jobId)}
-                                     workId={parseInt(params.workId)}/>
-            </Route>
-            <Route let:params path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/confirmation">
-                <WorkConfirmationPage visitId={parseInt(params.visitId)}
-                                      siteId={parseInt(params.siteId)}
-                                      jobId={parseInt(params.jobId)}
-                                      workId={parseInt(params.workId)}/>
-            </Route>
-            <Route path="/logout">
-                <LogoutPage logout={() => logout($authClient)}/>
-            </Route>
-            <Route path="/*" let:params>
-                <NotFoundPage/>
-            </Route>
-        </MainLayout>
-    </Router>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
+        <VisitPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+        />
+      </Route>
+      <Route
+        path="/site/:siteId/job/:jobId/visit/:visitId/status/:status"
+        let:params
+      >
+        <VisitPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          status="{params.status}"
+        />
+      </Route>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId/complete" let:params>
+        <VisitCompletePage
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          visitId="{parseInt(params.visitId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action"
+      >
+        <WorkActionPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible"
+      >
+        <WorkInaccessiblePage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced"
+      >
+        <WorkServicedPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request"
+      >
+        <WorkRequestPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replace"
+      >
+        <WorkReplacePage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot"
+      >
+        <ThermoValveHot
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/cold"
+      >
+        <ThermoValveCold
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/mixed"
+      >
+        <ThermoValveMixed
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/fail-safe"
+      >
+        <ThermoValveFailSafe
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route
+        let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/confirmation"
+      >
+        <WorkConfirmationPage
+          visitId="{parseInt(params.visitId)}"
+          siteId="{parseInt(params.siteId)}"
+          jobId="{parseInt(params.jobId)}"
+          workId="{parseInt(params.workId)}"
+        />
+      </Route>
+      <Route path="/logout">
+        <LogoutPage logout="{() => logout($authClient)}" />
+      </Route>
+      <Route path="/*" let:params>
+        <NotFoundPage />
+      </Route>
+    </MainLayout>
+  </Router>
 {:else}
-    <LoginRoute login={() => login($authClient)}/>
+  <LoginRoute login="{() => login($authClient)}" />
 {/if}

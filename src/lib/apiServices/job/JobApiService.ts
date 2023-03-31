@@ -1,8 +1,8 @@
+import { getToken } from "../../auth/AuthService";
+import { DOMAIN, PROTOCOL } from "../../services/ApiServiceConfig";
+import type Job from "../../types/Job";
 import handleErrors from "../helpers/HandleError";
 import handleJson from "../helpers/HandleJson";
-import type Job from "../../types/Job";
-import { getToken } from "../../auth/AuthService";
-import {DOMAIN, PROTOCOL} from "../../services/ApiServiceConfig";
 
 export async function getJobById(jobId: number): Promise<Job> {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/job/${jobId}`, {

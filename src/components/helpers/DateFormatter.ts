@@ -16,4 +16,4 @@ function shortDate(dateString: string): string {
   return formattedString;
 }
 
-export {localDate, shortDate}
+export { localDate, shortDate };

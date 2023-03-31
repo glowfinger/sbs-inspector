@@ -1,10 +1,13 @@
+import { getToken } from "../auth/AuthService";
+import { DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
 import type Location from "../types/Location";
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
-import {getToken} from "../auth/AuthService";
-import {DOMAIN, PROTOCOL} from "../services/ApiServiceConfig";
 
-export async function createSiteLocation(location: Location, siteId: number): Promise<Location> {
+export async function createSiteLocation(
+  location: Location,
+  siteId: number
+): Promise<Location> {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location`, {
     headers: {
       Accept: "application/json",
@@ -40,7 +43,10 @@ export async function updateSiteLocation(
     .then(handleJson);
 }
 
-export async function getSiteLocation(siteId: number, locationId: number): Promise<Location> {
+export async function getSiteLocation(
+  siteId: number,
+  locationId: number
+): Promise<Location> {
   return fetch(
     `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location/${locationId}`,
     {

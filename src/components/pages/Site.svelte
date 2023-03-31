@@ -4,8 +4,8 @@
   export let sites = [];
 </script>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-  <main class="pt-8 pb-16">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+  <main class="pb-16 pt-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="px-4 sm:px-0">
         <h2 class="text-lg font-medium text-gray-900">My sites</h2>
@@ -20,7 +20,7 @@
               to="/site/{site.id}/work/{site.works[0].id}"
               class="group block"
             >
-              <div class="flex items-center py-5 px-4 sm:py-6 sm:px-0">
+              <div class="flex items-center px-4 py-5 sm:px-0 sm:py-6">
                 <div class="flex min-w-0 flex-1 items-center">
                   <div class="flex-shrink-0">
                     <span
@@ -56,10 +56,10 @@
                         >
                           <path
                             d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"
-                          />
+                          ></path>
                           <path
                             d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"
-                          />
+                          ></path>
                         </svg>
                         <span class="truncate">{site.works[0].status}</span>
                       </p>
@@ -78,8 +78,7 @@
                     <path
                       fill-rule="evenodd"
                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                      clip-rule="evenodd"
-                    />
+                      clip-rule="evenodd"></path>
                   </svg>
                 </div>
               </div>

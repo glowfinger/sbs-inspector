@@ -5,5 +5,3 @@
   export let workId;
   export let type: string;
 </script>
-
-

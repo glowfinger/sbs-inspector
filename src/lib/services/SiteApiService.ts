@@ -1,7 +1,7 @@
-import { DOMAIN, PROTOCOL } from "./ApiServiceConfig";
-import apiError from "./ApiError";
-import type { Site } from "../types/Site";
 import { getToken } from "../auth/AuthService";
+import type { Site } from "../types/Site";
+import apiError from "./ApiError";
+import { DOMAIN, PROTOCOL } from "./ApiServiceConfig";
 
 export async function getMySites() {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site`, {
