@@ -13,9 +13,9 @@
   import locationsForType from "../../../lib/helpers/conditionals/LocationsForType";
   import { completeVisit } from "../../../lib/apiServices/job/JobVisitApiService";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
 
   let loaded = false;
 
@@ -40,16 +40,16 @@
   }
 </script>
 
-<button on:click="{handleComplete}">Complete</button>
+<button on:click={handleComplete}>Complete</button>
 {#if loaded}
   {hasWorksForLocation(locationsForType(locations, job.type), visit.works)
     .length}-/-{locationsForType(locations, job.type)
     .length}-/-{locations.length}
   <br />
   <Stringify
-    obj="{hasWorksForLocation(
+    obj={hasWorksForLocation(
       locationsForType(locations, job.type),
       visit.works
-    )}"
+    )}
   />
 {/if}

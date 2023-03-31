@@ -15,8 +15,8 @@
   export let visitId: number;
   export let location: Location;
   export let work: Work;
-  export let startWork;
-  export let updateWork;
+  export let startWork: {};
+  export let updateWork: {};
 
   function getHotResult(location: Location, work: Work) {
     return getResult(work.results, "hot");
@@ -69,17 +69,17 @@
     <td class="whitespace-nowrap p-2 text-sm text-gray-500"
       >{work.outcome ?? "-"}</td
     >
-    <TemperatureTd result="{getHotResult(location, work)}" />
-    <TemperatureTd result="{getColdResult(location, work)}" />
-    <TemperatureTd result="{getMixedResult(location, work)}" />
-    <FailsafeTd result="{getFailSafeResult(location, work)}" />
+    <TemperatureTd result={getHotResult(location, work)} />
+    <TemperatureTd result={getColdResult(location, work)} />
+    <TemperatureTd result={getMixedResult(location, work)} />
+    <FailsafeTd result={getFailSafeResult(location, work)} />
     {#if !work.completedAt}
       <td
         class="relative whitespace-nowrap p-2 text-right text-sm font-medium sm:pr-6"
       >
         <button
           class="text-gray-600 hover:text-gray-900"
-          on:click="{() => updateWork(visitId, work.id)}"
+          on:click={() => updateWork(visitId, work.id)}
         >
           update
         </button>
@@ -90,7 +90,7 @@
       >
         <button
           class="text-gray-600 hover:text-gray-900"
-          on:click="{() => resolveWork(siteId, visitId, work.id, location.id)}"
+          on:click={() => resolveWork(siteId, visitId, work.id, location.id)}
         >
           Resolve
         </button>
@@ -111,7 +111,7 @@
     >
       <button
         class="text-gray-600 hover:text-gray-900"
-        on:click="{() => startWork(visitId, location.id)}"
+        on:click={() => startWork(visitId, location.id)}
         >Start
       </button>
     </td>

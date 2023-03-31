@@ -1,10 +1,10 @@
 <script lang="ts">
   import { navigate } from "svelte-routing";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
-  export let workId;
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
+  export let workId: number;
   function cancel() {
     navigate(
       `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`
@@ -29,7 +29,7 @@
               name="about"
               rows="3"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            ></textarea>
+            />
           </div>
           <p class="mt-2 text-sm text-gray-500">
             Write a few sentences about yourself.
@@ -43,7 +43,7 @@
     <div class="flex justify-end">
       <button
         type="button"
-        on:click="{cancel}"
+        on:click={cancel}
         class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Cancel

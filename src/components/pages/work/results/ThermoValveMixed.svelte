@@ -12,15 +12,14 @@
   import getResult from "../../../../lib/apiServices/helpers/results/GetResult";
   import type WorkResult from "../../../../lib/types/WorkResult";
   import type { Work } from "../../../../lib/types/Work";
-  import ThermoResultTable from "./ThermoResultTable.svelte";
   import { getSiteLocation } from "../../../../lib/apiServices/SiteLocationApiService";
   import type SiteLocation from "../../../../lib/types/SiteLocation";
   import WorkHeader from "../WorkHeader.svelte";
 
-  export let siteId;
-  export let jobId;
-  export let visitId;
-  export let workId;
+  export let siteId: number;
+  export let jobId: number;
+  export let visitId: number;
+  export let workId: number;
 
   let loading = true;
 
@@ -64,7 +63,7 @@
 <nav aria-label="Breadcrumb" class="bg-white">
   <div class="items-start pb-4">
     <Link
-      to="{`/site/${siteId}/job/${jobId}/visit/${visitId}`}"
+      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
       class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900"
     >
       <svg
@@ -76,25 +75,26 @@
         <path
           fill-rule="evenodd"
           d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-          clip-rule="evenodd"></path>
+          clip-rule="evenodd"
+        />
       </svg>
       <span>Visit</span>
     </Link>
   </div>
 </nav>
 
-<WorkHeader location="{location}" action="Mixed result" />
+<WorkHeader {location} action="Mixed result" />
 
-<form class="space-y-4" on:submit|preventDefault="{submit}">
+<form class="space-y-4" on:submit|preventDefault={submit}>
   <TemperatureInput
     id="mixed-temperature"
     name="Mixed temperature"
-    bind:value="{result.temperature}"
+    bind:value={result.temperature}
   />
   <p>{mixed.low} - {mixed.high}</p>
   <div class="flex justify-end">
     <Link
-      to="{`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/cold`}"
+      to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/cold`}
       class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
     >
       Back

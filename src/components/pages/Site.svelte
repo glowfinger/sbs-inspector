@@ -11,10 +11,9 @@
         <h2 class="text-lg font-medium text-gray-900">My sites</h2>
       </div>
       <ul
-        role="list"
         class="mt-5 divide-y divide-gray-200 border-t border-gray-200 sm:mt-0 sm:border-t-0"
       >
-        {#each sites as site, i}
+        {#each sites as site}
           <li>
             <Link
               to="/site/{site.id}/work/{site.works[0].id}"
@@ -56,10 +55,10 @@
                         >
                           <path
                             d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"
-                          ></path>
+                          />
                           <path
                             d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"
-                          ></path>
+                          />
                         </svg>
                         <span class="truncate">{site.works[0].status}</span>
                       </p>
@@ -78,7 +77,8 @@
                     <path
                       fill-rule="evenodd"
                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                      clip-rule="evenodd"></path>
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </div>
               </div>
