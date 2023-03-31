@@ -11,10 +11,10 @@
 <div
   class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow"
 >
-  <SiteCardHeader site="{site}" />
-  <SiteCardBody jobs="{site.jobs}" />
+  <SiteCardHeader site={site} />
+  <SiteCardBody jobs={site.jobs} />
   <div class="px-2 py-1 sm:px-4">
-    <Link to="{`/site/${site.id}`}" class="focus:outline-none">
+    <Link to={`/site/${site.id}`} class="focus:outline-none">
       <p class="text-sm font-medium text-gray-900">Edit</p>
     </Link>
   </div>

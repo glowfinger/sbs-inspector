@@ -81,7 +81,7 @@
   </div>
 </nav>
 
-<WorkHeader {location} action="Fail-safe result" />
+<WorkHeader location={location} action="Fail-safe result" />
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
   <div>

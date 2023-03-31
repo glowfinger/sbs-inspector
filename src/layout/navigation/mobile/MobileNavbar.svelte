@@ -17,7 +17,7 @@
   >
     <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
     <button
-      on:click="{toggle}"
+      on:click={toggle}
       type="button"
       class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 lg:hidden"
     >
@@ -35,7 +35,8 @@
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"></path>
+          d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+        />
       </svg>
     </button>
     <div class="flex flex-1 justify-between px-4 sm:px-6 lg:px-8">
@@ -57,7 +58,8 @@
                 <path
                   fill-rule="evenodd"
                   d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                />
               </svg>
             </div>
             <input
@@ -75,7 +77,7 @@
         <div class="relative ml-3">
           <div>
             <button
-              on:click="{toggleIsOpen}"
+              on:click={toggleIsOpen}
               type="button"
               class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
               id="user-menu-button"
@@ -86,7 +88,7 @@
               <span
                 class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100"
               >
-                <img src="{$user.picture}" alt="icon" />
+                <img src={$user.picture} alt="icon" />
               </span>
             </button>
           </div>

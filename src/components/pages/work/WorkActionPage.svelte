@@ -56,7 +56,7 @@
   </div>
 </nav>
 
-<WorkHeader {location} action="Fail-safe result" />
+<WorkHeader location={location} action="Fail-safe result" />
 
 {#if !loading}
   <ThermoResultTable results={work.results} />

@@ -83,7 +83,7 @@
   </div>
 </nav>
 
-<WorkHeader {location} action="Mixed result" />
+<WorkHeader location={location} action="Mixed result" />
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
   <TemperatureInput

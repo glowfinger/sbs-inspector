@@ -10,7 +10,7 @@
   "useTabs": false,
   "singleQuote": false,
   "svelteSortOrder" : "options-styles-scripts-markup",
-  "svelteStrictMode": true,
+  "svelteStrictMode": false,
   "bracketSameLine": false,
   "svelteAllowShorthand": false
 }

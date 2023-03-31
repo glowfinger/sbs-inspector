@@ -84,7 +84,7 @@
   </div>
 </nav>
 
-<WorkHeader {location} action="Cold result" />
+<WorkHeader location={location} action="Cold result" />
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
   <TemperatureInput

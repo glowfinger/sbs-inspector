@@ -96,14 +96,14 @@
           id="site-location-floor"
           error={errors.floor}
           name="Floor"
-          {loading}
+          loading={loading}
         />
         <TextInput
           bind:value={location.area}
           id="site-location-area"
           error={errors.area}
           name="Area"
-          {loading}
+          loading={loading}
         />
 
         <SelectInput
@@ -111,7 +111,7 @@
           id="site-location-type"
           error={errors.type}
           name="Type"
-          {loading}
+          loading={loading}
           options={WorkOptions}
         />
         <TextInput
@@ -119,7 +119,7 @@
           id="site-location-name"
           error={errors.name}
           name="Name"
-          {loading}
+          loading={loading}
         />
       </div>
     </div>
