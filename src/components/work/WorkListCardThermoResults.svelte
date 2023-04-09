@@ -32,9 +32,9 @@
   </div>
 {:else}
   <div class="flex justify-between">
-    <TemperatureResult title="Hot" result="{getHotResult(results)}" />
-    <TemperatureResult title="Cold" result="{getColdResult(results)}" />
-    <TemperatureResult title="Mixed" result="{getMixedResult(results)}" />
-    <FailSafeResult title="Fail safe" result="{getFailSafeResult(results)}" />
+    <TemperatureResult title="Hot" result={getHotResult(results)} />
+    <TemperatureResult title="Cold" result={getColdResult(results)} />
+    <TemperatureResult title="Mixed" result={getMixedResult(results)} />
+    <FailSafeResult title="Fail safe" result={getFailSafeResult(results)} />
   </div>
 {/if}

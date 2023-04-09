@@ -126,7 +126,7 @@
     <div class="-mt-px flex bg-gray-600 text-white">
       <button
         class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-2 text-sm font-semibold"
-        on:click="{() => handleStartWork(location)}"
+        on:click={() => handleStartWork(location)}
       >
         <StartStatusIcon />
         Start
@@ -136,7 +136,7 @@
     <div class="-mt-px flex bg-gray-600 text-white">
       <button
         class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-2 text-sm font-semibold"
-        on:click="{() => handleResolveWork(location, visit.works)}"
+        on:click={() => handleResolveWork(location, visit.works)}
       >
         <StartStatusIcon />
         Resolve
@@ -146,7 +146,7 @@
     <div class="-mt-px flex bg-gray-600 text-white">
       <button
         class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-2 text-sm font-semibold"
-        on:click="{() => handleUpdateWork(location, visit.works)}"
+        on:click={() => handleUpdateWork(location, visit.works)}
       >
         <StartStatusIcon />
         Update

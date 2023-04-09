@@ -48,7 +48,7 @@
 </svelte:head>
 
 {#if $isAuthenticated}
-  <Router {url}>
+  <Router url={url}>
     <MainLayout>
       <Route path="/">
         <DashboardPage />

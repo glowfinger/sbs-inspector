@@ -22,7 +22,13 @@
       class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
     >
       {#each floor.locations as location}
-        <WorkListCard {location} {visit} {visitId} {siteId} {jobId} />
+        <WorkListCard
+          location={location}
+          visit={visit}
+          visitId={visitId}
+          siteId={siteId}
+          jobId={jobId}
+        />
       {/each}
     </ul>
   {/each}

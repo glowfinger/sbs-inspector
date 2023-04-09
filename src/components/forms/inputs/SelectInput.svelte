@@ -15,7 +15,7 @@
   >
   <div class="relative mt-1 rounded-md shadow-sm">
     <select
-      {id}
+      id={id}
       name={id}
       autocomplete="country-name"
       bind:value

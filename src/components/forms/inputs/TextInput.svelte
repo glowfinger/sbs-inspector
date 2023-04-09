@@ -18,7 +18,7 @@
       disabled={loading}
       type="text"
       name={id}
-      {id}
+      id={id}
       autocomplete="none"
       class="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'

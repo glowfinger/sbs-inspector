@@ -35,7 +35,7 @@
       disabled={loading}
       type="text"
       name={id}
-      {id}
+      id={id}
       bind:this={elm}
       inputmode="decimal"
       autocomplete="none"

@@ -42,10 +42,10 @@
         </thead>
         <tbody class="divide-y divide-gray-200 bg-white">
           <tr>
-            <TemperatureTd result="{getResult(results, 'hot')}" />
-            <TemperatureTd result="{getResult(results, 'cold')}" />
-            <TemperatureTd result="{getResult(results, 'mixed')}" />
-            <FailSafeTd result="{getResult(results, 'fail_safe')}" />
+            <TemperatureTd result={getResult(results, "hot")} />
+            <TemperatureTd result={getResult(results, "cold")} />
+            <TemperatureTd result={getResult(results, "mixed")} />
+            <FailSafeTd result={getResult(results, "fail_safe")} />
           </tr>
         </tbody>
       </table>
