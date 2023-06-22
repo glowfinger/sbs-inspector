@@ -16,16 +16,12 @@
   import VisitPageHeading from "./VisitPageHeading.svelte";
   import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
   import LocationInfoList from "./LocationInfoList.svelte";
-  import { navigate } from "svelte-routing";
-  import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
-  import VisitCompleteModal from "../../VisitCompleteModal.svelte";
 
   export let siteId: number;
   export let jobId: number;
   export let visitId: number;
 
   let loaded = false;
-  let saving = false;
   let locations: Location[] = [];
   let completeLocations: Location[] = [];
   let incompleteLocations: Location[] = [];
@@ -50,16 +46,8 @@
     loaded = true;
   });
 
-  const reviewLink: string = `/site/${siteId}/job/${jobId}/visit/2/review`;
-  const visitLink: string = `/site/${siteId}/job/${jobId}/visit/2`;
-
   function handleComplete() {
-    saving = true;
-    completeVisit(visit.id).then(() => {
-      navigate(visitLink);
-    }).catch(() => {
-      saving = false;
-    });
+    completeVisit(visit.id).then(console.log).catch(console.log);
   }
 
   function allLocationsActioned(): boolean {
@@ -78,25 +66,20 @@
     return works.some((work) => work.locationId === location.id && work.completedAt !== null);
   }
 
-
-  function proceed() {
-
-  }
-
-  function cancel() {
-    navigate(reviewLink);
-  }
-
+  const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/complete`;
 </script>
 
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/2`} text="Visit" />
+  </div>
+</nav>
+
 {#if loaded}
-  <nav aria-label="Breadcrumb" class="mb-2 ">
-    <div class="items-start">
-      <BreadcrumbFirstLink to={reviewLink} text="Visit" />
-      <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
-    </div>
-  </nav>
-
-
-  <VisitCompleteModal cancelLink={reviewLink} proceed={handleComplete} />
+  <PageHeader text="Complete visit" />
+  <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
+  <div class="mt-4 mb-4 flex">
+    <PrimaryButtonLink to={completeVisitLink} text="Complete visit">Complete review</PrimaryButtonLink>
+  </div>
+  <LocationInfoList locations={incompleteLocations} />
 {/if}

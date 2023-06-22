@@ -15,7 +15,6 @@
 </script>
 
 <div>
-  <h1 class="text-md mb-2 font-medium text-gray-900">Work List</h1>
   {#each groupLocationsByFloor(locationsForType(locations, job.type)) as floor}
     <h2 class="text-decoration-line: my-4 underline">Floor: {floor.floor}</h2>
     <ul
