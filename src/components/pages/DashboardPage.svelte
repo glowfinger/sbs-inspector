@@ -14,4 +14,4 @@
   }
 </script>
 
-<SiteOverviewTable sites={sites} />
+<!--<SiteOverviewTable sites={sites} />-->

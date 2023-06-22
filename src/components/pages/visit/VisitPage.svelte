@@ -13,7 +13,6 @@
   import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
   import PageHeader from "../../PageHeader.svelte";
   import SectionHeader from "../../SectionHeader.svelte";
-  import SiteHeader from "../../site/header/SiteHeader.svelte";
   import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
   import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
 
@@ -45,30 +44,34 @@
 
 <nav aria-label="Breadcrumb" class="mb-2 ">
   <div class="items-start">
-    <BreadcrumbFirstLink to="/sites" text="Sites" />
+    <BreadcrumbFirstLink to="/visits" text="Visits" />
   </div>
 </nav>
 
 {#if loaded}
   <PageHeader text="Visit" />
   <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
-  <div class="mt-4 flex">
+
+  {#if !visit.completedAt === null}
+    <div class="mt-4 flex">
     <span>
       <PrimaryButtonLink to={completeVisitLink} text="Review visit" />
     </span>
-    <span class="ml-2">
+      <span class="ml-2">
       <SecondaryButtonLink to={addLocationLink} text="Add location" />
   </span>
-  </div>
-  <SectionHeader text="Work list" />
-  <div class="flex flex-col space-y-2 ">
-    <WorkList
-      job={job}
-      visit={visit}
-      locations={locations}
-      visitId={visitId}
-      siteId={siteId}
-      jobId={jobId}
-    />
-  </div>
+    </div>
+
+    <SectionHeader text="Work list" />
+    <div class="flex flex-col space-y-2 ">
+      <WorkList
+        job={job}
+        visit={visit}
+        locations={locations}
+        visitId={visitId}
+        siteId={siteId}
+        jobId={jobId}
+      />
+    </div>
+  {/if}
 {/if}

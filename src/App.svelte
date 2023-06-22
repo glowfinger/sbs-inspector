@@ -54,7 +54,7 @@
       <Route path="/">
         <DashboardPage />
       </Route>
-      <Route path="/sites">
+      <Route path="/visits">
         <SitesPage />
       </Route>
       <Route path="/site/:siteId" let:params>
