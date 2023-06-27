@@ -8,3 +8,4 @@ export default interface Job {
   type: string;
   visits: Array<JobVisit>;
 }
+

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Site } from "../../lib/types/Site";
+  import type Site  from "../../lib/types/Site";
   import { Link } from "svelte-routing";
   import SiteCardHeader from "./SiteCardHeader.svelte";
   import SiteCardBody from "./SiteCardBody.svelte";
@@ -8,9 +8,7 @@
   export let site: Site;
 </script>
 
-<div
-  class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow"
->
+<div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
   <SiteCardHeader site={site} />
   <SiteCardBody jobs={site.jobs} />
   <div class="px-2 py-1 sm:px-4">

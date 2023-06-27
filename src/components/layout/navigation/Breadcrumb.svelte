@@ -4,7 +4,7 @@
   >
     <li class="flex">
       <div class="flex items-center">
-        <a href="/" class="text-gray-400 hover:text-gray-500">
+        <a href="/public" class="text-gray-400 hover:text-gray-500">
           <!-- Heroicon name: mini/home -->
           <svg
             class="h-5 w-5 flex-shrink-0"

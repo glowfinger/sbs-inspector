@@ -100,3 +100,17 @@ export async function setWorkServiced(workId: number, work) {
     .then(handleErrors)
     .then(handleJson);
 }
+
+export async function setWorkDescaled(workId: number, work) {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/work/${workId}/descale`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: "Bearer " + (await getToken()),
+    },
+    method: "PUT",
+    body: JSON.stringify(work),
+  })
+    .then(handleErrors)
+    .then(handleJson);
+}

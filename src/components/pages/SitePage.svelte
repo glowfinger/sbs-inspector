@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { getSiteById } from "../../lib/services/SiteApiService";
-  import type { Site } from "../../lib/types/Site";
+  import type Site  from "../../lib/types/Site";
   import SiteWorkHeading from "../SiteWorkHeading.svelte";
 
   export let siteId: number;

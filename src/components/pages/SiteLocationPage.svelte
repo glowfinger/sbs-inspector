@@ -1,24 +1,38 @@
 <script lang="ts">
-  import WorkOptions from "../../lib/WorkOptions";
-  import { navigate } from "svelte-routing";
+  import { Link, navigate } from "svelte-routing";
   import siteLocationSchema from "../../lib/schemas/SiteLocationSchema";
   import {
     createSiteLocation,
     getSiteLocation,
-    updateSiteLocation,
+    updateSiteLocation
   } from "../../lib/apiServices/SiteLocationApiService";
   import validationErrorHandler from "../../lib/ValidationErrorHandler";
   import { onMount } from "svelte";
   import TextInput from "../forms/inputs/TextInput.svelte";
   import type Location from "../../lib/types/Location";
-  import SelectInput from "../forms/inputs/SelectInput.svelte";
+  import BreadcrumbFirstLink from "../links/BreadcrumbFirstLink.svelte";
+  import PageHeader from "../PageHeader.svelte";
+  import SubmitButton from "../buttons/SubmitButton.svelte";
+  import VisitHeader from "../layout/headers/VisitHeader.svelte";
+  import { getVisitById } from "../../lib/apiServices/VisitApiService";
+  import { getJobById } from "../../lib/apiServices/job/JobApiService";
+  import { getSiteById } from "../../lib/apiServices/SiteApiService";
+  import type Site  from "../../lib/types/Site";
+  import type Visit  from "../../lib/types/Visit";
+  import type Job from "../../lib/types/Job";
 
   export let siteId: number;
   export let jobId: number;
   export let visitId: number;
   export let locationId: number;
+  export let locationType: string;
+
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
 
   let loading = false;
+  let loaded = false;
 
   let location: Location = {
     area: "",
@@ -26,20 +40,19 @@
     id: 0,
     name: "",
     siteId: 0,
-    type: "",
+    type: locationType
   };
 
   let errors = {
     floor: null,
     area: null,
     type: null,
-    name: null,
+    name: null
   };
 
   function submit() {
     errors.floor = null;
     errors.area = null;
-    errors.type = null;
     errors.name = null;
 
     siteLocationSchema
@@ -75,62 +88,80 @@
     }
   }
 
-  onMount(() => {
+  onMount(async () => {
+
+    [visit, job, site] = await Promise.all([
+      getVisitById(visitId),
+      getJobById(jobId),
+      getSiteById(siteId)
+    ]);
+
+    loaded = true;
+
     if (siteId && locationId) {
       getSiteLocation(siteId, locationId).then((r: Location) => (location = r));
     }
   });
 </script>
 
-<form on:submit|preventDefault={submit}>
-  <div class=" sm:overflow-hidden sm:rounded-md">
-    <div class="space-y-6 bg-white px-1 py-6 sm:p-6">
-      <div>
-        <h3 class="text-lg font-medium leading-6 text-gray-900">
-          Location Information
-        </h3>
-      </div>
-      <div class="grid grid-cols-6 gap-6">
-        <TextInput
-          bind:value={location.floor}
-          id="site-location-floor"
-          error={errors.floor}
-          name="Floor"
-          loading={loading}
-        />
-        <TextInput
-          bind:value={location.area}
-          id="site-location-area"
-          error={errors.area}
-          name="Area"
-          loading={loading}
-        />
 
-        <SelectInput
-          bind:value={location.type}
-          id="site-location-type"
-          error={errors.type}
-          name="Type"
-          loading={loading}
-          options={WorkOptions}
-        />
-        <TextInput
-          bind:value={location.name}
-          id="site-location-name"
-          error={errors.name}
-          name="Name"
-          loading={loading}
-        />
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+  </div>
+</nav>
+
+{#if loaded}
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Add Location" />
+  <form on:submit|preventDefault={submit} class="space-y-4 pt-0">
+    <TextInput
+      bind:value={location.floor}
+      id="site-location-floor"
+      error={errors.floor}
+      name="Floor"
+      loading={loading}
+    />
+    <TextInput
+      bind:value={location.area}
+      id="site-location-area"
+      error={errors.area}
+      name="Area"
+      loading={loading}
+    />
+    <TextInput
+      bind:value={location.name}
+      id="site-location-name"
+      error={errors.name}
+      name="Name"
+      loading={loading}
+    />
+    <input
+      id="site-location-type"
+      type="hidden"
+      name="type"
+      bind:value={location.type}
+    />
+
+    <div class="relative">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-gray-300"></div>
+      </div>
+      <div class="relative flex justify-start">
+        <span class="bg-white pr-2 text-sm "></span>
       </div>
     </div>
-    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-      <button
-        type="submit"
-        disabled={loading}
-        class="inline-flex justify-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
+
+    <div class="mt-4 sm:mt-4 sm:flex sm:pl-4 flex gap-2 sm:flex-row flex-col">
+      <Link
+        to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+        class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
       >
-        Save
-      </button>
+        Back
+      </Link>
+      <SubmitButton disabled={loading} />
     </div>
-  </div>
-</form>
+  </form>
+
+
+{/if}

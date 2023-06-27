@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isOnline } from "../../../Store.js";
+  import { isOnline } from "../../../../Store.js";
 </script>
 
 <div class="rounded-full p-1">

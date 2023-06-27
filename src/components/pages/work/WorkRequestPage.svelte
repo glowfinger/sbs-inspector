@@ -1,6 +1,15 @@
 <script lang="ts">
   import { Link, navigate } from "svelte-routing";
   import { setWorkRequest } from "../../../lib/apiServices/work/WorkApiService";
+  import PageHeader from "../../PageHeader.svelte";
+  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
+  import WorkHeader from "./WorkHeader.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+  import { onMount } from "svelte";
+  import loadWorkData from "../../../lib/services/PreloadHelper";
+  import type Site from "../../../lib/types/Site";
+  import type Job from "../../../lib/types/Job";
+  import type Visit from "../../../lib/types/Visit";
 
   export let siteId: number;
   export let jobId: number;
@@ -13,6 +22,16 @@
     comment: "",
   };
 
+  let loaded = false;
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
+
+  onMount(async () => {
+    [visit, job, site] = await loadWorkData(siteId, jobId, visitId);
+    loaded = true;
+  });
+
   function submit() {
     loading = false;
     setWorkRequest(workId, request).then(complete);
@@ -23,17 +42,25 @@
   }
 </script>
 
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+  </div>
+</nav>
+
+{#if loaded}
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Request unit" />
+  <WorkHeader location={location} />
+{/if}
+
 <form
   class="space-y-8 divide-y divide-gray-200"
   on:submit|preventDefault={submit}
 >
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
-      <div>
-        <h3 class="text-lg font-medium leading-6 text-gray-900">
-          Request unit
-        </h3>
-      </div>
+
       <div class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
         <div class="sm:col-span-6">
           <label for="about" class="block text-sm font-medium text-gray-700"
@@ -45,8 +72,7 @@
               name="about"
               rows="3"
               bind:value={request.comment}
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
           </div>
         </div>
       </div>

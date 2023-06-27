@@ -2,18 +2,37 @@
   import { Link, navigate } from "svelte-routing";
   import { setWorkReplaced } from "../../../lib/apiServices/work/WorkApiService";
 
+  import { onMount } from "svelte";
+  import loadWorkData from "../../../lib/services/PreloadHelper";
+  import type Site from "../../../lib/types/Site";
+  import type Job from "../../../lib/types/Job";
+  import type Visit from "../../../lib/types/Visit";
+  import PageHeader from "../../PageHeader.svelte";
+  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
+  import WorkHeader from "./WorkHeader.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+
   export let siteId: number;
   export let jobId: number;
   export let visitId: number;
   export let workId: number;
 
   let loading = true;
+  let loaded = false;
 
   const request = {
     comment: "",
     submittedAt: new Date(),
   };
 
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
+
+  onMount(async () => {
+    [visit, job, site] = await loadWorkData(siteId, jobId, visitId);
+    loaded = true;
+  });
   function submit() {
     loading = false;
 
@@ -25,6 +44,18 @@
     }
   }
 </script>
+
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+  </div>
+</nav>
+
+{#if loaded}
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Inspection overview" />
+  <WorkHeader location={location} />
+{/if}
 
 <form
   class="space-y-8 divide-y divide-gray-200"
@@ -48,8 +79,7 @@
               name="about"
               rows="3"
               bind:value={request.comment}
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
           </div>
         </div>
       </div>

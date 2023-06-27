@@ -1,7 +1,7 @@
 <script lang="ts">
   import type Location from "../../lib/types/Location";
   import type { Work } from "../../lib/types/Work";
-  import type { Visit } from "../../lib/types/Visit";
+  import type Visit  from "../../lib/types/Visit";
   import {
     setWorkResolved,
     startSiteWork,
