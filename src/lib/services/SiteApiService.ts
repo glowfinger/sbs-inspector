@@ -1,5 +1,5 @@
 import { getToken } from "../auth/AuthService";
-import type Site  from "../types/Site";
+import type Site from "../types/Site";
 import apiError from "./ApiError";
 import { DOMAIN, PROTOCOL } from "./ApiServiceConfig";
 

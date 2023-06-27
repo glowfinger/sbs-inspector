@@ -1,7 +1,7 @@
 <script lang="ts">
   import type Location from "../../../lib/types/Location";
-  import type Site  from "../../../lib/types/Site";
-  import type Visit  from "../../../lib/types/Visit";
+  import type Site from "../../../lib/types/Site";
+  import type Visit from "../../../lib/types/Visit";
   import type { Work } from "../../../lib/types/Work";
   import type Job from "../../../lib/types/Job";
   import { onMount } from "svelte";
@@ -42,7 +42,7 @@
       getSiteLocations(siteId),
       getVisitById(visitId),
       getJobById(jobId),
-      getSiteById(siteId)
+      getSiteById(siteId),
     ]);
 
     works = visit.works;
@@ -55,7 +55,6 @@
 
   const reviewLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/review`;
   const visitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}`;
-
 
   function allLocationsActioned(): boolean {
     return incompleteLocations.length === 0;
@@ -70,17 +69,20 @@
   }
 
   function hasCompletedWork(location: Location, works: Work[]) {
-    return works.some((work) => work.locationId === location.id && work.completedAt !== null);
+    return works.some(
+      (work) => work.locationId === location.id && work.completedAt !== null
+    );
   }
-
 
   function proceed() {
     saving = true;
-    completeVisit(visitId).then(() => {
-      navigate(visitLink);
-    }).catch(() => {
-      saving = false;
-    });
+    completeVisit(visitId)
+      .then(() => {
+        navigate(visitLink);
+      })
+      .catch(() => {
+        saving = false;
+      });
   }
 
   function cancel() {
@@ -98,8 +100,18 @@
   <PageHeader text="Review visit" />
   <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
   {#if incompleteLocations.length > 0}
-    <VisitIssueModal cancelLink={reviewLink} proceed={proceed} cancel={cancel} disabled={saving} />
-  {:else }
-    <VisitCompleteModal cancelLink={reviewLink} proceed={proceed} cancel={cancel} disabled={saving} />
+    <VisitIssueModal
+      cancelLink={reviewLink}
+      proceed={proceed}
+      cancel={cancel}
+      disabled={saving}
+    />
+  {:else}
+    <VisitCompleteModal
+      cancelLink={reviewLink}
+      proceed={proceed}
+      cancel={cancel}
+      disabled={saving}
+    />
   {/if}
 {/if}

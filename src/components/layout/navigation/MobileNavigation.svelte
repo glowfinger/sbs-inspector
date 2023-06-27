@@ -10,26 +10,25 @@
 
   export let toggle;
 
-
   function gotoHome() {
     isNavOpen = false;
-    navigate('/')
+    navigate("/");
   }
 
   function gotoVisits() {
-    isNavOpen = false
-    navigate('/visits')
+    isNavOpen = false;
+    navigate("/visits");
   }
-
 </script>
 
 {#if isNavOpen}
-  <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true" >
+  <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
     {#if isNavOpen}
       <div
         class="fixed inset-0 bg-gray-600 bg-opacity-75"
         on:click={toggle}
-        transition:fade={{ duration: 200, easing: linear }}></div>
+        transition:fade={{ duration: 200, easing: linear }}
+      />
     {/if}
 
     {#if isNavOpen}
@@ -74,25 +73,33 @@
                   <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
                   <button
                     on:click={gotoHome}
-                    class="group flex items-center rounded-md bg-gray-100 px-2 py-2 text-base font-medium leading-5 text-gray-900 w-full"
+                    class="group flex w-full items-center rounded-md bg-gray-100 px-2 py-2 text-base font-medium leading-5 text-gray-900"
                     aria-current="page"
                   >
-                    <HomeIcon class="mr-3 h-6 w-6 flex-shrink-0 text-gray-500" />
+                    <HomeIcon
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-500"
+                    />
                     Home
                   </button>
 
                   <button
                     on:click={gotoVisits}
-                    class="group flex items-center rounded-md px-2 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 w-full"
+                    class="group flex w-full items-center rounded-md px-2 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                   >
-                    <VisitIcon class="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"/>
+                    <VisitIcon
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                    />
                     My visits
                   </button>
                 </div>
               </nav>
             </div>
           </div>
-          <div class="w-14 flex-shrink-0" aria-hidden="true" on:click|self={toggle}></div>
+          <div
+            class="w-14 flex-shrink-0"
+            aria-hidden="true"
+            on:click|self={toggle}
+          />
         {/if}
       </div>
     {/if}

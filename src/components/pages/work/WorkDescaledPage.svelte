@@ -21,7 +21,7 @@
 
   const request = {
     comment: "",
-    submittedAt: new Date()
+    submittedAt: new Date(),
   };
 
   let site: Site;
@@ -47,7 +47,10 @@
 
 <nav aria-label="Breadcrumb" class="mb-2 ">
   <div class="items-start">
-    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+    <BreadcrumbFirstLink
+      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+      text="Visit"
+    />
   </div>
 </nav>
 
@@ -66,7 +69,7 @@
       <div class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
         <div class="sm:col-span-6">
           <label for="about" class="block text-sm font-medium text-gray-700"
-          >Any comments</label
+            >Any comments</label
           >
           <div class="mt-1">
             <textarea
@@ -74,7 +77,8 @@
               name="about"
               rows="3"
               bind:value={request.comment}
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
           </div>
         </div>
       </div>

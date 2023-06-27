@@ -15,7 +15,7 @@
     <div class="min-w-0 flex-1">
       <div class="text-sm font-medium text-gray-900">
         <Link to={link}>
-          <span class="absolute inset-0" aria-hidden="true"></span>
+          <span class="absolute inset-0" aria-hidden="true" />
           {title}
         </Link>
       </div>

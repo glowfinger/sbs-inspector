@@ -6,10 +6,10 @@
   export let results: WorkResult[] = [];
 </script>
 
-<div class=" overflow-x-auto shadow mt-4">
+<div class=" mt-4 overflow-x-auto shadow">
   <div class="inline-block min-w-full align-middle sm:px-6 lg:px-8">
     <div
-      class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-lg bg-white border border-gray-300"
+      class="overflow-hidden border border-gray-300 bg-white ring-1 ring-black ring-opacity-5 sm:rounded-lg"
     >
       <table class="min-w-full divide-y divide-gray-300">
         <thead class="bg-gray-50">

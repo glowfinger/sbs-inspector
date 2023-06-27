@@ -1,6 +1,6 @@
 import { getToken } from "../auth/AuthService";
 import { DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
-import type Visit  from "../types/Visit";
+import type Visit from "../types/Visit";
 import handleErrors from "./helpers/HandleError";
 import handleJson from "./helpers/HandleJson";
 

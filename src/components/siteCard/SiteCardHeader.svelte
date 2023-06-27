@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type Site  from "../../lib/types/Site";
+  import type Site from "../../lib/types/Site";
 
   export let site: Site;
 </script>

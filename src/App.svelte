@@ -72,8 +72,10 @@
           locationId={parseInt(params.locationId)}
         />
       </Route>
-      <Route path="/site/:siteId/job/:jobId/visit/:visitId/location/add/:locationType"
-             let:params>
+      <Route
+        path="/site/:siteId/job/:jobId/visit/:visitId/location/add/:locationType"
+        let:params
+      >
         <SiteLocationPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -91,7 +93,8 @@
       </Route>
       <Route
         path="/site/:siteId/job/:jobId/visit/:visitId/status/:status"
-        let:params>
+        let:params
+      >
         <VisitPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -110,7 +113,8 @@
         <VisitCompletePage
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)}
-          visitId={parseInt(params.visitId)} />
+          visitId={parseInt(params.visitId)}
+        />
       </Route>
       <Route
         let:params

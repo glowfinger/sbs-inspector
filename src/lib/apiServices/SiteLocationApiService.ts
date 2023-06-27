@@ -77,4 +77,3 @@ export async function getSiteLocations(siteId: number): Promise<Location[]> {
       .then(handleJson)
   );
 }
-

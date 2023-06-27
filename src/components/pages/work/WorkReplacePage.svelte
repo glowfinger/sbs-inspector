@@ -47,7 +47,10 @@
 
 <nav aria-label="Breadcrumb" class="mb-2 ">
   <div class="items-start">
-    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+    <BreadcrumbFirstLink
+      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+      text="Visit"
+    />
   </div>
 </nav>
 
@@ -79,7 +82,8 @@
               name="about"
               rows="3"
               bind:value={request.comment}
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
           </div>
         </div>
       </div>

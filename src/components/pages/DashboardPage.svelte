@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getMySites } from "../../lib/services/SiteApiService";
   import SiteOverviewTable from "../SiteOverviewTable.svelte";
-  import type Site  from "../../lib/types/Site";
+  import type Site from "../../lib/types/Site";
 
   //TODO this should be sites available for this month or assigned
   let sites = [];

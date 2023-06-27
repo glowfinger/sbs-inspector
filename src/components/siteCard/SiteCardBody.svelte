@@ -3,7 +3,7 @@
   import { getLatest } from "../../lib/helpers/links/SiteJobVisit.js";
   import type Job from "../../lib/types/Job";
   import isJobVisitLive from "../../lib/helpers/conditionals/job/isJobVisitLive.js";
-  import type Visit  from "../../lib/types/Visit.js";
+  import type Visit from "../../lib/types/Visit.js";
   import { localDate } from "../helpers/DateFormatter.js";
 
   export let jobs: Job[];
