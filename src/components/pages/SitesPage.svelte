@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { getSiteWithActiveJobs } from "../../lib/services/SiteApiService";
-  import type { Site } from "../../lib/types/Site";
+  import type Site  from "../../lib/types/Site";
   import SiteCard from "../siteCard/SiteCard.svelte";
   import EmptyList from "../EmptyList.svelte";
 

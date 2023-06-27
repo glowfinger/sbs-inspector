@@ -17,8 +17,8 @@
   import { getVisitById } from "../../lib/apiServices/VisitApiService";
   import { getJobById } from "../../lib/apiServices/job/JobApiService";
   import { getSiteById } from "../../lib/apiServices/SiteApiService";
-  import type { Site } from "../../lib/types/Site";
-  import type { Visit } from "../../lib/types/Visit";
+  import type Site  from "../../lib/types/Site";
+  import type Visit  from "../../lib/types/Visit";
   import type Job from "../../lib/types/Job";
 
   export let siteId: number;

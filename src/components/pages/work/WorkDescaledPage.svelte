@@ -1,16 +1,15 @@
 <script lang="ts">
   import { Link, navigate } from "svelte-routing";
-  import { setWorkReplaced } from "../../../lib/apiServices/work/WorkApiService";
-
+  import { setWorkDescaled } from "../../../lib/apiServices/work/WorkApiService";
   import { onMount } from "svelte";
   import loadWorkData from "../../../lib/services/PreloadHelper";
   import type Site from "../../../lib/types/Site";
   import type Job from "../../../lib/types/Job";
   import type Visit from "../../../lib/types/Visit";
-  import PageHeader from "../../PageHeader.svelte";
-  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
-  import WorkHeader from "./WorkHeader.svelte";
   import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+  import PageHeader from "../../PageHeader.svelte";
+  import WorkHeader from "./WorkHeader.svelte";
+  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
 
   export let siteId: number;
   export let jobId: number;
@@ -22,7 +21,7 @@
 
   const request = {
     comment: "",
-    submittedAt: new Date(),
+    submittedAt: new Date()
   };
 
   let site: Site;
@@ -33,11 +32,12 @@
     [visit, job, site] = await loadWorkData(siteId, jobId, visitId);
     loaded = true;
   });
+
   function submit() {
     loading = false;
 
     request.submittedAt = new Date();
-    setWorkReplaced(workId, request).then(complete);
+    setWorkDescaled(workId, request).then(complete);
 
     function complete() {
       navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}`);
@@ -53,7 +53,7 @@
 
 {#if loaded}
   <VisitHeader site={site} job={job} />
-  <PageHeader text="Inspection overview" />
+  <PageHeader text="Descaled shower head" />
   <WorkHeader location={location} />
 {/if}
 
@@ -63,15 +63,10 @@
 >
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
-      <div>
-        <h3 class="text-lg font-medium leading-6 text-gray-900">
-          Replaced units
-        </h3>
-      </div>
       <div class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
         <div class="sm:col-span-6">
           <label for="about" class="block text-sm font-medium text-gray-700"
-            >Please enter a reason</label
+          >Any comments</label
           >
           <div class="mt-1">
             <textarea
@@ -85,7 +80,6 @@
       </div>
     </div>
   </div>
-
   <div class="pt-5">
     <div class="flex justify-end">
       <Link

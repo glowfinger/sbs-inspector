@@ -26,6 +26,7 @@
   import VisitReviewPage from "./components/pages/visit/VisitReviewPage.svelte";
   import SiteLocationPage from "./components/pages/SiteLocationPage.svelte";
   import VisitCompletePage from "./components/pages/visit/VisitCompletePage.svelte";
+  import WorkDescaledPage from "./components/pages/work/WorkDescaledPage.svelte";
 
   export let url = "";
 
@@ -146,6 +147,17 @@
       </Route>
       <Route
         let:params
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/descaled"
+      >
+        <WorkDescaledPage
+          visitId={parseInt(params.visitId)}
+          siteId={parseInt(params.siteId)}
+          jobId={parseInt(params.jobId)}
+          workId={parseInt(params.workId)}
+        />
+      </Route>
+      <Route
+        let:params
         path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request"
       >
         <WorkRequestPage
@@ -157,7 +169,7 @@
       </Route>
       <Route
         let:params
-        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replace"
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replaced"
       >
         <WorkReplacePage
           visitId={parseInt(params.visitId)}

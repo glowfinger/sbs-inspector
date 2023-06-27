@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Site } from "../../../lib/types/Site";
+  import type Site from "../../../lib/types/Site";
   import type Job from "../../../lib/types/Job";
   import ShowerHeadIcon from "../../icons/ShowerHeadIcon.svelte";
   import ThermoValveIcon from "../../icons/ThermoValveIcon.svelte";
@@ -8,7 +8,7 @@
   export let job: Job;
 </script>
 
-<div class="col-span-1 flex shadow-sm bg-white border border-gray-600">
+<div class="col-span-1 flex shadow bg-white border border-gray-300">
   {#if job.type === 'shower_head'}
     <div
       class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white">

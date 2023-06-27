@@ -1,6 +1,6 @@
 import type JobVisit from "./params/JobVisit";
 
-interface Job {
+export default interface Job {
   id: number;
   siteId: number;
   status: string;
@@ -9,4 +9,3 @@ interface Job {
   visits: Array<JobVisit>;
 }
 
-export default Job;

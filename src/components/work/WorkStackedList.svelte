@@ -1,7 +1,7 @@
 <script lang="ts">
   import type Location from "../../lib/types/Location";
   import type Job from "../../lib/types/Job";
-  import type { Visit } from "../../lib/types/Visit";
+  import type Visit  from "../../lib/types/Visit";
   import WorkListCard from "./WorkListCard.svelte";
   import groupLocationsByFloor from "../../lib/mappers/GroupLocationsByFloor";
   import locationsForType from "../../lib/helpers/conditionals/LocationsForType";

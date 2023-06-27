@@ -1,7 +1,7 @@
 <script lang="ts">
   import type Location from "../../../lib/types/Location";
-  import type { Site } from "../../../lib/types/Site";
-  import type { Visit } from "../../../lib/types/Visit";
+  import type Site  from "../../../lib/types/Site";
+  import type Visit  from "../../../lib/types/Visit";
   import type { Work } from "../../../lib/types/Work";
   import type Job from "../../../lib/types/Job";
   import { onMount } from "svelte";

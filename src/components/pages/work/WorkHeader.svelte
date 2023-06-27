@@ -1,7 +1,6 @@
 <script lang="ts">
   import type Location from "../../../lib/types/Location";
 
-  export let action: string;
   export let location: Location;
 </script>
 

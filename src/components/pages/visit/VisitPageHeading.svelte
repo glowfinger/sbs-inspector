@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Visit } from "../../../lib/types/Visit";
-  import type { Site } from "../../../lib/types/Site";
+  import type Visit  from "../../../lib/types/Visit";
+  import type Site  from "../../../lib/types/Site";
   import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
   import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
   import type Job from "../../../lib/types/Job";

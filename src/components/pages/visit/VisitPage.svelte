@@ -5,10 +5,10 @@
   import { getJobById } from "../../../lib/apiServices/job/JobApiService";
   import type Location from "../../../lib/types/Location";
   import { getSiteById } from "../../../lib/apiServices/SiteApiService";
-  import type { Visit } from "../../../lib/types/Visit";
+  import type Visit  from "../../../lib/types/Visit";
   import type Job from "../../../lib/types/Job";
   import WorkList from "../../work/WorkList.svelte";
-  import type { Site } from "../../../lib/types/Site";
+  import type Site  from "../../../lib/types/Site";
   import VisitPageHeading from "./VisitPageHeading.svelte";
   import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
   import PageHeader from "../../PageHeader.svelte";

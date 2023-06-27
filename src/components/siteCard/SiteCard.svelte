@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Site } from "../../lib/types/Site";
+  import type Site  from "../../lib/types/Site";
   import { Link } from "svelte-routing";
   import SiteCardHeader from "./SiteCardHeader.svelte";
   import SiteCardBody from "./SiteCardBody.svelte";
