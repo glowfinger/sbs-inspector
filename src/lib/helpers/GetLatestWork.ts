@@ -1,6 +1,6 @@
-import type Location from "../types/Location";
-import type { Work } from "../types/Work";
-import getWorksForLocation from "./GetWorkForLocation";
+import type Location from '../types/Location';
+import type { Work } from '../types/Work';
+import getWorksForLocation from './GetWorkForLocation';
 
 export default function getLatestWork(location: Location, works: Work[]): Work {
   return getWorksForLocation(location, works)

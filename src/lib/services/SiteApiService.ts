@@ -1,12 +1,12 @@
-import { getToken } from "../auth/AuthService";
-import type Site  from "../types/Site";
-import apiError from "./ApiError";
-import { DOMAIN, PROTOCOL } from "./ApiServiceConfig";
+import { getToken } from '../auth/AuthService';
+import type Site from '../types/Site';
+import apiError from './ApiError';
+import { DOMAIN, PROTOCOL } from './ApiServiceConfig';
 
 export async function getMySites() {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site`, {
     headers: {
-      authorization: "Bearer " + (await getToken()),
+      authorization: 'Bearer ' + (await getToken()),
     },
   })
     .then(apiError)
@@ -16,7 +16,7 @@ export async function getMySites() {
 export async function getSiteWithActiveJobs() {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/filter/active-jobs`, {
     headers: {
-      authorization: "Bearer " + (await getToken()),
+      authorization: 'Bearer ' + (await getToken()),
     },
   })
     .then(apiError)
@@ -26,7 +26,7 @@ export async function getSiteWithActiveJobs() {
 export async function getSiteById(siteId: number) {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}`, {
     headers: {
-      authorization: "Bearer " + (await getToken()),
+      authorization: 'Bearer ' + (await getToken()),
     },
   })
     .then(apiError)

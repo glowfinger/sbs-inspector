@@ -1,5 +1,5 @@
-import type Location from "../types/Location";
-import type { Work } from "../types/Work";
+import type Location from '../types/Location';
+import type { Work } from '../types/Work';
 
 export default function getWorksForLocation(
   location: Location,

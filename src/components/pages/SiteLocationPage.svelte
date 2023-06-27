@@ -1,25 +1,25 @@
 <script lang="ts">
-  import { Link, navigate } from "svelte-routing";
-  import siteLocationSchema from "../../lib/schemas/SiteLocationSchema";
+  import { Link, navigate } from 'svelte-routing';
+  import siteLocationSchema from '../../lib/schemas/SiteLocationSchema';
   import {
     createSiteLocation,
     getSiteLocation,
-    updateSiteLocation
-  } from "../../lib/apiServices/SiteLocationApiService";
-  import validationErrorHandler from "../../lib/ValidationErrorHandler";
-  import { onMount } from "svelte";
-  import TextInput from "../forms/inputs/TextInput.svelte";
-  import type Location from "../../lib/types/Location";
-  import BreadcrumbFirstLink from "../links/BreadcrumbFirstLink.svelte";
-  import PageHeader from "../PageHeader.svelte";
-  import SubmitButton from "../buttons/SubmitButton.svelte";
-  import VisitHeader from "../layout/headers/VisitHeader.svelte";
-  import { getVisitById } from "../../lib/apiServices/VisitApiService";
-  import { getJobById } from "../../lib/apiServices/job/JobApiService";
-  import { getSiteById } from "../../lib/apiServices/SiteApiService";
-  import type Site  from "../../lib/types/Site";
-  import type Visit  from "../../lib/types/Visit";
-  import type Job from "../../lib/types/Job";
+    updateSiteLocation,
+  } from '../../lib/apiServices/SiteLocationApiService';
+  import validationErrorHandler from '../../lib/ValidationErrorHandler';
+  import { onMount } from 'svelte';
+  import TextInput from '../forms/inputs/TextInput.svelte';
+  import type Location from '../../lib/types/Location';
+  import BreadcrumbFirstLink from '../links/BreadcrumbFirstLink.svelte';
+  import PageHeader from '../PageHeader.svelte';
+  import SubmitButton from '../buttons/SubmitButton.svelte';
+  import VisitHeader from '../layout/headers/VisitHeader.svelte';
+  import { getVisitById } from '../../lib/apiServices/VisitApiService';
+  import { getJobById } from '../../lib/apiServices/job/JobApiService';
+  import { getSiteById } from '../../lib/apiServices/SiteApiService';
+  import type Site from '../../lib/types/Site';
+  import type Visit from '../../lib/types/Visit';
+  import type Job from '../../lib/types/Job';
 
   export let siteId: number;
   export let jobId: number;
@@ -35,19 +35,19 @@
   let loaded = false;
 
   let location: Location = {
-    area: "",
-    floor: "",
+    area: '',
+    floor: '',
     id: 0,
-    name: "",
+    name: '',
     siteId: 0,
-    type: locationType
+    type: locationType,
   };
 
   let errors = {
     floor: null,
     area: null,
     type: null,
-    name: null
+    name: null,
   };
 
   function submit() {
@@ -89,11 +89,10 @@
   }
 
   onMount(async () => {
-
     [visit, job, site] = await Promise.all([
       getVisitById(visitId),
       getJobById(jobId),
-      getSiteById(siteId)
+      getSiteById(siteId),
     ]);
 
     loaded = true;
@@ -104,10 +103,11 @@
   });
 </script>
 
-
 <nav aria-label="Breadcrumb" class="mb-2 ">
   <div class="items-start">
-    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
+    <BreadcrumbFirstLink
+      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+      text="Visit" />
   </div>
 </nav>
 
@@ -120,48 +120,41 @@
       id="site-location-floor"
       error={errors.floor}
       name="Floor"
-      loading={loading}
-    />
+      loading={loading} />
     <TextInput
       bind:value={location.area}
       id="site-location-area"
       error={errors.area}
       name="Area"
-      loading={loading}
-    />
+      loading={loading} />
     <TextInput
       bind:value={location.name}
       id="site-location-name"
       error={errors.name}
       name="Name"
-      loading={loading}
-    />
+      loading={loading} />
     <input
       id="site-location-type"
       type="hidden"
       name="type"
-      bind:value={location.type}
-    />
+      bind:value={location.type} />
 
     <div class="relative">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
-        <div class="w-full border-t border-gray-300"></div>
+        <div class="w-full border-t border-gray-300" />
       </div>
       <div class="relative flex justify-start">
-        <span class="bg-white pr-2 text-sm "></span>
+        <span class="bg-white pr-2 text-sm " />
       </div>
     </div>
 
-    <div class="mt-4 sm:mt-4 sm:flex sm:pl-4 flex gap-2 sm:flex-row flex-col">
+    <div class="mt-4 flex flex-col gap-2 sm:mt-4 sm:flex sm:flex-row sm:pl-4">
       <Link
         to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-        class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
-      >
+        class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
         Back
       </Link>
       <SubmitButton disabled={loading} />
     </div>
   </form>
-
-
 {/if}

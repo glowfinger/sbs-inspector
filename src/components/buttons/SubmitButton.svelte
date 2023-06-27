@@ -2,7 +2,6 @@
   export let disabled = false;
 </script>
 
-
 {#if disabled}
   <button
     disabled
@@ -17,7 +16,3 @@
     Save
   </button>
 {/if}
-
-
-
-

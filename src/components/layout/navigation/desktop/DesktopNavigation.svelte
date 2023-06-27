@@ -1,15 +1,14 @@
 <script>
-  import Logo from "../Logo.svelte";
-  import UserAccountDropdown from "./UserAccountDropdown.svelte";
-  import SidebarNavigationLinks from "./SidebarNavigationLinks.svelte";
-  import { Link } from "svelte-routing";
+  import Logo from '../Logo.svelte';
+  import UserAccountDropdown from './UserAccountDropdown.svelte';
+  import SidebarNavigationLinks from './SidebarNavigationLinks.svelte';
+  import { Link } from 'svelte-routing';
 </script>
 
 <div
-  class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-100 lg:pb-4 lg:pt-5"
->
+  class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-100 lg:pb-4 lg:pt-5">
   <div class="flex flex-shrink-0 items-center px-6 text-gray-900">
-    <Link to={"/"}>
+    <Link to={'/'}>
       <Logo />
     </Link>
   </div>

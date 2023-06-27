@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { scale } from "svelte/transition";
-  import { Link } from "svelte-routing";
+  import { scale } from 'svelte/transition';
+  import { Link } from 'svelte-routing';
 </script>
 
 <div
@@ -10,11 +10,9 @@
   role="menu"
   aria-orientation="vertical"
   aria-labelledby="user-menu-button"
-  tabindex="-1"
->
+  tabindex="-1">
   <div class="py-1" role="none">
     <Link to={`/logout`} class="block px-4 py-2 text-sm text-gray-700"
-      >Logout</Link
-    >
+      >Logout</Link>
   </div>
 </div>

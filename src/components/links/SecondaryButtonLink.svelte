@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Link } from "svelte-routing";
+  import { Link } from 'svelte-routing';
 
   export let to: string;
   export let text: string;

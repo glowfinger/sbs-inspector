@@ -1,4 +1,4 @@
-import type WorkResult from "../../../types/WorkResult";
+import type WorkResult from '../../../types/WorkResult';
 
 export default function getResult(
   results: WorkResult[],

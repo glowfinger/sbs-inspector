@@ -1,17 +1,17 @@
-import { getToken } from "../auth/AuthService";
-import { DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
-import type Address from "../types/Address";
-import handleErrors from "./helpers/HandleError";
-import handleJson from "./helpers/HandleJson";
+import { getToken } from '../auth/AuthService';
+import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
+import type Address from '../types/Address';
+import handleErrors from './helpers/HandleError';
+import handleJson from './helpers/HandleJson';
 
 export async function createSiteAddress(address: Address, siteId: number) {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/address`, {
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      authorization: "Bearer " + (await getToken()),
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      authorization: 'Bearer ' + (await getToken()),
     },
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(address),
   })
     .then(handleErrors)
@@ -23,11 +23,11 @@ export async function getSiteAddress(siteId: number, addressId: number) {
     `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/address/${addressId}`,
     {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + (await getToken()),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        authorization: 'Bearer ' + (await getToken()),
       },
-      method: "GET",
+      method: 'GET',
     }
   )
     .then(handleErrors)

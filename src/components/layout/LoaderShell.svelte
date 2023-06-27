@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Loader from "./Loader.svelte";
+  import Loader from './Loader.svelte';
 
   export let loaded: boolean;
 </script>

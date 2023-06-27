@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type WorkResult from "../../lib/types/WorkResult";
+  import type WorkResult from '../../lib/types/WorkResult';
   export let title: string;
   export let result: WorkResult;
 </script>
