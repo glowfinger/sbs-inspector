@@ -5,11 +5,21 @@
   import type { Work } from "../../../lib/types/Work";
   import ThermoResultTable from "./results/ThermoResultTable.svelte";
   import WorkHeader from "./WorkHeader.svelte";
-  import { getSiteLocation } from "../../../lib/apiServices/SiteLocationApiService";
+  import { getSiteLocation, getSiteLocations } from "../../../lib/apiServices/SiteLocationApiService";
   import type SiteLocation from "../../../lib/types/SiteLocation";
   import RequestUnit from "./RequestUnit.svelte";
   import ServicedUnit from "./ServicedUnit.svelte";
   import ReplacedUnit from "./ReplacedUnit.svelte";
+  import VisitPageHeading from "../visit/VisitPageHeading.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+  import PageHeader from "../../PageHeader.svelte";
+  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
+  import { getVisitById } from "../../../lib/apiServices/VisitApiService";
+  import { getJobById } from "../../../lib/apiServices/job/JobApiService";
+  import { getSiteById } from "../../../lib/apiServices/SiteApiService";
+  import type Job from "../../../lib/types/Job";
+  import type { Site } from "../../../lib/types/Site";
+  import type { Visit } from "../../../lib/types/Visit";
 
   export let siteId: number;
   export let jobId: number;
@@ -17,6 +27,7 @@
   export let workId: number;
 
   let loading = true;
+  let loaded = false;
 
   let work: Work;
 
@@ -24,7 +35,20 @@
 
   const hotLink = `/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/hot`;
 
-  onMount(() => {
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
+
+  onMount(async () => {
+
+    [visit, job, site] = await Promise.all([
+      getVisitById(visitId),
+      getJobById(jobId),
+      getSiteById(siteId)
+    ]);
+
+    loaded = true;
+
     getSiteWork(workId).then((response: Work) => {
       getSiteLocation(siteId, response.locationId).then((l) => (location = l));
       work = response;
@@ -33,34 +57,24 @@
   });
 </script>
 
-<nav aria-label="Breadcrumb" class="bg-white">
-  <div class="items-start pb-4">
-    <Link
-      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-      class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900"
-    >
-      <svg
-        class="h-5 w-5 text-slate-400"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-          clip-rule="evenodd"
-        />
-      </svg>
-      <span>Visit</span>
-    </Link>
+
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
   </div>
 </nav>
+{#if loaded}
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Inspection overview" />
+  <WorkHeader location={location} action="Fail-safe result" />
 
-<WorkHeader location={location} action="Fail-safe result" />
+{/if}
+
+
 
 {#if !loading}
-  <ThermoResultTable results={work.results} />
 
+  <ThermoResultTable results={work.results} />
   <ul class="mt-6 divide-y divide-gray-200 border-b border-t border-gray-200">
     <li>
       <div class="group relative flex items-start space-x-3 py-4">

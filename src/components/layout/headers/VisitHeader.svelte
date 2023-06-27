@@ -1,18 +1,30 @@
 <script lang="ts">
   import type { Site } from "../../../lib/types/Site";
   import type Job from "../../../lib/types/Job";
+  import ShowerHeadIcon from "../../icons/ShowerHeadIcon.svelte";
+  import ThermoValveIcon from "../../icons/ThermoValveIcon.svelte";
 
   export let site: Site;
   export let job: Job;
 </script>
 
-<div class="overflow-hidden rounded-lg bg-white shadow border-gray-700 border">
-  <div class="bg-white p-2">
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <div class="mb-2">
-        <h1 class="text-2xl font-bold text-gray-900">{site.name} [{site.code}]</h1>
-        <p class="text-sm font-medium text-gray-500">{job.type} {job.task}</p>
-      </div>
+<div class="col-span-1 flex shadow-sm bg-white border border-gray-600">
+  {#if job.type === 'shower_head'}
+    <div
+      class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white">
+      <ShowerHeadIcon class="h-10 w-10 fill-white" />
+    </div>
+  {:else if job.type === 'thermo_valve'}
+    <div
+      class="flex w-16 flex-shrink-0 items-center justify-center bg-green-400 text-sm font-medium text-white">
+      <ThermoValveIcon class="h-10 w-10 fill-white" />
+    </div>
+  {/if}
+  <div
+    class="flex flex-1 items-center justify-between truncate bg-white">
+    <div class="flex-1 truncate px-4 py-2 text-sm">
+      <p class="text-sm font-bold text-gray-900">{site.name}</p>
+      <p class="truncate text-sm text-gray-500">({site.code}) / {job.type} {job.task}</p>
     </div>
   </div>
 </div>
