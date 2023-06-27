@@ -1,7 +1,7 @@
 <script lang="ts">
-  import MobileNavigation from "./navigation/MobileNavigation.svelte";
-  import DesktopNavigation from "./navigation/desktop/DesktopNavigation.svelte";
-  import MobileNavbar from "./navigation/mobile/MobileNavbar.svelte";
+  import MobileNavigation from './navigation/MobileNavigation.svelte';
+  import DesktopNavigation from './navigation/desktop/DesktopNavigation.svelte';
+  import MobileNavbar from './navigation/mobile/MobileNavbar.svelte';
 
   let isNavOpen: boolean = false;
 

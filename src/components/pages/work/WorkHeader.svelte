@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type Location from "../../../lib/types/Location";
+  import type Location from '../../../lib/types/Location';
 
   export let location: Location;
 </script>

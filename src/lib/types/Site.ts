@@ -1,6 +1,6 @@
-import type { SiteAddress } from "./SiteAddress";
-import type SiteLocation from "./SiteLocation";
-import type { Work } from "./Work";
+import type { SiteAddress } from './SiteAddress';
+import type SiteLocation from './SiteLocation';
+import type { Work } from './Work';
 
 export default interface Site {
   id: Number;

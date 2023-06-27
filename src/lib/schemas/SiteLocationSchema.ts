@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 
 let siteLocationSchema = yup.object({
   floor: yup.string().required(),

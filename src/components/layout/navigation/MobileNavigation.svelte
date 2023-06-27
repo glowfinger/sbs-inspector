@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { linear } from "svelte/easing";
-  import { fade } from "svelte/transition";
-  import Logo from "./Logo.svelte";
-  import { Link, navigate } from "svelte-routing";
-  import HomeIcon from "../../icons/HomeIcon.svelte";
-  import VisitIcon from "../../icons/VisitIcon.svelte";
+  import { linear } from 'svelte/easing';
+  import { fade } from 'svelte/transition';
+  import Logo from './Logo.svelte';
+  import { Link, navigate } from 'svelte-routing';
+  import HomeIcon from '../../icons/HomeIcon.svelte';
+  import VisitIcon from '../../icons/VisitIcon.svelte';
 
   export let isNavOpen;
 
@@ -12,12 +12,12 @@
 
   function gotoHome() {
     isNavOpen = false;
-    navigate("/");
+    navigate('/');
   }
 
   function gotoVisits() {
     isNavOpen = false;
-    navigate("/visits");
+    navigate('/visits');
   }
 </script>
 
@@ -27,8 +27,7 @@
       <div
         class="fixed inset-0 bg-gray-600 bg-opacity-75"
         on:click={toggle}
-        transition:fade={{ duration: 200, easing: linear }}
-      />
+        transition:fade={{ duration: 200, easing: linear }} />
     {/if}
 
     {#if isNavOpen}
@@ -36,14 +35,12 @@
         {#if isNavOpen}
           <div
             class="relative flex w-full max-w-xs flex-1 flex-col bg-white pb-4 pt-5"
-            transition:fade={{ duration: 200, easing: linear }}
-          >
+            transition:fade={{ duration: 200, easing: linear }}>
             <div class="absolute right-0 top-0 -mr-12 pt-2">
               <button
                 on:click={toggle}
                 type="button"
-                class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              >
+                class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span class="sr-only">Close sidebar</span>
                 <!-- Heroicon name: outline/x-mark -->
                 <svg
@@ -53,13 +50,11 @@
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  aria-hidden="true"
-                >
+                  aria-hidden="true">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                    d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -74,21 +69,17 @@
                   <button
                     on:click={gotoHome}
                     class="group flex w-full items-center rounded-md bg-gray-100 px-2 py-2 text-base font-medium leading-5 text-gray-900"
-                    aria-current="page"
-                  >
+                    aria-current="page">
                     <HomeIcon
-                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-500"
-                    />
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-500" />
                     Home
                   </button>
 
                   <button
                     on:click={gotoVisits}
-                    class="group flex w-full items-center rounded-md px-2 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  >
+                    class="group flex w-full items-center rounded-md px-2 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
                     <VisitIcon
-                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                    />
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
                     My visits
                   </button>
                 </div>
@@ -98,8 +89,7 @@
           <div
             class="w-14 flex-shrink-0"
             aria-hidden="true"
-            on:click|self={toggle}
-          />
+            on:click|self={toggle} />
         {/if}
       </div>
     {/if}

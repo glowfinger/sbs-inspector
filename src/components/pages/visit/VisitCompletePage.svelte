@@ -1,27 +1,27 @@
 <script lang="ts">
-  import type Location from "../../../lib/types/Location";
-  import type Site from "../../../lib/types/Site";
-  import type Visit from "../../../lib/types/Visit";
-  import type { Work } from "../../../lib/types/Work";
-  import type Job from "../../../lib/types/Job";
-  import { onMount } from "svelte";
-  import { getSiteLocations } from "../../../lib/apiServices/SiteLocationApiService";
-  import { getVisitById } from "../../../lib/apiServices/VisitApiService";
-  import { getJobById } from "../../../lib/apiServices/job/JobApiService";
-  import { getSiteById } from "../../../lib/apiServices/SiteApiService";
-  import locationsForType from "../../../lib/helpers/conditionals/LocationsForType";
-  import { completeVisit } from "../../../lib/apiServices/job/JobVisitApiService";
-  import PageHeader from "../../PageHeader.svelte";
-  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
-  import VisitPageHeading from "./VisitPageHeading.svelte";
-  import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
-  import LocationInfoList from "./LocationInfoList.svelte";
-  import { navigate } from "svelte-routing";
-  import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
-  import VisitCompleteModal from "../../VisitCompleteModal.svelte";
-  import Stringify from "../../debug/Stringify.svelte";
-  import VisitIssueModal from "../../VisitIssueModal.svelte";
-  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+  import type Location from '../../../lib/types/Location';
+  import type Site from '../../../lib/types/Site';
+  import type Visit from '../../../lib/types/Visit';
+  import type { Work } from '../../../lib/types/Work';
+  import type Job from '../../../lib/types/Job';
+  import { onMount } from 'svelte';
+  import { getSiteLocations } from '../../../lib/apiServices/SiteLocationApiService';
+  import { getVisitById } from '../../../lib/apiServices/VisitApiService';
+  import { getJobById } from '../../../lib/apiServices/job/JobApiService';
+  import { getSiteById } from '../../../lib/apiServices/SiteApiService';
+  import locationsForType from '../../../lib/helpers/conditionals/LocationsForType';
+  import { completeVisit } from '../../../lib/apiServices/job/JobVisitApiService';
+  import PageHeader from '../../PageHeader.svelte';
+  import BreadcrumbFirstLink from '../../links/BreadcrumbFirstLink.svelte';
+  import VisitPageHeading from './VisitPageHeading.svelte';
+  import PrimaryButtonLink from '../../links/PrimaryButtonLink.svelte';
+  import LocationInfoList from './LocationInfoList.svelte';
+  import { navigate } from 'svelte-routing';
+  import SecondaryButtonLink from '../../links/SecondaryButtonLink.svelte';
+  import VisitCompleteModal from '../../VisitCompleteModal.svelte';
+  import Stringify from '../../debug/Stringify.svelte';
+  import VisitIssueModal from '../../VisitIssueModal.svelte';
+  import VisitHeader from '../../layout/headers/VisitHeader.svelte';
 
   export let siteId: number;
   export let jobId: number;
@@ -104,14 +104,12 @@
       cancelLink={reviewLink}
       proceed={proceed}
       cancel={cancel}
-      disabled={saving}
-    />
+      disabled={saving} />
   {:else}
     <VisitCompleteModal
       cancelLink={reviewLink}
       proceed={proceed}
       cancel={cancel}
-      disabled={saving}
-    />
+      disabled={saving} />
   {/if}
 {/if}

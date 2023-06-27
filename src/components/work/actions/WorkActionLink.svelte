@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Link } from "svelte-routing";
-  import ChevronRight from "../../icons/chevrons/ChevronRight.svelte";
+  import { Link } from 'svelte-routing';
+  import ChevronRight from '../../icons/chevrons/ChevronRight.svelte';
 
   export let title: string;
   export let message: string;

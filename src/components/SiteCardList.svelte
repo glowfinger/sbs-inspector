@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SiteCard from "./siteCard/SiteCard.svelte";
+  import SiteCard from './siteCard/SiteCard.svelte';
   export let sites = [];
 </script>
 

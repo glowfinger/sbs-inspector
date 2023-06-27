@@ -1,4 +1,4 @@
-import type JobVisit from "./params/JobVisit";
+import type JobVisit from './params/JobVisit';
 
 export default interface Job {
   id: number;

@@ -1,8 +1,8 @@
-import { getToken } from "../auth/AuthService";
-import { DOMAIN, PROTOCOL } from "../services/ApiServiceConfig";
-import type Location from "../types/Location";
-import handleErrors from "./helpers/HandleError";
-import handleJson from "./helpers/HandleJson";
+import { getToken } from '../auth/AuthService';
+import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
+import type Location from '../types/Location';
+import handleErrors from './helpers/HandleError';
+import handleJson from './helpers/HandleJson';
 
 export async function createSiteLocation(
   location: Location,
@@ -10,11 +10,11 @@ export async function createSiteLocation(
 ): Promise<Location> {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location`, {
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      authorization: "Bearer " + (await getToken()),
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      authorization: 'Bearer ' + (await getToken()),
     },
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(location),
   })
     .then(handleErrors)
@@ -30,12 +30,12 @@ export async function updateSiteLocation(
     `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location/${locationId}`,
     {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + (await getToken()),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        authorization: 'Bearer ' + (await getToken()),
       },
 
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(location),
     }
   )
@@ -51,11 +51,11 @@ export async function getSiteLocation(
     `${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location/${locationId}`,
     {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + (await getToken()),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        authorization: 'Bearer ' + (await getToken()),
       },
-      method: "GET",
+      method: 'GET',
     }
   )
     .then(handleErrors)
@@ -66,11 +66,11 @@ export async function getSiteLocations(siteId: number): Promise<Location[]> {
   return (
     fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/location`, {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + (await getToken()),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        authorization: 'Bearer ' + (await getToken()),
       },
-      method: "GET",
+      method: 'GET',
     })
       .then(handleErrors)
       // .then(x => new Promise(resolve => setTimeout(() => resolve(x), 3000)))

@@ -1,22 +1,22 @@
 <script lang="ts">
-  import type Location from "../../../lib/types/Location";
-  import type Site from "../../../lib/types/Site";
-  import type Visit from "../../../lib/types/Visit";
-  import type { Work } from "../../../lib/types/Work";
-  import type Job from "../../../lib/types/Job";
-  import { onMount } from "svelte";
-  import { getSiteLocations } from "../../../lib/apiServices/SiteLocationApiService";
-  import { getVisitById } from "../../../lib/apiServices/VisitApiService";
-  import { getJobById } from "../../../lib/apiServices/job/JobApiService";
-  import { getSiteById } from "../../../lib/apiServices/SiteApiService";
-  import locationsForType from "../../../lib/helpers/conditionals/LocationsForType";
-  import { completeVisit } from "../../../lib/apiServices/job/JobVisitApiService";
-  import PageHeader from "../../PageHeader.svelte";
-  import BreadcrumbFirstLink from "../../links/BreadcrumbFirstLink.svelte";
-  import VisitPageHeading from "./VisitPageHeading.svelte";
-  import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
-  import LocationInfoList from "./LocationInfoList.svelte";
-  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
+  import type Location from '../../../lib/types/Location';
+  import type Site from '../../../lib/types/Site';
+  import type Visit from '../../../lib/types/Visit';
+  import type { Work } from '../../../lib/types/Work';
+  import type Job from '../../../lib/types/Job';
+  import { onMount } from 'svelte';
+  import { getSiteLocations } from '../../../lib/apiServices/SiteLocationApiService';
+  import { getVisitById } from '../../../lib/apiServices/VisitApiService';
+  import { getJobById } from '../../../lib/apiServices/job/JobApiService';
+  import { getSiteById } from '../../../lib/apiServices/SiteApiService';
+  import locationsForType from '../../../lib/helpers/conditionals/LocationsForType';
+  import { completeVisit } from '../../../lib/apiServices/job/JobVisitApiService';
+  import PageHeader from '../../PageHeader.svelte';
+  import BreadcrumbFirstLink from '../../links/BreadcrumbFirstLink.svelte';
+  import VisitPageHeading from './VisitPageHeading.svelte';
+  import PrimaryButtonLink from '../../links/PrimaryButtonLink.svelte';
+  import LocationInfoList from './LocationInfoList.svelte';
+  import VisitHeader from '../../layout/headers/VisitHeader.svelte';
 
   export let siteId: number;
   export let jobId: number;
@@ -76,8 +76,7 @@
   <div class="items-start">
     <BreadcrumbFirstLink
       to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-      text="Visit"
-    />
+      text="Visit" />
   </div>
 </nav>
 {#if loaded}
@@ -86,8 +85,7 @@
   <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
   <div class="mb-4 mt-4 flex">
     <PrimaryButtonLink to={completeVisitLink} text="Complete visit"
-      >Complete review</PrimaryButtonLink
-    >
+      >Complete review</PrimaryButtonLink>
   </div>
   <LocationInfoList locations={incompleteLocations} />
 {/if}

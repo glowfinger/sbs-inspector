@@ -8,7 +8,6 @@
   </div>
   <div class="relative flex justify-start">
     <span class="text-md bg-gray-100 pr-3 font-semibold text-gray-900"
-      >{text}</span
-    >
+      >{text}</span>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import type WorkResult from "./types/WorkResult";
+import type WorkResult from './types/WorkResult';
 
 export let button;
 export let results: WorkResult;
@@ -10,7 +10,7 @@ export default function workActionDenial() {
 }
 
 function setTemperature(results) {
-  results.addEventListener("boolean", () => {
+  results.addEventListener('boolean', () => {
     if (results.temperature === 0) {
       button.disabled = true;
     } else {
@@ -20,7 +20,7 @@ function setTemperature(results) {
 }
 
 function setFailsafe(results) {
-  results.addEventListener("boolean", () => {
+  results.addEventListener('boolean', () => {
     if (results.value === null) {
       button.disabled = true;
     } else {

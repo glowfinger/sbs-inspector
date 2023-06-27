@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type Location from "../../lib/types/Location";
-  import type Job from "../../lib/types/Job";
-  import type Visit from "../../lib/types/Visit";
-  import WorkListCard from "./WorkListCard.svelte";
-  import groupLocationsByFloor from "../../lib/mappers/GroupLocationsByFloor";
-  import locationsForType from "../../lib/helpers/conditionals/LocationsForType";
+  import type Location from '../../lib/types/Location';
+  import type Job from '../../lib/types/Job';
+  import type Visit from '../../lib/types/Visit';
+  import WorkListCard from './WorkListCard.svelte';
+  import groupLocationsByFloor from '../../lib/mappers/GroupLocationsByFloor';
+  import locationsForType from '../../lib/helpers/conditionals/LocationsForType';
 
   export let job: Job;
   export let visit: Visit;
@@ -25,21 +25,17 @@
 
       <ul
         role="list"
-        class="divide-y divide-gray-100 border-b border-gray-900 p-2"
-      >
+        class="divide-y divide-gray-100 border-b border-gray-900 p-2">
         {#each floor.locations as location}
           <li
-            class="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-5 sm:flex-nowrap"
-          >
+            class="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-5 sm:flex-nowrap">
             <div>
               <p class="text-sm font-semibold leading-6 text-gray-900">
                 <a href="#" class="hover:underline"
-                  >Atque perspiciatis et et aut ut porro voluptatem blanditiis?</a
-                >
+                  >Atque perspiciatis et et aut ut porro voluptatem blanditiis?</a>
               </p>
               <div
-                class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500"
-              >
+                class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
                 <p>
                   <a href="#" class="hover:underline">Leslie Alexander</a>
                 </p>
@@ -56,36 +52,31 @@
                   <img
                     class="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
                     src="https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Emma Dorsey"
-                  />
+                    alt="Emma Dorsey" />
                 </dd>
                 <dd>
                   <img
                     class="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Tom Cook"
-                  />
+                    alt="Tom Cook" />
                 </dd>
                 <dd>
                   <img
                     class="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Lindsay Walton"
-                  />
+                    alt="Lindsay Walton" />
                 </dd>
                 <dd>
                   <img
                     class="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
                     src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Benjamin Russel"
-                  />
+                    alt="Benjamin Russel" />
                 </dd>
                 <dd>
                   <img
                     class="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
                     src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Hector Gibbons"
-                  />
+                    alt="Hector Gibbons" />
                 </dd>
               </div>
               <div class="flex w-16 gap-x-2.5">
@@ -97,13 +88,11 @@
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                    aria-hidden="true">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
-                    />
+                      d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                   </svg>
                 </dt>
                 <dd class="text-sm leading-6 text-gray-900">24</dd>

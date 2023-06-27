@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SiteAddress } from "../../../lib/types/SiteAddress";
+  import type { SiteAddress } from '../../../lib/types/SiteAddress';
 
   let address: SiteAddress;
 </script>

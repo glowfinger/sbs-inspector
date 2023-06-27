@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type Visit from "../../../lib/types/Visit";
-  import type Site from "../../../lib/types/Site";
-  import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
-  import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
-  import type Job from "../../../lib/types/Job";
-  import locationsForType from "../../../lib/helpers/conditionals/LocationsForType.js";
-  import type Location from "../../../lib/types/Location";
-  import type { Work } from "../../../lib/types/Work";
+  import type Visit from '../../../lib/types/Visit';
+  import type Site from '../../../lib/types/Site';
+  import SecondaryButtonLink from '../../links/SecondaryButtonLink.svelte';
+  import PrimaryButtonLink from '../../links/PrimaryButtonLink.svelte';
+  import type Job from '../../../lib/types/Job';
+  import locationsForType from '../../../lib/helpers/conditionals/LocationsForType.js';
+  import type Location from '../../../lib/types/Location';
+  import type { Work } from '../../../lib/types/Work';
 
   export let site: Site;
   export let visit: Visit;
@@ -39,8 +39,7 @@
 
 <div class="overflow-hidden rounded-lg border border-gray-700 bg-white shadow">
   <div
-    class="grid grid-cols-1 divide-y divide-gray-200  bg-gray-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0"
-  >
+    class="grid grid-cols-1 divide-y divide-gray-200  bg-gray-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
     <div class="px-6 py-4 text-center text-sm font-medium">
       <span class="text-gray-600">Visit status:</span>
       <span class="text-gray-900">{visit.status}</span>
@@ -48,8 +47,7 @@
     <div class="px-6 py-4 text-center text-sm font-medium">
       <span class="text-gray-600">Total locations:</span>
       <span class="text-gray-900"
-        >{locationsForType(locations, job.type).length}</span
-      >
+        >{locationsForType(locations, job.type).length}</span>
     </div>
     <div class="px-6 py-4 text-center text-sm font-medium">
       <span class="text-gray-600">Locations completed</span>

@@ -1,7 +1,7 @@
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 function localDate(dateString: string): string {
   if (dateString === null) {
-    return "-";
+    return '-';
   }
   const luxonObject = DateTime.fromISO(dateString);
   const formattedString = luxonObject.toLocaleString(DateTime.DATETIME_SHORT);
@@ -9,7 +9,7 @@ function localDate(dateString: string): string {
 }
 function shortDate(dateString: string): string {
   if (dateString === null) {
-    return "-";
+    return '-';
   }
   const luxonObject = DateTime.fromISO(dateString);
   const formattedString = luxonObject.toRelative();

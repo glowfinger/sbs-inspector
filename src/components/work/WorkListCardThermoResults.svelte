@@ -1,24 +1,24 @@
 <script lang="ts">
-  import type WorkResult from "../../lib/types/WorkResult";
-  import TemperatureResult from "./TemperatureResult.svelte";
-  import FailSafeResult from "./FailSafeResult.svelte";
+  import type WorkResult from '../../lib/types/WorkResult';
+  import TemperatureResult from './TemperatureResult.svelte';
+  import FailSafeResult from './FailSafeResult.svelte';
 
   export let results: WorkResult[];
 
   function getHotResult(results: WorkResult[]): WorkResult {
-    return getResult(results, "hot");
+    return getResult(results, 'hot');
   }
 
   function getColdResult(results: WorkResult[]): WorkResult {
-    return getResult(results, "cold");
+    return getResult(results, 'cold');
   }
 
   function getMixedResult(results: WorkResult[]): WorkResult {
-    return getResult(results, "mixed");
+    return getResult(results, 'mixed');
   }
 
   function getFailSafeResult(results: WorkResult[]): WorkResult {
-    return getResult(results, "fail_safe");
+    return getResult(results, 'fail_safe');
   }
 
   function getResult(results: WorkResult[], type: string): WorkResult {

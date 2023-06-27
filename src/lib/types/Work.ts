@@ -1,4 +1,4 @@
-import type WorkResult from "./WorkResult";
+import type WorkResult from './WorkResult';
 
 export interface Work {
   id?: number;

@@ -1,24 +1,22 @@
 <script lang="ts">
-  import type Site from "../../../lib/types/Site";
-  import type Job from "../../../lib/types/Job";
-  import ShowerHeadIcon from "../../icons/ShowerHeadIcon.svelte";
-  import ThermoValveIcon from "../../icons/ThermoValveIcon.svelte";
+  import type Site from '../../../lib/types/Site';
+  import type Job from '../../../lib/types/Job';
+  import ShowerHeadIcon from '../../icons/ShowerHeadIcon.svelte';
+  import ThermoValveIcon from '../../icons/ThermoValveIcon.svelte';
 
   export let site: Site;
   export let job: Job;
 </script>
 
 <div class="col-span-1 flex border border-gray-300 bg-white shadow">
-  {#if job.type === "shower_head"}
+  {#if job.type === 'shower_head'}
     <div
-      class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white"
-    >
+      class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white">
       <ShowerHeadIcon class="h-10 w-10 fill-white" />
     </div>
-  {:else if job.type === "thermo_valve"}
+  {:else if job.type === 'thermo_valve'}
     <div
-      class="flex w-16 flex-shrink-0 items-center justify-center bg-green-400 text-sm font-medium text-white"
-    >
+      class="flex w-16 flex-shrink-0 items-center justify-center bg-green-400 text-sm font-medium text-white">
       <ThermoValveIcon class="h-10 w-10 fill-white" />
     </div>
   {/if}
