@@ -1,7 +1,7 @@
 <script>
   import { Link } from "svelte-routing";
-  import VisitIcon from "../../../components/icons/VisitIcon.svelte";
-  import HomeIcon from "../../../components/icons/HomeIcon.svelte";
+  import VisitIcon from "../../../icons/VisitIcon.svelte";
+  import HomeIcon from "../../../icons/HomeIcon.svelte";
 </script>
 
 <nav class="mt-6 px-3">

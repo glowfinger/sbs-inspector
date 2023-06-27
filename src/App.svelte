@@ -2,7 +2,7 @@
   import { Router, Route } from "svelte-routing";
   import { isOnline } from "./Store.js";
   import DashboardPage from "./components/pages/DashboardPage.svelte";
-  import MainLayout from "./layout/MainLayout.svelte";
+  import MainLayout from "./components/layout/MainLayout.svelte";
   import SitePage from "./components/pages/SitePage.svelte";
   import SitesPage from "./components/pages/SitesPage.svelte";
   import { onMount } from "svelte";
@@ -69,6 +69,16 @@
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)}
           locationId={parseInt(params.locationId)}
+        />
+      </Route>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId/location/add/:locationType"
+             let:params>
+        <SiteLocationPage
+          visitId={parseInt(params.visitId)}
+          siteId={parseInt(params.siteId)}
+          jobId={parseInt(params.jobId)}
+          locationId={parseInt(params.locationId)}
+          locationType={params.locationType}
         />
       </Route>
       <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>

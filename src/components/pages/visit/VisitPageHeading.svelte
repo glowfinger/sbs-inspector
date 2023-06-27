@@ -13,7 +13,7 @@
   export let job: Job;
   export let locations: Location[];
 
-  const addLocationLink: string = `/site/${site.id}/job/${visit.jobId}/visit/${visit.id}/location/add`;
+  const addLocationLink: string = `/site/${site.id}/job/${visit.jobId}/visit/${visit.id}/location/add/${job.type}`;
   const completeVisitLink: string = `/site/${site.id}/job/${visit.jobId}/visit/${visit.id}/complete`;
 
   let works: Work[] = visit.works;
@@ -33,25 +33,8 @@
 </script>
 
 <div class="overflow-hidden rounded-lg bg-white shadow border-gray-700 border">
-  <div class="bg-white p-2">
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <div class="mb-2">
-        <h1 class="text-2xl font-bold text-gray-900">{site.name} [{site.code}]</h1>
-        <p class="text-sm font-medium text-gray-500">{job.type} {job.task}</p>
-      </div>
-      <!-- Action Buttons-->
-      {#if visit.completedAt === null}
-        <div
-          class="flex flex-col-reverse justify-stretch space-y-2 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-2 sm:space-y-0 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-2">
-          <SecondaryButtonLink to={addLocationLink} type="button" text="Add location" />
-          <PrimaryButtonLink to={completeVisitLink} type="button" text="Complete visit" />
-        </div>
-      {/if}
-    </div>
-  </div>
-
   <div
-    class="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-900 bg-gray-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+    class="grid grid-cols-1 divide-y divide-gray-200  bg-gray-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
     <div class="px-6 py-4 text-center text-sm font-medium">
       <span class="text-gray-600">Visit status:</span>
       <span class="text-gray-900">{visit.status}</span>
@@ -70,3 +53,18 @@
     </div>
   </div>
 </div>
+
+<!--  <div class="sm:flex sm:items-center sm:justify-between">-->
+<!--    <div class="mb-2">-->
+<!--      <h1 class="text-2xl font-bold text-gray-900">{site.name} [{site.code}]</h1>-->
+<!--      <p class="text-sm font-medium text-gray-500">{job.type} {job.task}</p>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Action Buttons&ndash;&gt;-->
+<!--    {#if visit.completedAt === null}-->
+<!--      <div-->
+<!--        class="flex flex-col-reverse justify-stretch space-y-2 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-2 sm:space-y-0 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-2">-->
+<!--        <SecondaryButtonLink to={addLocationLink} type="button" text="Add location" />-->
+<!--        <PrimaryButtonLink to={completeVisitLink} type="button" text="Complete visit" />-->
+<!--      </div>-->
+<!--    {/if}-->
+<!--  </div>-->

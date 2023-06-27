@@ -3,6 +3,7 @@
   import ProcessingIcon from "./icons/ProcessingIcon.svelte";
   import { linear } from "svelte/easing";
   import { fade } from "svelte/transition";
+  import ErrorIcon from "./icons/ErrorIcon.svelte";
 
   export let proceed = () => {
   };
@@ -23,12 +24,12 @@
            class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
         <div class="sm:flex sm:items-start">
           <div
-            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
 
             {#if disabled}
-              <ProcessingIcon class="h-6 w-6 text-green-600 animate-spin" />
+              <ProcessingIcon class="h-6 w-6 text-red-600 animate-spin" />
             {:else }
-              <CheckIcon class="h-6 w-6 text-green-600" />
+              <ErrorIcon class="h-6 w-6 text-red-600" />
             {/if}
 
           </div>
@@ -36,7 +37,7 @@
             <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Complete visit</h3>
             <div class="mt-2">
               <p class="text-sm text-gray-500">Are you sure you want to complete this visit? This action cannot be
-                undone and has outstanding locations.</p>
+                undone.</p>
             </div>
           </div>
         </div>

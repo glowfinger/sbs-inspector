@@ -15,6 +15,7 @@
   import SectionHeader from "../../SectionHeader.svelte";
   import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
   import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
 
   export let siteId: number;
   export let jobId: number;
@@ -26,6 +27,8 @@
   let site: Site;
   let job: Job;
   let visit: Visit;
+  const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/review`;
+  let addLocationLink: string;
 
   onMount(async () => {
     [locations, visit, job, site] = await Promise.all([
@@ -35,11 +38,11 @@
       getSiteById(siteId)
     ]);
 
+    addLocationLink = `/site/${siteId}/job/${jobId}/visit/${visitId}/location/add/${job.type}`;
+
     loaded = true;
   });
 
-  const addLocationLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/location/add`;
-  const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/review`;
 </script>
 
 <nav aria-label="Breadcrumb" class="mb-2 ">
@@ -47,12 +50,11 @@
     <BreadcrumbFirstLink to="/visits" text="Visits" />
   </div>
 </nav>
-
 {#if loaded}
+  <VisitHeader site={site} job={job} />
   <PageHeader text="Visit" />
   <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
-
-  {#if !visit.completedAt === null}
+  {#if visit.completedAt === null}
     <div class="mt-4 flex">
     <span>
       <PrimaryButtonLink to={completeVisitLink} text="Review visit" />
@@ -61,7 +63,6 @@
       <SecondaryButtonLink to={addLocationLink} text="Add location" />
   </span>
     </div>
-
     <SectionHeader text="Work list" />
     <div class="flex flex-col space-y-2 ">
       <WorkList

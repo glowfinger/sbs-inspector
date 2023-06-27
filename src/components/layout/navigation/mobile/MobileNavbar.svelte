@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { user } from "../../../lib/stores/AuthStore.js";
+  import { user } from "../../../../lib/stores/AuthStore.js";
   import MobileNavbarDropdown from "./MobileNavbarDropdown.svelte";
 
   export let toggle;

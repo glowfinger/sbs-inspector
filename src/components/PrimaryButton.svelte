@@ -1,6 +1,6 @@
 <script lang="ts">
 
-  export let action: function;
+  export let action: () => {};
 
 
   export let disabled: boolean = false;

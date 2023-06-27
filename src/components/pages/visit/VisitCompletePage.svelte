@@ -19,6 +19,9 @@
   import { navigate } from "svelte-routing";
   import SecondaryButtonLink from "../../links/SecondaryButtonLink.svelte";
   import VisitCompleteModal from "../../VisitCompleteModal.svelte";
+  import Stringify from "../../debug/Stringify.svelte";
+  import VisitIssueModal from "../../VisitIssueModal.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
 
   export let siteId: number;
   export let jobId: number;
@@ -50,17 +53,9 @@
     loaded = true;
   });
 
-  const reviewLink: string = `/site/${siteId}/job/${jobId}/visit/2/review`;
-  const visitLink: string = `/site/${siteId}/job/${jobId}/visit/2`;
+  const reviewLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/review`;
+  const visitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}`;
 
-  function handleComplete() {
-    saving = true;
-    completeVisit(visit.id).then(() => {
-      navigate(visitLink);
-    }).catch(() => {
-      saving = false;
-    });
-  }
 
   function allLocationsActioned(): boolean {
     return incompleteLocations.length === 0;
@@ -80,23 +75,31 @@
 
 
   function proceed() {
-
+    saving = true;
+    completeVisit(visitId).then(() => {
+      navigate(visitLink);
+    }).catch(() => {
+      saving = false;
+    });
   }
 
   function cancel() {
     navigate(reviewLink);
   }
-
 </script>
 
+<nav aria-label="Breadcrumb" class="mb-2 ">
+  <div class="items-start">
+    <BreadcrumbFirstLink to={reviewLink} text="Visit" />
+  </div>
+</nav>
 {#if loaded}
-  <nav aria-label="Breadcrumb" class="mb-2 ">
-    <div class="items-start">
-      <BreadcrumbFirstLink to={reviewLink} text="Visit" />
-      <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
-    </div>
-  </nav>
-
-
-  <VisitCompleteModal cancelLink={reviewLink} proceed={handleComplete} />
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Review visit" />
+  <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
+  {#if incompleteLocations.length > 0}
+    <VisitIssueModal cancelLink={reviewLink} proceed={proceed} cancel={cancel} disabled={saving} />
+  {:else }
+    <VisitCompleteModal cancelLink={reviewLink} proceed={proceed} cancel={cancel} disabled={saving} />
+  {/if}
 {/if}

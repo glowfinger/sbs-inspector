@@ -107,7 +107,3 @@
     </button>
   </div>
 </form>
-
-<!-- {#if !loading}
-    <ThermoResultTable results={work.results}/>
-{/if} -->

@@ -3,8 +3,8 @@
   import { fade } from "svelte/transition";
   import Logo from "./Logo.svelte";
   import { Link, navigate } from "svelte-routing";
-  import HomeIcon from "../../components/icons/HomeIcon.svelte";
-  import VisitIcon from "../../components/icons/VisitIcon.svelte";
+  import HomeIcon from "../../icons/HomeIcon.svelte";
+  import VisitIcon from "../../icons/VisitIcon.svelte";
 
   export let isNavOpen;
 

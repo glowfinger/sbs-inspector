@@ -1,7 +1,7 @@
 <div class="overflow-hidden bg-white shadow sm:rounded-md">
   <ul class="divide-y divide-gray-200">
     <li>
-      <a href="/" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-gray-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">
@@ -83,7 +83,7 @@
     </li>
 
     <li>
-      <a href="/" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-gray-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">
@@ -165,7 +165,7 @@
     </li>
 
     <li>
-      <a href="/" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-gray-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">

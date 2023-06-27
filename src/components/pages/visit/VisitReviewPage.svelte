@@ -16,6 +16,7 @@
   import VisitPageHeading from "./VisitPageHeading.svelte";
   import PrimaryButtonLink from "../../links/PrimaryButtonLink.svelte";
   import LocationInfoList from "./LocationInfoList.svelte";
+  import VisitHeader from "../../layout/headers/VisitHeader.svelte";
 
   export let siteId: number;
   export let jobId: number;
@@ -71,12 +72,12 @@
 
 <nav aria-label="Breadcrumb" class="mb-2 ">
   <div class="items-start">
-    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/2`} text="Visit" />
+    <BreadcrumbFirstLink to={`/site/${siteId}/job/${jobId}/visit/${visitId}`} text="Visit" />
   </div>
 </nav>
-
 {#if loaded}
-  <PageHeader text="Complete visit" />
+  <VisitHeader site={site} job={job} />
+  <PageHeader text="Review visit" />
   <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
   <div class="mt-4 mb-4 flex">
     <PrimaryButtonLink to={completeVisitLink} text="Complete visit">Complete review</PrimaryButtonLink>
