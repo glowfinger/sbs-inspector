@@ -3,7 +3,6 @@
   import { Link } from 'svelte-routing';
   import SiteCardHeader from './SiteCardHeader.svelte';
   import SiteCardBody from './SiteCardBody.svelte';
-  import SiteCardJobFooter from './SiteCardJobFooter.svelte';
 
   export let site: Site;
 </script>
