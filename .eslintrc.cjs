@@ -1,6 +1,9 @@
 module.exports = {
   // ...
-  extends: ["plugin:svelte/recommended"],
+  extends: [
+    'eslint:recommended',
+    "plugin:svelte/recommended"
+  ],
   // ...
   parser: "@typescript-eslint/parser",
   parserOptions: {

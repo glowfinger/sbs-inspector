@@ -61,9 +61,7 @@
             <div class="sm:col-span-2">
               <dt class="text-sm font-medium text-gray-500">Attachments</dt>
               <dd class="mt-1 text-sm text-gray-900">
-                <ul
-                  role="list"
-                  class="divide-y divide-gray-200 rounded-md border border-gray-200">
+                <ul class="divide-y divide-gray-200 rounded-md border border-gray-200">
                   <li
                     class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                     <div class="flex w-0 flex-1 items-center">
