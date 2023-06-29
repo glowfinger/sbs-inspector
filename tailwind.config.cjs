@@ -5,7 +5,11 @@ module.exports = {
     './src/**/*.{svelte,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#024995',
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

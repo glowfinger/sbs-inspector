@@ -35,33 +35,33 @@
   }
 </script>
 
-<div class="overflow-hidden rounded-lg border border-gray-700 bg-white shadow">
+<div class="overflow-hidden border border-zinc-700 bg-white shadow">
   <div
-    class="grid grid-cols-1 divide-y divide-gray-200  bg-gray-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+    class="grid grid-cols-1 divide-y divide-zinc-200  bg-zinc-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
     <div class="px-6 py-4 text-center text-sm font-medium">
-      <span class="text-gray-600">Visit status:</span>
-      <span class="text-gray-900">{visit.status}</span>
+      <span class="text-zinc-600">Visit status:</span>
+      <span class="text-zinc-900">{visit.status}</span>
     </div>
     <div class="px-6 py-4 text-center text-sm font-medium">
-      <span class="text-gray-600">Total locations:</span>
-      <span class="text-gray-900"
+      <span class="text-zinc-600">Total locations:</span>
+      <span class="text-zinc-900"
         >{locationsForType(locations, job.type).length}</span>
     </div>
     <div class="px-6 py-4 text-center text-sm font-medium">
-      <span class="text-gray-600">Locations completed</span>
-      <span class="text-gray-900">{completeLocations.length}</span>
+      <span class="text-zinc-600">Locations completed</span>
+      <span class="text-zinc-900">{completeLocations.length}</span>
     </div>
     <div class="px-6 py-4 text-center text-sm font-medium">
-      <span class="text-gray-600">Follow ups required</span>
-      <span class="text-gray-900">-</span>
+      <span class="text-zinc-600">Follow ups required</span>
+      <span class="text-zinc-900">-</span>
     </div>
   </div>
 </div>
 
 <!--  <div class="sm:flex sm:items-center sm:justify-between">-->
 <!--    <div class="mb-2">-->
-<!--      <h1 class="text-2xl font-bold text-gray-900">{site.name} [{site.code}]</h1>-->
-<!--      <p class="text-sm font-medium text-gray-500">{job.type} {job.task}</p>-->
+<!--      <h1 class="text-2xl font-bold text-zinc-900">{site.name} [{site.code}]</h1>-->
+<!--      <p class="text-sm font-medium text-zinc-500">{job.type} {job.task}</p>-->
 <!--    </div>-->
 <!--    &lt;!&ndash; Action Buttons&ndash;&gt;-->
 <!--    {#if visit.completedAt === null}-->

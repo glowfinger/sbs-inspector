@@ -61,12 +61,12 @@
 
 <tr>
   <td class="whitespace-nowrap p-2 text-sm">{location.name}</td>
-  <td class="whitespace-nowrap p-2 text-sm text-gray-500">{location.floor}</td>
-  <td class="whitespace-nowrap p-2 text-sm text-gray-500">{location.area}</td>
+  <td class="whitespace-nowrap p-2 text-sm text-zinc-500">{location.floor}</td>
+  <td class="whitespace-nowrap p-2 text-sm text-zinc-500">{location.area}</td>
 
   {#if work}
-    <td class="whitespace-nowrap p-2 text-sm text-gray-500">{work.status}</td>
-    <td class="whitespace-nowrap p-2 text-sm text-gray-500"
+    <td class="whitespace-nowrap p-2 text-sm text-zinc-500">{work.status}</td>
+    <td class="whitespace-nowrap p-2 text-sm text-zinc-500"
       >{work.outcome ?? '-'}</td>
     <TemperatureTd result={getHotResult(location, work)} />
     <TemperatureTd result={getColdResult(location, work)} />
@@ -76,7 +76,7 @@
       <td
         class="relative whitespace-nowrap p-2 text-right text-sm font-medium sm:pr-6">
         <button
-          class="text-gray-600 hover:text-gray-900"
+          class="text-zinc-600 hover:text-zinc-900"
           on:click={() => updateWork(visitId, work.id)}>
           update
         </button>
@@ -85,7 +85,7 @@
       <td
         class="relative whitespace-nowrap p-2 text-right text-sm font-medium sm:pr-6">
         <button
-          class="text-gray-600 hover:text-gray-900"
+          class="text-zinc-600 hover:text-zinc-900"
           on:click={() => resolveWork(siteId, visitId, work.id, location.id)}>
           Resolve
         </button>
@@ -97,12 +97,12 @@
     {/if}
   {:else}
     <td
-      class="whitespace-nowrap bg-gray-100 p-2 text-center text-sm text-gray-500"
+      class="whitespace-nowrap bg-zinc-100 p-2 text-center text-sm text-zinc-500"
       colspan="6">Pending</td>
     <td
       class="relative whitespace-nowrap p-2 text-right text-sm font-medium sm:pr-6">
       <button
-        class="text-gray-600 hover:text-gray-900"
+        class="text-zinc-600 hover:text-zinc-900"
         on:click={() => startWork(visitId, location.id)}
         >Start
       </button>

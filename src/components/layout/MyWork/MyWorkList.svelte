@@ -1,7 +1,7 @@
-<div class="overflow-hidden bg-white shadow sm:rounded-md">
-  <ul class="divide-y divide-gray-200">
+<div class="overflow-hidden bg-white shadow">
+  <ul class="divide-y divide-zinc-200">
     <li>
-      <a href="/public" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-zinc-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">
@@ -12,13 +12,13 @@
             </div>
             <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
               <div>
-                <p class="truncate text-sm font-medium text-gray-600">
+                <p class="truncate text-sm font-medium text-zinc-600">
                   Ricardo Cooper
                 </p>
-                <p class="mt-2 flex items-center text-sm text-gray-500">
+                <p class="mt-2 flex items-center text-sm text-zinc-500">
                   <!-- Heroicon name: mini/envelope -->
                   <svg
-                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-zinc-400"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -33,11 +33,11 @@
               </div>
               <div class="hidden md:block">
                 <div>
-                  <p class="text-sm text-gray-900">
+                  <p class="text-sm text-zinc-900">
                     Applied on
                     <time datetime="2020-01-07">January 7, 2020</time>
                   </p>
-                  <p class="mt-2 flex items-center text-sm text-gray-500">
+                  <p class="mt-2 flex items-center text-sm text-zinc-500">
                     <!-- Heroicon name: mini/check-circle -->
                     <svg
                       class="mr-1.5 h-5 w-5 flex-shrink-0 text-green-400"
@@ -59,7 +59,7 @@
           <div>
             <!-- Heroicon name: mini/chevron-right -->
             <svg
-              class="h-5 w-5 text-gray-400"
+              class="h-5 w-5 text-zinc-400"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -75,7 +75,7 @@
     </li>
 
     <li>
-      <a href="/public" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-zinc-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">
@@ -86,13 +86,13 @@
             </div>
             <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
               <div>
-                <p class="truncate text-sm font-medium text-gray-600">
+                <p class="truncate text-sm font-medium text-zinc-600">
                   Kristen Ramos
                 </p>
-                <p class="mt-2 flex items-center text-sm text-gray-500">
+                <p class="mt-2 flex items-center text-sm text-zinc-500">
                   <!-- Heroicon name: mini/envelope -->
                   <svg
-                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-zinc-400"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -107,11 +107,11 @@
               </div>
               <div class="hidden md:block">
                 <div>
-                  <p class="text-sm text-gray-900">
+                  <p class="text-sm text-zinc-900">
                     Applied on
                     <time datetime="2020-01-07">January 7, 2020</time>
                   </p>
-                  <p class="mt-2 flex items-center text-sm text-gray-500">
+                  <p class="mt-2 flex items-center text-sm text-zinc-500">
                     <!-- Heroicon name: mini/check-circle -->
                     <svg
                       class="mr-1.5 h-5 w-5 flex-shrink-0 text-green-400"
@@ -133,7 +133,7 @@
           <div>
             <!-- Heroicon name: mini/chevron-right -->
             <svg
-              class="h-5 w-5 text-gray-400"
+              class="h-5 w-5 text-zinc-400"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -149,7 +149,7 @@
     </li>
 
     <li>
-      <a href="/public" class="block hover:bg-gray-50">
+      <a href="/public" class="block hover:bg-zinc-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="flex min-w-0 flex-1 items-center">
             <div class="flex-shrink-0">
@@ -160,13 +160,13 @@
             </div>
             <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
               <div>
-                <p class="truncate text-sm font-medium text-gray-600">
+                <p class="truncate text-sm font-medium text-zinc-600">
                   Ted Fox
                 </p>
-                <p class="mt-2 flex items-center text-sm text-gray-500">
+                <p class="mt-2 flex items-center text-sm text-zinc-500">
                   <!-- Heroicon name: mini/envelope -->
                   <svg
-                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                    class="mr-1.5 h-5 w-5 flex-shrink-0 text-zinc-400"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -181,11 +181,11 @@
               </div>
               <div class="hidden md:block">
                 <div>
-                  <p class="text-sm text-gray-900">
+                  <p class="text-sm text-zinc-900">
                     Applied on
                     <time datetime="2020-01-07">January 7, 2020</time>
                   </p>
-                  <p class="mt-2 flex items-center text-sm text-gray-500">
+                  <p class="mt-2 flex items-center text-sm text-zinc-500">
                     <!-- Heroicon name: mini/check-circle -->
                     <svg
                       class="mr-1.5 h-5 w-5 flex-shrink-0 text-green-400"
@@ -207,7 +207,7 @@
           <div>
             <!-- Heroicon name: mini/chevron-right -->
             <svg
-              class="h-5 w-5 text-gray-400"
+              class="h-5 w-5 text-zinc-400"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"

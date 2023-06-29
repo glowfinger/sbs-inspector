@@ -8,25 +8,25 @@
 </script>
 
 <div class="overflow-hidden bg-white">
-  <ul class="divide-y divide-gray-200">
+  <ul class="divide-y divide-zinc-200">
     {#each jobs as job}
       <li>
-        <Link to={getLatest(job)} class="block hover:bg-gray-50">
+        <Link to={getLatest(job)} class="block hover:bg-zinc-50">
           <div class="flex items-center px-2 py-1 sm:px-4">
             <div
               class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
               <div class="truncate">
                 <div class="flex text-sm">
-                  <p class="truncate font-medium text-gray-600">{job.type}</p>
-                  <p class="ml-1 flex-shrink-0 font-normal text-gray-500">
+                  <p class="truncate font-medium text-zinc-600">{job.type}</p>
+                  <p class="ml-1 flex-shrink-0 font-normal text-zinc-500">
                     {job.status}
                   </p>
                 </div>
                 <div class="mt-0 flex">
-                  <div class="items-left flex text-sm text-gray-500">
+                  <div class="items-left flex text-sm text-zinc-500">
                     <!-- Heroicon name: mini/calendar -->
                     <svg
-                      class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                      class="mr-1.5 h-5 w-5 flex-shrink-0 text-zinc-400"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -53,7 +53,7 @@
             <div class="ml-5 flex-shrink-0">
               <!-- Heroicon name: mini/chevron-right -->
               <svg
-                class="h-5 w-5 text-gray-400"
+                class="h-5 w-5 text-zinc-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"

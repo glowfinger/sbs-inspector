@@ -8,10 +8,10 @@
   <main class="pb-16 pt-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="px-4 sm:px-0">
-        <h2 class="text-lg font-medium text-gray-900">My sites</h2>
+        <h2 class="text-lg font-medium text-zinc-900">My sites</h2>
       </div>
       <ul
-        class="mt-5 divide-y divide-gray-200 border-t border-gray-200 sm:mt-0 sm:border-t-0">
+        class="mt-5 divide-y divide-zinc-200 border-t border-zinc-200 sm:mt-0 sm:border-t-0">
         {#each sites as site}
           <li>
             <Link
@@ -21,7 +21,7 @@
                 <div class="flex min-w-0 flex-1 items-center">
                   <div class="flex-shrink-0">
                     <span
-                      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-500">
+                      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-500">
                       <span class="font-medium leading-none text-white"
                         >{site.name
                           .split(/\s/)
@@ -36,13 +36,13 @@
                   <div
                     class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
-                      <p class="truncate text-sm font-medium text-gray-600">
+                      <p class="truncate text-sm font-medium text-zinc-600">
                         {site.name}
                       </p>
-                      <p class="mt-2 flex items-center text-sm text-gray-500">
+                      <p class="mt-2 flex items-center text-sm text-zinc-500">
                         <!-- Heroicon name: mini/envelope -->
                         <svg
-                          class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                          class="mr-1.5 h-5 w-5 flex-shrink-0 text-zinc-400"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -60,7 +60,7 @@
                 <div>
                   <!-- Heroicon name: mini/chevron-right -->
                   <svg
-                    class="h-5 w-5 text-gray-400 group-hover:text-gray-700"
+                    class="h-5 w-5 text-zinc-400 group-hover:text-zinc-700"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"

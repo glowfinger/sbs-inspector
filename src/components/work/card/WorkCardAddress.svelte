@@ -5,9 +5,9 @@
 </script>
 
 {#if address}
-  <p class="truncate text-sm text-gray-500">
+  <p class="truncate text-sm text-zinc-500">
     {address.town} / {address.postcode}
   </p>
 {:else}
-  <p class="truncate text-sm text-gray-500">Address not set</p>
+  <p class="truncate text-sm text-zinc-500">Address not set</p>
 {/if}

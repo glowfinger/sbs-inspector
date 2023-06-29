@@ -10,18 +10,18 @@
 <div class="col-span-6 sm:col-span-4">
   <label
     for={id}
-    class="block text-sm font-medium {error ? 'text-red-600' : 'text-gray-900'}"
+    class="block text-sm font-medium {error ? 'text-red-600' : 'text-zinc-900'}"
     >{name}</label>
-  <div class="relative mt-1 rounded-md shadow-sm">
+  <div class="relative mt-1 shadow-sm">
     <select
       id={id}
       name={id}
       autocomplete="country-name"
       bind:value
       disabled={loading}
-      class="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
+      class="mt-1 block w-full border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
-        : 'border-gray-300 focus:border-gray-500 focus:ring-gray-500'}">
+        : 'border-zinc-300 focus:border-zinc-500 focus:ring-zinc-500'}">
       <option value="" selected disabled hidden>Select Type</option>
       {#each options as option}
         <option value={option.value}>{option.title}</option>

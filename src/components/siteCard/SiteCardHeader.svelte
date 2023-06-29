@@ -4,10 +4,10 @@
   export let site: Site;
 </script>
 
-<div class="bg-gray-700 px-2 py-1 sm:px-4">
+<div class="bg-primary px-2 py-1 sm:px-4">
   <h3 class="text-lg font-medium text-white">{site.name}</h3>
   {#if site.address}
-    <p class="truncate text-sm text-gray-500">
+    <p class="truncate text-sm text-sky-200">
       {site.address.town} / {site.address.postcode}
     </p>
   {/if}

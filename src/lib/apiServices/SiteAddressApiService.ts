@@ -1,4 +1,4 @@
-import { getToken } from '../auth/AuthService';
+import { getToken } from '../auth/TokenManager';
 import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
 import type Address from '../types/Address';
 import handleErrors from './helpers/HandleError';
@@ -9,7 +9,7 @@ export async function createSiteAddress(address: Address, siteId: number) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'POST',
     body: JSON.stringify(address),
@@ -25,7 +25,7 @@ export async function getSiteAddress(siteId: number, addressId: number) {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        authorization: 'Bearer ' + (await getToken()),
+        authorization: 'Bearer ' + getToken(),
       },
       method: 'GET',
     }

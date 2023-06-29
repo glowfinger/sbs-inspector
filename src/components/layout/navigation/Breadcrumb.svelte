@@ -1,9 +1,9 @@
-<nav class="flex border-b border-gray-200 bg-white" aria-label="Breadcrumb">
+<nav class="flex border-b border-zinc-200 bg-white" aria-label="Breadcrumb">
   <ol
     class="mx-auto flex w-full max-w-screen-xl space-x-4 px-4 sm:px-6 lg:px-8">
     <li class="flex">
       <div class="flex items-center">
-        <a href="/public" class="text-gray-400 hover:text-gray-500">
+        <a href="/public" class="text-zinc-400 hover:text-zinc-500">
           <!-- Heroicon name: mini/home -->
           <svg
             class="h-5 w-5 flex-shrink-0"
@@ -24,7 +24,7 @@
     <li class="flex">
       <div class="flex items-center">
         <svg
-          class="h-full w-6 flex-shrink-0 text-gray-200"
+          class="h-full w-6 flex-shrink-0 text-zinc-200"
           viewBox="0 0 24 44"
           preserveAspectRatio="none"
           fill="currentColor"
@@ -34,7 +34,7 @@
         </svg>
         <a
           href="sites"
-          class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+          class="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700"
           >Projects</a>
       </div>
     </li>
@@ -42,7 +42,7 @@
     <li class="flex">
       <div class="flex items-center">
         <svg
-          class="h-full w-6 flex-shrink-0 text-gray-200"
+          class="h-full w-6 flex-shrink-0 text-zinc-200"
           viewBox="0 0 24 44"
           preserveAspectRatio="none"
           fill="currentColor"
@@ -52,7 +52,7 @@
         </svg>
         <a
           href="work"
-          class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+          class="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700"
           aria-current="page">Project Nero</a>
       </div>
     </li>

@@ -8,7 +8,7 @@
   export let job: Job;
 </script>
 
-<div class="col-span-1 flex border border-gray-300 bg-white shadow">
+<div class="col-span-1 flex border border-zinc-300 bg-white shadow">
   {#if job.type === 'shower_head'}
     <div
       class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white">
@@ -22,8 +22,8 @@
   {/if}
   <div class="flex flex-1 items-center justify-between truncate bg-white">
     <div class="flex-1 truncate px-4 py-2 text-sm">
-      <p class="text-sm font-bold text-gray-900">{site.name}</p>
-      <p class="truncate text-sm text-gray-500">
+      <p class="text-sm font-bold text-zinc-900">{site.name}</p>
+      <p class="truncate text-sm text-zinc-500">
         ({site.code}) / {job.type}
         {job.task}
       </p>

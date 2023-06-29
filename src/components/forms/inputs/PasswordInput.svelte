@@ -1,44 +1,25 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
   export let id: string;
   export let error = false;
-  export let name;
+  export let name: string;
   export let loading = false;
-  export let value;
-
-  function handleBlur() {
-    if (value) {
-      value = Number(parseFloat(value).toFixed(1));
-    }
-  }
-
-  let elm;
-
-  onMount(function () {
-    elm.focus();
-  });
-
-  // $: value = value.replace(/[^0-9]/g, '')
+  export let value: string;
 </script>
 
-<div class="col-span-6 sm:col-span-4">
+<div class="col-span-6 leading-6 sm:col-span-4">
   <label
     for={id}
-    class="block text-sm font-medium {error ? 'text-red-600' : 'text-zinc-900'}"
+    class="block text-sm font-medium {error ? 'text-red-600' : 'text-zinc-700'}"
     >{name}</label>
   <div class="relative mt-1 shadow-sm">
     <input
       bind:value
-      on:blur={handleBlur}
       disabled={loading}
-      type="text"
+      type="password"
       name={id}
       id={id}
-      bind:this={elm}
-      inputmode="decimal"
       autocomplete="off"
-      class="mt-1 block w-full border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error
+      class="disabled:bg-slate-200 block w-full border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
         : 'border-zinc-300 focus:border-zinc-500 focus:ring-zinc-500'}" />
     <div
@@ -62,3 +43,4 @@
     <p class="mt-2 text-sm text-red-600" id={`${id}-error`}>{error}</p>
   {/if}
 </div>
+

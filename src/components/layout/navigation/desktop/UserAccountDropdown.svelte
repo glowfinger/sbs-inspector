@@ -15,25 +15,25 @@
     <button
       type="button"
       on:click={toggleIsOpen}
-      class="group w-full rounded-md bg-gray-100 px-3.5 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-gray-100"
+      class="group w-full bg-zinc-100 px-3.5 py-2 text-left text-sm font-medium text-zinc-700 hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 focus:ring-offset-zinc-100"
       id="options-menu-button"
       aria-expanded="false"
       aria-haspopup="true">
       <span class="flex w-full items-center justify-between">
         <span class="flex min-w-0 items-center justify-between space-x-3">
           <span
-            class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+            class="inline-block h-10 w-10 overflow-hidden rounded-full bg-zinc-100">
             <img src={$user.picture} alt="Avatar" />
           </span>
           <span class="flex min-w-0 flex-1 flex-col">
-            <span class="truncate text-sm font-medium text-gray-900"
+            <span class="truncate text-sm font-medium text-zinc-900"
               >{$user.nickname}</span>
-            <span class="truncate text-sm text-gray-500">{$user.email}</span>
+            <span class="truncate text-sm text-zinc-500">{$user.email}</span>
           </span>
         </span>
         <!-- Heroicon name: mini/chevron-up-down -->
         <svg
-          class="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+          class="h-5 w-5 flex-shrink-0 text-zinc-400 group-hover:text-zinc-500"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -50,7 +50,7 @@
     <div
       in:scale={{ start: 0.95, duration: 75, opacity: 0 }}
       out:scale={{ start: 0.95, duration: 100, opacity: 0 }}
-      class="absolute left-0 right-0 z-10 mx-3 mt-1 origin-top divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="absolute left-0 right-0 z-10 mx-3 mt-1 origin-top divide-y divide-zinc-200 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="options-menu-button"
@@ -58,7 +58,7 @@
       <div class="py-1" role="none">
         <Link
           to={`/logout`}
-          class="block px-4 py-2 text-sm text-gray-700"
+          class="block px-4 py-2 text-sm text-zinc-700"
           role="menuitem"
           tabindex="-1"
           id="options-menu-item-5">Logout</Link>

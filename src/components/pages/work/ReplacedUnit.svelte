@@ -12,7 +12,7 @@
     <div class="group relative flex items-start space-x-3 py-4">
       <div class="flex-shrink-0">
         <span
-          class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
+          class="inline-flex h-10 w-10 items-center justify-center bg-zinc-800">
           <svg
             class="h-6 w-6 text-white"
             fill="none"
@@ -29,18 +29,18 @@
       </div>
 
       <div class="min-w-0 flex-1">
-        <div class="text-sm font-medium text-gray-900">
+        <div class="text-sm font-medium text-zinc-900">
           <Link to={url}>
             <span class="absolute inset-0" aria-hidden="true" />
             Replace
           </Link>
         </div>
-        <p class="text-sm text-gray-500">Replaced unit</p>
+        <p class="text-sm text-zinc-500">Replaced unit</p>
       </div>
 
       <div class="flex-shrink-0 self-center">
         <svg
-          class="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+          class="h-5 w-5 text-zinc-400 group-hover:text-zinc-500"
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true">
@@ -57,7 +57,7 @@
     <div class="group relative flex items-start space-x-3 py-4">
       <div class="flex-shrink-0">
         <span
-          class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-300">
+          class="inline-flex h-10 w-10 items-center justify-center bg-zinc-300">
           <svg
             class="h-6 w-6 text-white"
             fill="none"
@@ -73,9 +73,9 @@
         </span>
       </div>
       <div class="min-w-0 flex-1">
-        <div class="text-sm font-medium text-gray-300">Replace</div>
+        <div class="text-sm font-medium text-zinc-300">Replace</div>
         <p class="text-sm text-red-300 underline">Please add temperatures</p>
-        <p class="text-sm text-gray-300 line-through">Replaced unit</p>
+        <p class="text-sm text-zinc-300 line-through">Replaced unit</p>
       </div>
 
       <div class="flex-shrink-0 self-center">
