@@ -1,4 +1,4 @@
-import { getToken } from '../../auth/AuthService';
+import { getToken } from '../../auth/TokenManager';
 import { DOMAIN, PROTOCOL } from '../../services/ApiServiceConfig';
 import type WorkResult from '../../types/WorkResult';
 import handleErrors from '../helpers/HandleError';
@@ -9,7 +9,7 @@ export async function createWorkResult(workId: number, result) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'POST',
     body: JSON.stringify(result),
@@ -23,7 +23,7 @@ export async function updateWorkResult(resultId: number, result: WorkResult) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'PUT',
     body: JSON.stringify(result),

@@ -1,4 +1,4 @@
-import { getToken } from '../auth/AuthService';
+import { getToken } from '../auth/TokenManager';
 import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
 import type Visit from '../types/Visit';
 import handleErrors from './helpers/HandleError';
@@ -9,7 +9,7 @@ export async function getVisitById(visitId): Promise<Visit> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'GET',
   })

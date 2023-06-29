@@ -1,4 +1,4 @@
-import { getToken } from '../auth/AuthService';
+import { getToken } from '../auth/TokenManager';
 import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
 import type Site from '../types/Site';
 import handleErrors from './helpers/HandleError';
@@ -9,7 +9,7 @@ export async function getSiteById(siteId): Promise<Site> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'GET',
   })
@@ -22,7 +22,7 @@ export async function getSites() {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'GET',
   })
@@ -35,7 +35,7 @@ export async function createSite(site) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'POST',
     body: JSON.stringify(site),

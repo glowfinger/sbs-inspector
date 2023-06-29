@@ -25,7 +25,7 @@
   <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
     {#if isNavOpen}
       <div
-        class="fixed inset-0 bg-gray-600 bg-opacity-75"
+        class="fixed inset-0 bg-zinc-600 bg-opacity-75"
         on:click={toggle}
         transition:fade={{ duration: 200, easing: linear }} />
     {/if}
@@ -59,27 +59,27 @@
               </button>
             </div>
 
-            <div class="flex flex-shrink-0 items-center px-4 text-gray-900">
+            <div class="flex flex-shrink-0 items-center px-4 text-zinc-900">
               <Logo />
             </div>
             <div class="mt-5 h-0 flex-1 overflow-y-auto">
               <nav class="px-2">
                 <div class="space-y-1">
-                  <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
+                  <!-- Current: "bg-zinc-100 text-zinc-900", Default: "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50" -->
                   <button
                     on:click={gotoHome}
-                    class="group flex w-full items-center rounded-md bg-gray-100 px-2 py-2 text-base font-medium leading-5 text-gray-900"
+                    class="group flex w-full items-center bg-zinc-100 px-2 py-2 text-base font-medium leading-5 text-zinc-900"
                     aria-current="page">
                     <HomeIcon
-                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-500" />
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-zinc-500" />
                     Home
                   </button>
 
                   <button
                     on:click={gotoVisits}
-                    class="group flex w-full items-center rounded-md px-2 py-2 text-base font-medium leading-5 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    class="group flex w-full items-center px-2 py-2 text-base font-medium leading-5 text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900">
                     <VisitIcon
-                      class="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
+                      class="mr-3 h-6 w-6 flex-shrink-0 text-zinc-400 group-hover:text-zinc-500" />
                     My visits
                   </button>
                 </div>

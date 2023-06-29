@@ -7,7 +7,7 @@
 </script>
 
 <div>
-  <h2 class="text-sm font-medium text-gray-900">Work outcome filter</h2>
+  <h2 class="text-sm font-medium text-zinc-900">Work outcome filter</h2>
   <ul
     class="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-4 sm:gap-6 xl:grid-cols-4">
     <WorkMetric

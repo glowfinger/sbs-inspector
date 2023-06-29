@@ -6,7 +6,7 @@
 
 {#if location}
   <div class="pb-2">
-    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+    <p class="mt-1 max-w-2xl text-sm text-zinc-500">
       Floor: {location.floor}, Area: {location.area}, Name: {location.name}
     </p>
   </div>

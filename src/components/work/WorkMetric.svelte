@@ -2,7 +2,7 @@
   export let title: string;
 </script>
 
-<li class="relative col-span-1 flex rounded-md shadow-sm">
+<li class="relative col-span-1 flex shadow-sm">
   <div
     class="flex w-8 flex-shrink-0 items-center justify-center rounded-l-md bg-pink-600 text-sm font-medium text-white">
     <svg
@@ -19,16 +19,16 @@
     </svg>
   </div>
   <div
-    class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+    class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-zinc-200 bg-white">
     <div class="flex-1 truncate px-4 py-2 text-sm">
-      <a href="/" class="font-medium text-gray-900 hover:text-gray-600"
+      <a href="/" class="font-medium text-zinc-900 hover:text-zinc-600"
         >{title}</a>
-      <p class="text-gray-500">12 Members</p>
+      <p class="text-zinc-500">12 Members</p>
     </div>
     <div class="flex-shrink-0 pr-2">
       <button
         type="button"
-        class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+        class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-zinc-400 hover:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
         id="pinned-project-options-menu-0-button"
         aria-expanded="false"
         aria-haspopup="true">

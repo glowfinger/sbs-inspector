@@ -9,33 +9,33 @@
 <div class=" mt-4 overflow-x-auto shadow">
   <div class="inline-block min-w-full align-middle sm:px-6 lg:px-8">
     <div
-      class="overflow-hidden border border-gray-300 bg-white ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-      <table class="min-w-full divide-y divide-gray-300">
-        <thead class="bg-gray-50">
+      class="overflow-hidden border border-zinc-300 bg-white ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+      <table class="min-w-full divide-y divide-zinc-300">
+        <thead class="bg-zinc-50">
           <tr>
             <th
               scope="col"
-              class="px-2 py-2 text-left text-sm font-semibold text-gray-900">
+              class="px-2 py-2 text-left text-sm font-semibold text-zinc-900">
               Hot
             </th>
             <th
               scope="col"
-              class="px-2 py-2 text-left text-sm font-semibold text-gray-900">
+              class="px-2 py-2 text-left text-sm font-semibold text-zinc-900">
               Cold
             </th>
             <th
               scope="col"
-              class="px-2 py-2 text-left text-sm font-semibold text-gray-900">
+              class="px-2 py-2 text-left text-sm font-semibold text-zinc-900">
               Mixed
             </th>
             <th
               scope="col"
-              class="px-2 py-2 text-left text-sm font-semibold text-gray-900">
+              class="px-2 py-2 text-left text-sm font-semibold text-zinc-900">
               Fail safe
             </th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 bg-white">
+        <tbody class="divide-y divide-zinc-200 bg-white">
           <tr>
             <TemperatureTd result={getResult(results, 'hot')} />
             <TemperatureTd result={getResult(results, 'cold')} />

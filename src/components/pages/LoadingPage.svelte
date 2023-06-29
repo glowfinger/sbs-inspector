@@ -1,17 +1,3 @@
-<script lang="ts">
-  import { onMount } from 'svelte';
-  import { isAuthenticated, user } from '../../lib/stores/AuthStore';
-  import { clearToken } from '../../lib/auth/TokenManager';
-
-
-  onMount(() => {
-    $user = {};
-    clearToken();
-    $isAuthenticated = false;
-  })
-
-</script>
-
 <div class='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8'>
   <div class='sm:mx-auto sm:w-full sm:max-w-sm'>
     <img class='mx-auto h-auto w-64' src='/images/sbs-brand-header.png'
@@ -28,6 +14,6 @@
       <span class='font-light text-red-700'>|</span>
       <span class='font-light text-primary'>MECHANICAL</span>
     </p>
-    <p class='text-center text-xs text-zinc-700 mt-2 animate-pulse'>Logging out</p>
+    <p class='text-center text-xs text-zinc-700 mt-2 animate-pulse'>Loading</p>
   </div>
 </div>

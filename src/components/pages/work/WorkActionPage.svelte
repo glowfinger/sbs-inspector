@@ -74,12 +74,12 @@
 
   {#if job.type === 'thermo_valve'}
     <ThermoResultTable results={work.results} />
-    <ul class="mt-6 divide-y divide-gray-200 border-b border-t border-gray-200">
+    <ul class="mt-6 divide-y divide-zinc-200 border-b border-t border-zinc-200">
       <li>
         <div class="group relative flex items-start space-x-3 py-4">
           <div class="flex-shrink-0">
             <span
-              class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-400">
+              class="inline-flex h-10 w-10 items-center justify-center bg-zinc-400">
               <svg
                 class="h-6 w-6 text-white"
                 fill="none"
@@ -95,17 +95,17 @@
             </span>
           </div>
           <div class="min-w-0 flex-1">
-            <div class="text-sm font-medium text-gray-900">
+            <div class="text-sm font-medium text-zinc-900">
               <Link to={hotLink}>
                 <span class="absolute inset-0" aria-hidden="true" />
                 Add temperature
               </Link>
             </div>
-            <p class="text-sm text-gray-500">Added Thermo valve temperature</p>
+            <p class="text-sm text-zinc-500">Added Thermo valve temperature</p>
           </div>
           <div class="flex-shrink-0 self-center">
             <svg
-              class="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+              class="h-5 w-5 text-zinc-400 group-hover:text-zinc-500"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true">
@@ -122,7 +122,7 @@
         <div class="group relative flex items-start space-x-3 py-4">
           <div class="flex-shrink-0">
             <span
-              class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-500">
+              class="inline-flex h-10 w-10 items-center justify-center bg-zinc-500">
               <svg
                 class="h-6 w-6 text-white"
                 fill="none"
@@ -138,20 +138,20 @@
             </span>
           </div>
           <div class="min-w-0 flex-1">
-            <div class="text-sm font-medium text-gray-900">
+            <div class="text-sm font-medium text-zinc-900">
               <Link
                 to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/inaccessible`}>
                 <span class="absolute inset-0" aria-hidden="true" />
                 Inaccessible
               </Link>
             </div>
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-zinc-500">
               Location was inaccessible at the time of service
             </p>
           </div>
           <div class="flex-shrink-0 self-center">
             <svg
-              class="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+              class="h-5 w-5 text-zinc-400 group-hover:text-zinc-500"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true">

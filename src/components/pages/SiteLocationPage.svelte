@@ -29,6 +29,7 @@
 
   let site: Site;
   let job: Job;
+  let visit: Visit;
 
   let loading = false;
   let loaded = false;
@@ -140,7 +141,7 @@
 
     <div class="relative">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
-        <div class="w-full border-t border-gray-300" />
+        <div class="w-full border-t border-zinc-300" />
       </div>
       <div class="relative flex justify-start">
         <span class="bg-white pr-2 text-sm " />
@@ -150,7 +151,7 @@
     <div class="mt-4 flex flex-col gap-2 sm:mt-4 sm:flex sm:flex-row sm:pl-4">
       <Link
         to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-        class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
+        class="inline-flex items-center justify-center border border-zinc-300 bg-white px-3 py-2 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600">
         Back
       </Link>
       <SubmitButton disabled={loading} />

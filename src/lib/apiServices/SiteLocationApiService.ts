@@ -1,4 +1,4 @@
-import { getToken } from '../auth/AuthService';
+import { getToken } from '../auth/TokenManager';
 import { DOMAIN, PROTOCOL } from '../services/ApiServiceConfig';
 import type Location from '../types/Location';
 import handleErrors from './helpers/HandleError';
@@ -12,7 +12,7 @@ export async function createSiteLocation(
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + (await getToken()),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'POST',
     body: JSON.stringify(location),
@@ -32,7 +32,7 @@ export async function updateSiteLocation(
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        authorization: 'Bearer ' + (await getToken()),
+        authorization: 'Bearer ' + getToken()
       },
 
       method: 'PUT',
@@ -53,7 +53,7 @@ export async function getSiteLocation(
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        authorization: 'Bearer ' + (await getToken()),
+        authorization: 'Bearer ' + getToken()
       },
       method: 'GET',
     }
@@ -68,7 +68,7 @@ export async function getSiteLocations(siteId: number): Promise<Location[]> {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        authorization: 'Bearer ' + (await getToken()),
+        authorization: 'Bearer ' + getToken()
       },
       method: 'GET',
     })
