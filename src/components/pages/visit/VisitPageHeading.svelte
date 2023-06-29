@@ -1,8 +1,6 @@
 <script lang="ts">
   import type Visit from '../../../lib/types/Visit';
   import type Site from '../../../lib/types/Site';
-  import SecondaryButtonLink from '../../links/SecondaryButtonLink.svelte';
-  import PrimaryButtonLink from '../../links/PrimaryButtonLink.svelte';
   import type Job from '../../../lib/types/Job';
   import locationsForType from '../../../lib/helpers/conditionals/LocationsForType.js';
   import type Location from '../../../lib/types/Location';

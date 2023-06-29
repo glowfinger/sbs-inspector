@@ -24,7 +24,6 @@
       </div>
 
       <ul
-        role="list"
         class="divide-y divide-gray-100 border-b border-gray-900 p-2">
         {#each floor.locations as location}
           <li

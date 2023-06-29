@@ -1,7 +1,6 @@
 <div>
   <h2 class="text-sm font-medium text-gray-500">Pinned Projects</h2>
   <ul
-    role="list"
     class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     <li class="col-span-1 flex rounded-md shadow-sm">
       <div
@@ -12,7 +11,7 @@
         class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="#" class="font-medium text-gray-900 hover:text-gray-600"
-            >Graph API</a>
+          >Graph API</a>
           <p class="text-gray-500">16 Members</p>
         </div>
         <div class="flex-shrink-0 pr-2">
@@ -44,7 +43,7 @@
         class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="#" class="font-medium text-gray-900 hover:text-gray-600"
-            >Component Design</a>
+          >Component Design</a>
           <p class="text-gray-500">12 Members</p>
         </div>
         <div class="flex-shrink-0 pr-2">
@@ -76,7 +75,7 @@
         class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="#" class="font-medium text-gray-900 hover:text-gray-600"
-            >Templates</a>
+          >Templates</a>
           <p class="text-gray-500">16 Members</p>
         </div>
         <div class="flex-shrink-0 pr-2">
@@ -108,7 +107,7 @@
         class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="#" class="font-medium text-gray-900 hover:text-gray-600"
-            >React Components</a>
+          >React Components</a>
           <p class="text-gray-500">8 Members</p>
         </div>
         <div class="flex-shrink-0 pr-2">

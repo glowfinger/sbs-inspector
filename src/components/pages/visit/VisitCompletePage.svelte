@@ -14,12 +14,8 @@
   import PageHeader from '../../PageHeader.svelte';
   import BreadcrumbFirstLink from '../../links/BreadcrumbFirstLink.svelte';
   import VisitPageHeading from './VisitPageHeading.svelte';
-  import PrimaryButtonLink from '../../links/PrimaryButtonLink.svelte';
-  import LocationInfoList from './LocationInfoList.svelte';
   import { navigate } from 'svelte-routing';
-  import SecondaryButtonLink from '../../links/SecondaryButtonLink.svelte';
   import VisitCompleteModal from '../../VisitCompleteModal.svelte';
-  import Stringify from '../../debug/Stringify.svelte';
   import VisitIssueModal from '../../VisitIssueModal.svelte';
   import VisitHeader from '../../layout/headers/VisitHeader.svelte';
 

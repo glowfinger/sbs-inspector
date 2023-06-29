@@ -1,5 +1,4 @@
 <script lang="ts">
-  import CheckIcon from './icons/CheckIcon.svelte';
   import ProcessingIcon from './icons/ProcessingIcon.svelte';
   import { linear } from 'svelte/easing';
   import { fade } from 'svelte/transition';

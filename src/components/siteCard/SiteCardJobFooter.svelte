@@ -7,7 +7,7 @@
 </script>
 
 <div class="overflow-hidden bg-white shadow sm:rounded-md">
-  <ul role="list" class="divide-y divide-gray-200">
+  <ul class="divide-y divide-gray-200">
     {#each site.jobs as job}
       <li>
         <Link to={getLatest(job)} class="block hover:bg-gray-50">

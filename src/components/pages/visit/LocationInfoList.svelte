@@ -7,7 +7,7 @@
     class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-2">Incomplete locations</div>
     <div class="px-4">
-      <ul role="list" class="divide-y divide-gray-100">
+      <ul class="divide-y divide-gray-100">
         {#each locations as location}
           <li class="flex items-center justify-between gap-x-6 py-2">
             <div class="min-w-0">

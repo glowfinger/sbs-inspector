@@ -29,7 +29,6 @@
 
   let site: Site;
   let job: Job;
-  let visit: Visit;
 
   let loading = false;
   let loaded = false;
@@ -71,7 +70,7 @@
       }
 
       promise
-        .then((location: Location) => {
+        .then(() => {
           if (visitId) {
             navigate(`/site/${siteId}/job/${jobId}/visit/${visitId}`);
           } else {

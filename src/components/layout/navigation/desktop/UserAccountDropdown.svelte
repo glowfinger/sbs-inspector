@@ -2,7 +2,6 @@
   import { scale } from 'svelte/transition';
   import { Link } from 'svelte-routing';
   import { user } from '../../../../lib/stores/AuthStore.js';
-  import Stringify from '../../../helpers/Stringify.svelte';
 
   let isOpen: boolean = false;
 
