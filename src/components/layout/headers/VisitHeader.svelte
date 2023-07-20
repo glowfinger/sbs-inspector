@@ -11,7 +11,7 @@
 <div class="col-span-1 flex border border-zinc-300 bg-white shadow">
   {#if job.type === 'shower_head'}
     <div
-      class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-400  text-sm font-medium text-white">
+      class="flex w-16 flex-shrink-0 items-center justify-center bg-primary-700 text-sm font-medium text-white">
       <ShowerHeadIcon class="h-10 w-10 fill-white" />
     </div>
   {:else if job.type === 'thermo_valve'}

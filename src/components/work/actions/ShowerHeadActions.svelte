@@ -31,8 +31,7 @@
     title="Request new shower head"
     message="The shower head was damaged or could not be descaled"
     link={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action/request`}>
-    <span
-      class="inline-flex h-10 w-10 items-center justify-center bg-red-400">
+    <span class="inline-flex h-10 w-10 items-center justify-center bg-red-400">
       <DescaleIcon class="h-6 w-6 fill-white" />
     </span>
   </WorkActionLink>

@@ -1,11 +1,11 @@
-<script lang='ts'>
-  import { Router, Route, navigate } from 'svelte-routing';
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { Router, Route } from 'svelte-routing';
   import { isOnline } from './Store.js';
   import DashboardPage from './components/pages/DashboardPage.svelte';
   import MainLayout from './components/layout/MainLayout.svelte';
   import SitePage from './components/pages/SitePage.svelte';
   import SitesPage from './components/pages/SitesPage.svelte';
-  import { onMount } from 'svelte';
   import LoginRoute from './components/pages/LoginPage.svelte';
   import LogoutPage from './components/pages/LogoutPage.svelte';
   import NotFoundPage from './components/pages/NotFoundPage.svelte';
@@ -34,7 +34,6 @@
   let loaded: boolean = false;
 
   onMount(async () => {
-
     if (hasToken()) {
       await getCurrentUser()
         .then((currentUser) => {
@@ -47,7 +46,6 @@
           $isAuthenticated = false;
           clearToken();
         });
-
     } else {
       loaded = true;
       $isAuthenticated = false;
@@ -57,25 +55,29 @@
 
 <svelte:window bind:online={$isOnline} />
 <svelte:head>
-  <title>SBS Inspector</title>
+  {#if $isOnline}
+    <title>SBS Inspector - Online</title>
+  {:else}
+    <title>SBS Inspector - Offline</title>
+  {/if}
 </svelte:head>
 
-{#if !loaded }
+{#if !loaded}
   <LoadingPage />
 {:else if $isAuthenticated}
   <Router url={url}>
     <MainLayout>
-      <Route path='/'>
+      <Route path="/">
         <DashboardPage />
       </Route>
-      <Route path='/visits'>
+      <Route path="/visits">
         <SitesPage />
       </Route>
-      <Route path='/site/:siteId' let:params>
+      <Route path="/site/:siteId" let:params>
         <SitePage siteId={parseInt(params.siteId)} />
       </Route>
       <Route
-        path='/site/:siteId/job/:jobId/visit/:visitId/location/add'
+        path="/site/:siteId/job/:jobId/visit/:visitId/location/add"
         let:params>
         <SiteLocationPage
           visitId={parseInt(params.visitId)}
@@ -84,7 +86,7 @@
           locationId={parseInt(params.locationId)} />
       </Route>
       <Route
-        path='/site/:siteId/job/:jobId/visit/:visitId/location/add/:locationType'
+        path="/site/:siteId/job/:jobId/visit/:visitId/location/add/:locationType"
         let:params>
         <SiteLocationPage
           visitId={parseInt(params.visitId)}
@@ -93,14 +95,14 @@
           locationId={parseInt(params.locationId)}
           locationType={params.locationType} />
       </Route>
-      <Route path='/site/:siteId/job/:jobId/visit/:visitId' let:params>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId" let:params>
         <VisitPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)} />
       </Route>
       <Route
-        path='/site/:siteId/job/:jobId/visit/:visitId/status/:status'
+        path="/site/:siteId/job/:jobId/visit/:visitId/status/:status"
         let:params>
         <VisitPage
           visitId={parseInt(params.visitId)}
@@ -108,13 +110,13 @@
           jobId={parseInt(params.jobId)}
           status={params.status} />
       </Route>
-      <Route path='/site/:siteId/job/:jobId/visit/:visitId/review' let:params>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId/review" let:params>
         <VisitReviewPage
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)}
           visitId={parseInt(params.visitId)} />
       </Route>
-      <Route path='/site/:siteId/job/:jobId/visit/:visitId/complete' let:params>
+      <Route path="/site/:siteId/job/:jobId/visit/:visitId/complete" let:params>
         <VisitCompletePage
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)}
@@ -122,7 +124,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action">
         <WorkActionPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -131,7 +133,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/inaccessible">
         <WorkInaccessiblePage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -140,7 +142,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/serviced">
         <WorkServicedPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -149,7 +151,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/descaled'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/descaled">
         <WorkDescaledPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -158,7 +160,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/request">
         <WorkRequestPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -167,7 +169,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replaced'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/action/replaced">
         <WorkReplacePage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -176,7 +178,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/hot">
         <ThermoValveHot
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -185,7 +187,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/cold'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/cold">
         <ThermoValveCold
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -194,7 +196,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/mixed'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/mixed">
         <ThermoValveMixed
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -203,7 +205,7 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/fail-safe'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/result/fail-safe">
         <ThermoValveFailSafe
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
@@ -212,17 +214,17 @@
       </Route>
       <Route
         let:params
-        path='/site/:siteId/job/:jobId/visit/:visitId/work/:workId/confirmation'>
+        path="/site/:siteId/job/:jobId/visit/:visitId/work/:workId/confirmation">
         <WorkConfirmationPage
           visitId={parseInt(params.visitId)}
           siteId={parseInt(params.siteId)}
           jobId={parseInt(params.jobId)}
           workId={parseInt(params.workId)} />
       </Route>
-      <Route path='/logout'>
+      <Route path="/logout">
         <LogoutPage />
       </Route>
-      <Route path='/*'>
+      <Route path="/*">
         <NotFoundPage />
       </Route>
     </MainLayout>

@@ -10,6 +10,7 @@
   "useTabs": false,
   "singleQuote": true,
   "bracketSameLine": true,
+  "jsxSingleQuote": false,
   "svelteSortOrder" : "options-styles-scripts-markup",
   "svelteStrictMode": false,
   "svelteAllowShorthand": false

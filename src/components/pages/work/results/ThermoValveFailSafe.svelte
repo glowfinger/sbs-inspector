@@ -13,6 +13,14 @@
   import { getSiteLocation } from '../../../../lib/apiServices/SiteLocationApiService';
   import type SiteLocation from '../../../../lib/types/SiteLocation';
   import WorkHeader from '../WorkHeader.svelte';
+  import BreadcrumbFirstLink from '../../../links/BreadcrumbFirstLink.svelte';
+  import type Site from '../../../../lib/types/Site';
+  import type Job from '../../../../lib/types/Job';
+  import type Visit from '../../../../lib/types/Visit';
+  import loadWorkData from '../../../../lib/services/PreloadHelper';
+  import VisitHeader from '../../../layout/headers/VisitHeader.svelte';
+  import SubmitButton from '../../../buttons/SubmitButton.svelte';
+  import SecondaryButtonLink from '../../../links/SecondaryButtonLink.svelte';
 
   export let siteId: number;
   export let jobId: number;
@@ -32,7 +40,16 @@
     value: null,
   };
 
-  onMount(() => {
+  let site: Site;
+  let job: Job;
+  let visit: Visit;
+
+  let loaded = false;
+
+  onMount(async () => {
+    [visit, job, site] = await loadWorkData(siteId, jobId, visitId);
+
+    loaded = true;
     getSiteWork(workId).then((response: Work) => {
       getSiteLocation(siteId, response.locationId).then((l) => (location = l));
       work = response;
@@ -58,27 +75,14 @@
   }
 </script>
 
-<nav aria-label="Breadcrumb" class="bg-white">
-  <div class="items-start pb-4">
-    <Link
-      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-      class="-ml-1 inline-flex items-center space-x-3 text-sm font-medium text-slate-900">
-      <svg
-        class="h-5 w-5 text-slate-400"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true">
-        <path
-          fill-rule="evenodd"
-          d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-          clip-rule="evenodd" />
-      </svg>
-      <span>Visit</span>
-    </Link>
-  </div>
-</nav>
+<BreadcrumbFirstLink
+  to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/action`}
+  text="Action" />
 
-<WorkHeader location={location} action="Fail-safe result" />
+{#if loaded}
+  <VisitHeader site={site} job={job} />
+  <WorkHeader location={location} />
+{/if}
 
 <form class="space-y-4" on:submit|preventDefault={submit}>
   <div>
@@ -94,7 +98,7 @@
             type="radio"
             bind:group={result.value}
             value="yes"
-            class="h-4 w-4 border-zinc-300 text-indigo-600 focus:ring-zinc-500" />
+            class="h-4 w-4 border-zinc-300 text-primary-600 focus:ring-zinc-500" />
           <label for="yes" class="ml-3 block text-sm font-medium text-zinc-700"
             >Yes</label>
         </div>
@@ -106,24 +110,19 @@
             type="radio"
             value="no"
             bind:group={result.value}
-            class="h-4 w-4 border-zinc-300 text-indigo-600 focus:ring-zinc-500" />
+            class="h-4 w-4 border-zinc-300 text-primary-600 focus:ring-zinc-500" />
           <label for="no" class="ml-3 block text-sm font-medium text-zinc-700"
             >No</label>
         </div>
       </div>
     </fieldset>
   </div>
-  <div class="flex justify-end">
-    <Link
+
+  <div class="mt-5 space-y-2 sm:mt-4 sm:flex sm:flex-row-reverse">
+    <SubmitButton />
+    <SecondaryButtonLink
       to={`/site/${siteId}/job/${jobId}/visit/${visitId}/work/${workId}/result/mixed`}
-      class="rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2">
-      Back to mixed
-    </Link>
-    <button
-      type="submit"
-      class="ml-3 inline-flex justify-center border border-transparent bg-zinc-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2">
-      Save
-    </button>
+      text="Back" />
   </div>
 </form>
 

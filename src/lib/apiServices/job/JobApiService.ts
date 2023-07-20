@@ -9,7 +9,7 @@ export async function getJobById(jobId: number): Promise<Job> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'GET',
   })
@@ -21,7 +21,7 @@ export async function getJobBySiteId(siteId: number) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'GET',
   })
@@ -34,7 +34,7 @@ export async function addJob(body): Promise<Job> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'POST',
     body: JSON.stringify(body),

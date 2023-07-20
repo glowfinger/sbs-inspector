@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import { user } from '../../../../lib/stores/AuthStore.js';
   import MobileNavbarDropdown from './MobileNavbarDropdown.svelte';
 
@@ -10,33 +10,33 @@
   }
 </script>
 
-<div class='flex flex-col lg:pl-64'>
+<div class="flex flex-col lg:pl-64">
   <!-- Search header -->
   <div
-    class='sticky top-0 z-10 flex h-16 flex-shrink-0 border-b border-zinc-200 bg-white lg:hidden'>
+    class="sticky top-0 z-10 flex h-16 flex-shrink-0 border-b border-zinc-200 bg-white lg:hidden">
     <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
     <button
       on:click={toggle}
-      type='button'
-      class='border-r border-zinc-200 px-4 text-zinc-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-500 lg:hidden'>
-      <span class='sr-only'>Open sidebar</span>
+      type="button"
+      class="border-r border-zinc-200 px-4 text-zinc-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-500 lg:hidden">
+      <span class="sr-only">Open sidebar</span>
       <!-- Heroicon name: outline/bars-3-center-left -->
       <svg
-        class='h-6 w-6'
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
-        aria-hidden='true'>
+        class="h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true">
         <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5' />
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
       </svg>
     </button>
-    <div class='flex flex-1 justify-between px-4 sm:px-6 lg:px-8'>
-      <div class='flex flex-1'>
+    <div class="flex flex-1 justify-between px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-1">
         <!--        <form class="flex w-full md:ml-0" action="#" method="GET">-->
         <!--          <label for="search-field" class="sr-only">Search</label>-->
         <!--          <div class="relative w-full text-zinc-400 focus-within:text-zinc-600">-->
@@ -64,24 +64,25 @@
         <!--          </div>-->
         <!--        </form>-->
       </div>
-      <div class='flex items-center'>
+      <div class="flex items-center">
         <!-- Profile dropdown -->
-        <div class='relative ml-3'>
+        <div class="relative ml-3">
           <div>
             <button
               on:click={toggleIsOpen}
-              type='button'
-              class='flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2'
-              id='user-menu-button'
-              aria-expanded='false'
-              aria-haspopup='true'>
-              <span class='sr-only'>Open user menu</span>
-              <span class='inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary'>
+              type="button"
+              class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2"
+              id="user-menu-button"
+              aria-expanded="false"
+              aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <span
+                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary-900">
                 {#if $user.hasOwnProperty('firstname')}
-                <span class='text-sm font-medium leading-none text-white'>
-                  {$user.firstname.charAt(0)}{$user.lastname.charAt(0)}
-                </span>
-                  {/if}
+                  <span class="text-sm font-medium leading-none text-white">
+                    {$user.firstname.charAt(0)}{$user.lastname.charAt(0)}
+                  </span>
+                {/if}
               </span>
             </button>
           </div>

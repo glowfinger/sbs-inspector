@@ -9,7 +9,7 @@ export async function addVisit(body): Promise<Visit> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'POST',
     body: JSON.stringify(body),
@@ -23,7 +23,7 @@ export async function completeVisit(visitId): Promise<Visit> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
   })

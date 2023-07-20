@@ -12,7 +12,6 @@ export function clearToken(): void {
   localStorage.removeItem(TOKEN_KEY);
 }
 
-
 export function hasToken() {
-  return getToken() !== null
+  return getToken() !== null;
 }

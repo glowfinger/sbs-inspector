@@ -8,14 +8,14 @@
   <button
     type="button"
     disabled
-    class="inline-flex w-full justify-center bg-blue-900 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto">
+    class="inline-flex w-full justify-center bg-primary-900 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto">
     Complete
   </button>
-{:else }
+{:else}
   <button
     type="button"
     on:click={action}
-    class="inline-flex w-full justify-center bg-blue-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:w-auto">
+    class="inline-flex w-full justify-center bg-primary-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 sm:w-auto">
     Complete
   </button>
 {/if}

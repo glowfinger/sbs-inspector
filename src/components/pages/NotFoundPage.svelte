@@ -4,7 +4,7 @@
 
 <div class="py-16">
   <div class="text-center">
-    <p class="text-base font-semibold text-indigo-600">404</p>
+    <p class="text-base font-semibold text-primary-600">404</p>
     <h1
       class="mt-2 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
       Page not found.
@@ -15,7 +15,7 @@
     <div class="mt-6">
       <Link
         href="#"
-        class="text-base font-medium text-indigo-600 hover:text-indigo-500">
+        class="text-base font-medium text-primary-600 hover:text-primary-500">
         Go back home
         <span aria-hidden="true"> &rarr;</span>
       </Link>

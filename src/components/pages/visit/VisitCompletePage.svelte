@@ -86,11 +86,8 @@
   }
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-2 ">
-  <div class="items-start">
-    <BreadcrumbFirstLink to={reviewLink} text="Visit" />
-  </div>
-</nav>
+<BreadcrumbFirstLink to={reviewLink} text="Visit" />
+
 {#if loaded}
   <VisitHeader site={site} job={job} />
   <PageHeader text="Review visit" />

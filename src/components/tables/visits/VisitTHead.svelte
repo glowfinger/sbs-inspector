@@ -18,6 +18,6 @@
       >Mixed</th>
     <th scope="col" class="p-2 text-left text-sm font-semibold text-zinc-900"
       >Fail safe</th>
-    <th scope="col" class="relative p-2 "><span class="sr-only">Edit</span></th>
+    <th scope="col" class="relative p-2"><span class="sr-only">Edit</span></th>
   </tr>
 </thead>
