@@ -103,13 +103,9 @@
   });
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-2 ">
-  <div class="items-start">
-    <BreadcrumbFirstLink
-      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-      text="Visit" />
-  </div>
-</nav>
+<BreadcrumbFirstLink
+  to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+  text="Visit" />
 
 {#if loaded}
   <VisitHeader site={site} job={job} />
@@ -144,7 +140,7 @@
         <div class="w-full border-t border-zinc-300" />
       </div>
       <div class="relative flex justify-start">
-        <span class="bg-white pr-2 text-sm " />
+        <span class="bg-white pr-2 text-sm" />
       </div>
     </div>
 

@@ -6,8 +6,7 @@
   export let site: Site;
 </script>
 
-<div
-  class="divide-y divide-zinc-200 overflow-hidden bg-white shadow">
+<div class="divide-y divide-zinc-200 overflow-hidden bg-white shadow">
   <SiteCardHeader site={site} />
   <SiteCardBody jobs={site.jobs} />
 </div>

@@ -13,13 +13,13 @@
     >{name}</label>
   <div class="relative mt-1 shadow-sm">
     <input
-      bind:value
+      bind:value={value}
       disabled={loading}
       type="text"
       name={id}
       id={id}
       autocomplete="off"
-      class="disabled:bg-slate-200 block w-full border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 {error
+      class="block w-full border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-primary-900 disabled:bg-slate-200 sm:text-sm sm:leading-6 {error
         ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
         : 'border-zinc-300 focus:border-zinc-500 focus:ring-zinc-500'}" />
     <div
@@ -43,4 +43,3 @@
     <p class="mt-2 text-sm text-red-600" id={`${id}-error`}>{error}</p>
   {/if}
 </div>
-

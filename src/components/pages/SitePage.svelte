@@ -13,16 +13,9 @@
   });
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-2 ">
-  <div class="items-start">
-    <BreadcrumbFirstLink to="/visits" text="Visits" />
-  </div>
-</nav>
+<BreadcrumbFirstLink to="/visits" text="Visits" />
 
 {#if site}
-
-
-
   <div class="min-h-full">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="overflow-hidden bg-white shadow">
@@ -41,7 +34,6 @@
                 <dd class="mt-1 text-sm text-zinc-900">-</dd>
               {/if}
             </div>
-
           </dl>
         </div>
       </div>

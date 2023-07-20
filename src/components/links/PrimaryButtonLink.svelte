@@ -8,14 +8,14 @@
 
 {#if disabled}
   <button
-    class="inline-flex cursor-not-allowed items-center justify-center border border-zinc-300 bg-zinc-200 px-3 py-2 text-sm font-semibold text-zinc-400 shadow-sm"
+    class="inline-flex w-full justify-center bg-primary-700 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto"
     disabled="disabled">
     {text}
   </button>
 {:else}
   <Link
     to={to}
-    class="inline-flex items-center justify-center bg-zinc-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600">
+    class="inline-flex w-full justify-center bg-primary-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
     {text}
   </Link>
 {/if}

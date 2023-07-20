@@ -35,9 +35,51 @@
   }
 </script>
 
+<div class="bg-primary-900-900">
+  <div class="mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
+      <div class=" px-4 py-6 sm:px-6 lg:px-8">
+        <p class="text-sm font-medium leading-6 text-zinc-400">
+          Total locations
+        </p>
+        <p class="mt-2 flex items-baseline gap-x-2">
+          <span class="text-4xl font-semibold tracking-tight text-white"
+            >{locationsForType(locations, job.type).length}</span>
+        </p>
+      </div>
+      <div class="px-4 py-6 sm:px-6 lg:px-8">
+        <p class="text-sm font-medium leading-6 text-white/80">
+          Average deploy time
+        </p>
+        <p class="mt-2 flex items-baseline gap-x-2">
+          <span class="text-4xl font-semibold tracking-tight text-white"
+            >3.65</span>
+          <span class="text-sm text-white">mins</span>
+        </p>
+      </div>
+      <div class=" px-4 py-6 sm:px-6 lg:px-8">
+        <p class="text-sm font-medium leading-6 text-zinc-400">
+          Number of servers
+        </p>
+        <p class="mt-2 flex items-baseline gap-x-2">
+          <span class="text-4xl font-semibold tracking-tight text-white"
+            >3</span>
+        </p>
+      </div>
+      <div class=" px-4 py-6 sm:px-6 lg:px-8">
+        <p class="text-sm font-medium leading-6 text-zinc-400">Success rate</p>
+        <p class="mt-2 flex items-baseline gap-x-2">
+          <span class="text-4xl font-semibold tracking-tight text-white"
+            >98.5%</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="overflow-hidden border border-zinc-700 bg-white shadow">
   <div
-    class="grid grid-cols-1 divide-y divide-zinc-200  bg-zinc-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+    class="grid grid-cols-1 divide-y divide-zinc-200 bg-zinc-200 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
     <div class="px-6 py-4 text-center text-sm font-medium">
       <span class="text-zinc-600">Visit status:</span>
       <span class="text-zinc-900">{visit.status}</span>
@@ -57,18 +99,3 @@
     </div>
   </div>
 </div>
-
-<!--  <div class="sm:flex sm:items-center sm:justify-between">-->
-<!--    <div class="mb-2">-->
-<!--      <h1 class="text-2xl font-bold text-zinc-900">{site.name} [{site.code}]</h1>-->
-<!--      <p class="text-sm font-medium text-zinc-500">{job.type} {job.task}</p>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; Action Buttons&ndash;&gt;-->
-<!--    {#if visit.completedAt === null}-->
-<!--      <div-->
-<!--        class="flex flex-col-reverse justify-stretch space-y-2 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-2 sm:space-y-0 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-2">-->
-<!--        <SecondaryButtonLink to={addLocationLink} type="button" text="Add location" />-->
-<!--        <PrimaryButtonLink to={completeVisitLink} type="button" text="Complete visit" />-->
-<!--      </div>-->
-<!--    {/if}-->
-<!--  </div>-->

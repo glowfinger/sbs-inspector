@@ -72,13 +72,10 @@
   const completeVisitLink: string = `/site/${siteId}/job/${jobId}/visit/${visitId}/complete`;
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-2 ">
-  <div class="items-start">
-    <BreadcrumbFirstLink
-      to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
-      text="Visit" />
-  </div>
-</nav>
+<BreadcrumbFirstLink
+  to={`/site/${siteId}/job/${jobId}/visit/${visitId}`}
+  text="Visit" />
+
 {#if loaded}
   <VisitHeader site={site} job={job} />
   <PageHeader text="Review visit" />

@@ -23,8 +23,7 @@
         </h3>
       </div>
 
-      <ul
-        class="divide-y divide-zinc-100 border-b border-zinc-900 p-2">
+      <ul class="divide-y divide-zinc-100 border-b border-zinc-900 p-2">
         {#each floor.locations as location}
           <li
             class="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-5 sm:flex-nowrap">

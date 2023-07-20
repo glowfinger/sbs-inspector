@@ -2,7 +2,7 @@
   import { linear } from 'svelte/easing';
   import { fade } from 'svelte/transition';
   import Logo from './Logo.svelte';
-  import {  navigate } from 'svelte-routing';
+  import { navigate } from 'svelte-routing';
   import HomeIcon from '../../icons/HomeIcon.svelte';
   import VisitIcon from '../../icons/VisitIcon.svelte';
 

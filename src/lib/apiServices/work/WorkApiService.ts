@@ -9,11 +9,14 @@ export async function startSiteWork(work: Work): Promise<Work> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
-
     method: 'POST',
-    body: JSON.stringify(work),
+    body: JSON.stringify({
+      visitId: work.visitId,
+      locationId: work.locationId,
+      comment: '',
+    }),
   })
     .then(handleErrors)
     .then(handleJson);
@@ -24,7 +27,7 @@ export async function setWorkRequest(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),
@@ -37,7 +40,7 @@ export async function setWorkInaccessible(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),
@@ -51,7 +54,7 @@ export async function setWorkReplaced(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),
@@ -65,7 +68,7 @@ export async function getSiteWork(workId: number) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'GET',
   })
@@ -78,7 +81,7 @@ export async function setWorkResolved(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),
@@ -92,7 +95,7 @@ export async function setWorkServiced(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),
@@ -106,7 +109,7 @@ export async function setWorkDescaled(workId: number, work) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'PUT',
     body: JSON.stringify(work),

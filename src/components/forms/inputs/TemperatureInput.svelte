@@ -29,7 +29,7 @@
     >{name}</label>
   <div class="relative mt-1 shadow-sm">
     <input
-      bind:value
+      bind:value={value}
       on:blur={handleBlur}
       disabled={loading}
       type="text"

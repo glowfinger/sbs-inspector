@@ -27,7 +27,7 @@
               id="about"
               name="about"
               rows="3"
-              class="block w-full border-zinc-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              class="block w-full border-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm" />
           </div>
           <p class="mt-2 text-sm text-zinc-500">
             Write a few sentences about yourself.
@@ -42,12 +42,12 @@
       <button
         type="button"
         on:click={cancel}
-        class="rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        class="rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
         Cancel
       </button>
       <button
         type="submit"
-        class="ml-3 inline-flex justify-center border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        class="ml-3 inline-flex justify-center border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
         Save
       </button>
     </div>

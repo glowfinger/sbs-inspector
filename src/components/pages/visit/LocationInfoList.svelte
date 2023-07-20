@@ -3,8 +3,7 @@
 </script>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-  <div
-    class="divide-y divide-zinc-200 overflow-hidden bg-white shadow">
+  <div class="divide-y divide-zinc-200 overflow-hidden bg-white shadow">
     <div class="px-4 py-2">Incomplete locations</div>
     <div class="px-4">
       <ul class="divide-y divide-zinc-100">

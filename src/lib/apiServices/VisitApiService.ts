@@ -9,7 +9,7 @@ export async function getVisitById(visitId): Promise<Visit> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken()
+      authorization: 'Bearer ' + getToken(),
     },
     method: 'GET',
   })

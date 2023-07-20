@@ -44,26 +44,62 @@
   });
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-2 ">
-  <div class="items-start">
-    <BreadcrumbFirstLink to="/visits" text="Visits" />
-  </div>
-</nav>
+<BreadcrumbFirstLink to="/visits" text="Visits" />
+
 {#if loaded}
   <VisitHeader site={site} job={job} />
   <PageHeader text="Visit" />
-  <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />
+
   {#if visit.completedAt === null}
-    <div class="mt-4 flex">
-      <span>
-        <PrimaryButtonLink to={completeVisitLink} text="Review visit" />
-      </span>
-      <span class="ml-2">
-        <SecondaryButtonLink to={addLocationLink} text="Add location" />
+    <div
+      class="mt-4 flex flex-col gap-2 sm:ml-10 sm:mt-4 sm:flex sm:flex-row sm:pl-4">
+      <PrimaryButtonLink to={completeVisitLink} text="Review visit" />
+      <SecondaryButtonLink to={addLocationLink} text="Add location" />
+    </div>
+
+    <!--    <VisitPageHeading site={site} visit={visit} job={job} locations={locations} />-->
+
+    <SectionHeader text="Work list" />
+
+    <div
+      class="mt-4 flex flex-col gap-2 sm:ml-10 sm:mt-4 sm:flex sm:flex-row sm:pl-4">
+      <span class="isolate inline-flex shadow-sm">
+        <button
+          type="button"
+          class=" relative inline-flex w-1/3 items-end bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+          >To do
+          <span
+            class="ml-1 inline-flex items-center bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10"
+            >2</span>
+        </button>
+        <button
+          type="button"
+          class=" relative -ml-px inline-flex w-1/3 items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+          >Done
+          <span
+            class="ml-1 inline-flex items-center bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10"
+            >10</span>
+        </button>
+        <button
+          type="button"
+          class="relative -ml-px inline-flex w-1/3 items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+          >All
+          <span
+            class="ml-1 inline-flex items-center bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10"
+            >12</span
+          ></button>
       </span>
     </div>
-    <SectionHeader text="Work list" />
-    <div class="flex flex-col space-y-2 ">
+    <div>
+      <h4 class="sr-only">Status</h4>
+      <div class="my-2" aria-hidden="true">
+        <div class="overflow-hidden bg-gray-200">
+          <div class="h-2 bg-primary-900" style="width: 37.5%" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-2">
       <WorkList
         job={job}
         visit={visit}
