@@ -7,8 +7,8 @@
   import { isAuthenticated } from '../../lib/stores/AuthStore';
   import { setToken } from '../../lib/auth/TokenManager';
 
-  let email: string = 'darren@glowfinger.com';
-  let password: string = 'gogl';
+  let email: string = '';
+  let password: string = '';
   let loading: boolean = false;
   let invalid: boolean = false;
 
