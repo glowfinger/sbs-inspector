@@ -5,7 +5,6 @@ export interface SiteAddress {
   line2: String;
   town: String;
   county: String;
-  country: String;
   postcode: String;
   createdAt: Date;
   updatedAt: Date;
