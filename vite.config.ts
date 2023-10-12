@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [
     svelte(),
     VitePWA({
-      includeAssets: ["**/*.{png}"],
-      manifest: {
-
-      }
+      includeAssets: [
+        '**/*.{png}', '**/*.{svg}'
+      ],
+      manifest: {}
     })
   ]
 });
