@@ -23,7 +23,7 @@
       {address.line1}, {address.line2}
     </p>
     <p class="mt-1 flex max-w-2xl text-sm text-zinc-500">
-      {address.town}, {address.county}, {address.postcode}, {address.country}
+      {address.town}, {address.county}, {address.postcode}
     </p>
   </div>
 </div>

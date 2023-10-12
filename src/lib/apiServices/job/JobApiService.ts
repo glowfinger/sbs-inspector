@@ -9,21 +9,22 @@ export async function getJobById(jobId: number): Promise<Job> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken(),
+      authorization: 'Bearer ' + getToken()
     },
-    method: 'GET',
+    method: 'GET'
   })
     .then(handleErrors)
     .then(handleJson);
 }
+
 export async function getJobBySiteId(siteId: number) {
   return fetch(`${PROTOCOL}://${DOMAIN}/api/site/${siteId}/job`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken(),
+      authorization: 'Bearer ' + getToken()
     },
-    method: 'GET',
+    method: 'GET'
   })
     .then(handleErrors)
     .then(handleJson);
@@ -34,10 +35,23 @@ export async function addJob(body): Promise<Job> {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      authorization: 'Bearer ' + getToken(),
+      authorization: 'Bearer ' + getToken()
     },
     method: 'POST',
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
+  })
+    .then(handleErrors)
+    .then(handleJson);
+}
+
+export async function getActiveJobs(): Promise<any> {
+  return fetch(`${PROTOCOL}://${DOMAIN}/api/v1/jobs/active`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      authorization: 'Bearer ' + getToken()
+    },
+    method: 'GET'
   })
     .then(handleErrors)
     .then(handleJson);

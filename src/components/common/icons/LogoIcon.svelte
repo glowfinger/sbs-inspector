@@ -1,0 +1,37 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  class={$$props.class ?? 'h-4 w-4'}>
+  <defs>
+    <linearGradient
+      id="IconifyId1813088fe1fbc01fb466"
+      x1="-.828%"
+      x2="57.636%"
+      y1="7.652%"
+      y2="78.411%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="100%" stop-color="#155e75" />
+    </linearGradient>
+    <linearGradient
+      id="IconifyId1813088fe1fbc01fb467"
+      x1="43.376%"
+      x2="50.316%"
+      y1="2.242%"
+      y2="89.03%">
+      <stop offset="0%" stop-color="#fecaca" />
+      <stop offset="8.333%" stop-color="#FFDD35" />
+      <stop offset="100%" stop-color="#FFA800" />
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#IconifyId1813088fe1fbc01fb466)"
+    fill-rule="evenodd"
+    d="M18 5.25a2.25 2.25 0 00-2.012-2.238A2.25 2.25 0 0013.75 1h-1.5a2.25 2.25 0 00-2.238 2.012c-.875.092-1.6.686-1.884 1.488H11A2.5 2.5 0 0113.5 7v7h2.25A2.25 2.25 0 0018 11.75v-6.5zM12.25 2.5a.75.75 0 00-.75.75v.25h3v-.25a.75.75 0 00-.75-.75h-1.5z"
+    clip-rule="evenodd" />
+  <path
+    fill="url(#IconifyId1813088fe1fbc01fb467)"
+    fill-rule="evenodd"
+    d="M3 6a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V7a1 1 0 00-1-1H3zm6.874 4.166a.75.75 0 10-1.248-.832l-2.493 3.739-.853-.853a.75.75 0 00-1.06 1.06l1.5 1.5a.75.75 0 001.154-.114l3-4.5z"
+    clip-rule="evenodd" />
+</svg>

@@ -5,6 +5,5 @@ export default interface Address {
   line2: string;
   town: string;
   county: string;
-  country: string;
   postcode: string;
 }

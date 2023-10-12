@@ -16,7 +16,6 @@
     <select
       id={id}
       name={id}
-      autocomplete="country-name"
       bind:value={value}
       disabled={loading}
       class="mt-1 block w-full border px-3 py-2 shadow-sm focus:outline-none disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm {error

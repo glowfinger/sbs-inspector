@@ -35,14 +35,14 @@
     "tslib": "^2.6.0",
     "typescript": "^4.9.5",
     "vite": "^3.2.7",
-    "vite-plugin-pwa": "^0.16.4"
+    "vite-plugin-pwa": "^0.16.5"
   },
   "dependencies": {
     "animejs": "^3.2.1",
     "chart.js": "^3.9.1",
     "jwt-decode": "^3.1.2",
     "luxon": "^3.3.0",
-    "svelte-routing": "^1.10.0",
+    "svelte-routing": "^2.2.0",
     "yup": "^1.2.0"
   }
 }

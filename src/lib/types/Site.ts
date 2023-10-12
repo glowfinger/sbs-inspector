@@ -5,7 +5,6 @@ import type { Work } from './Work';
 export default interface Site {
   id: Number;
   name: String;
-  slug: String;
   code: String;
   createdAt: String;
   updatedAt: String;
