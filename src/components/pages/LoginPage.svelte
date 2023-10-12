@@ -69,8 +69,7 @@
         id="login-email"
         name="Email address"
         bind:value={email}
-        loading={loading}
-        error="" />
+        loading={loading} />
       <PasswordInput
         id="login-password"
         name="Password"

@@ -5,6 +5,7 @@
   import { getActiveJobs } from '../../lib/apiServices/job/JobApiService';
   import PageHeader from '../PageHeader.svelte';
   import Stringify from '../helpers/Stringify.svelte';
+  import SectionHeader from '../SectionHeader.svelte';
 
   let jobs: Array<any> = [];
   let loaded: boolean = false;
@@ -30,6 +31,9 @@
 
 {#if loaded}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4">
+
+    <SectionHeader text="Jobs in progress"/>
+    <SectionHeader text="Jobs for the next week"/>
   {#each jobs as job}
   {/each}
 

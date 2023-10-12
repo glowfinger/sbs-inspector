@@ -8,8 +8,6 @@
   import { getCurrentUser } from './lib/apiServices/AuthenticationApiService';
   import Pages from './components/pages/Pages.svelte';
 
-  export let url: string = '';
-
   let loaded: boolean = false;
 
   onMount(async () => {
